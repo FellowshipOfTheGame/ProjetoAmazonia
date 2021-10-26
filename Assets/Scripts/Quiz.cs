@@ -39,11 +39,11 @@ public class Quiz : MonoBehaviour
 
                     if (i == pergunta.Value.respostaCorreta)
                     {
-                        botoes[i].onClick.AddListener(delegate { RespostaCorreta(); });
+                        botoes[i].onClick.AddListener( delegate { RespostaCorreta(); });
                     }
                     else
                     {
-                        botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
+                        botoes[i].onClick.AddListener( delegate { RespostaErrada(); });
                     }
                 }
 
@@ -54,13 +54,23 @@ public class Quiz : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        for (int i = 0; i < botoes.Length; i++)
+        {
+            botoes[i].onClick.RemoveAllListeners();
+        }
+    }
+
     private void RespostaCorreta()
     {
-        
+        // pessoa x anda y casas
+        gameObject.SetActive(false);
     }
 
     private void RespostaErrada()
     {
-
+        // pessoa x nao anda
+        gameObject.SetActive(false);
     }
 }
