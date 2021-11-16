@@ -2,25 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Quiz : MonoBehaviour
 {
-    private Text perguntaText;
-    //private Dictionary<string, Respostas> perguntasDicionario = new Dictionary<string, Respostas>();
-    private Button[] botoes;
-    private Text[] textoBotoes;
+    [SerializeField] private TMP_Text perguntaText;
+    [SerializeField] private Button[] botoes;
+    private TMP_Text[] textoBotoes;
 
     public PerguntasScriptableObject[] perguntasScriptableObjects;
     
     private void Awake()
     {
-        perguntaText = GetComponent<Text>();
-        //perguntasDicionario = BancoPerguntas.perguntasDicionario;
-        botoes = GetComponentsInChildren<Button>();
+        textoBotoes = new TMP_Text[botoes.Length];
 
         for (int i = 0; i < botoes.Length; i++)
         {
-            textoBotoes[i] = botoes[i].GetComponentInChildren<Text>();
+            textoBotoes[i] = botoes[i].GetComponentInChildren<TMP_Text>();
         }
     }
 
@@ -43,36 +41,6 @@ public class Quiz : MonoBehaviour
                 botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
             }
         }
-
-        /* Se for usar dicionario
-        int numeroAleatorio = Random.Range(0, perguntasDicionario.Count);
-        int contador = 0;
-
-        foreach (KeyValuePair<string, Respostas> pergunta in perguntasDicionario)
-        {
-            if (contador == numeroAleatorio)
-            {
-                perguntaText.text = pergunta.Key;
-
-                for (int i = 0; i < botoes.Length; i++)
-                {
-                    textoBotoes[i].text = pergunta.Value.respostas[i];
-
-                    if (i == pergunta.Value.respostaCorreta)
-                    {
-                        botoes[i].onClick.AddListener( delegate { RespostaCorreta(); });
-                    }
-                    else
-                    {
-                        botoes[i].onClick.AddListener( delegate { RespostaErrada(); });
-                    }
-                }
-
-                break;
-            }
-
-            contador++;
-        }*/
     }
 
     private void OnDisable()
