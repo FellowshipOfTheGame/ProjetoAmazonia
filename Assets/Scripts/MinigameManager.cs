@@ -12,12 +12,14 @@ public class MinigameManager : MonoBehaviour
     private EstadoMinigame estadoMinigame = EstadoMinigame.nenhum;
     private int[] posicaoPlayers = new int[4];
     private Quiz quiz;
+    private Memoria memoria;
     //private QuebraCabeca quebraCabeca;
     //private Forca forca;
 
     private void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
+        memoria = FindObjectOfType<Memoria>();
     }
 
     public void ComecarQuizMinigame()
@@ -35,7 +37,7 @@ public class MinigameManager : MonoBehaviour
     public void ComecarMemoriaMinigame()
     {
         estadoMinigame = EstadoMinigame.memoria;
-        //memoria.gameObject.SetActive(true);
+        memoria.gameObject.SetActive(true);
     }
 
     public void ComecarQuebraCabecaMinigame()
