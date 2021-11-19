@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08876082805457a48abe503406c33fdc, type: 3}
-  m_Name: Pergunta 1
+  m_Script: {fileID: 11500000, guid: a6d4283d685c5f64da17c9395497f18c, type: 3}
+  m_Name: Carta 1
   m_EditorClassIdentifier: 
-  pergunta: Pergunta 1
-  respostas:
-  - Resposta 1
-  - Resposta 2
-  - Resposta 3
-  - Resposta 4
-  respostaCorreta: 3
+  indice: 1
+  frente: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  verso: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
