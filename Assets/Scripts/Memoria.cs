@@ -13,10 +13,7 @@ public class Memoria : MonoBehaviour
     private Image[] botoesImage;
     private int i;
     private int quantidadeCartas = 0;
-    private int quantidadeCartasAbertas = 0;
     private int indicePrimeiraCartaAberta = -1;
-    private int indiceSegundaCartaAberta = -1;
-    private int indiceUltimaCartaAberta = -1;
     public CartasScriptableObject[] cartasScriptableObjects;
 
     private void Awake()
@@ -42,7 +39,8 @@ public class Memoria : MonoBehaviour
         for (i = 0; i < quantidadeCartas; i++)
         {
             int wtf = i;
-            botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ????????????? 
+            botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ?????????????
+            botoesImage[i].sprite = cartasScriptableObjects[i].verso;
         }
     }
 
@@ -50,21 +48,7 @@ public class Memoria : MonoBehaviour
     {
         for (i = 0; i < quantidadeCartas; i++)
         {
-            botoesImage[i].sprite = cartasScriptableObjects[i].verso;
-
             botoesCartas[i].onClick.RemoveAllListeners();
-        }
-    }
-
-    private void LateUpdate()
-    {
-        print(quantidadeCartasAbertas);
-        if (quantidadeCartasAbertas == 2)
-        {
-            DesvirarCartas(indicePrimeiraCartaAberta, indiceSegundaCartaAberta);
-            indicePrimeiraCartaAberta = -1;
-            indiceSegundaCartaAberta = -1;
-            quantidadeCartasAbertas = 0;
         }
     }
 
@@ -72,82 +56,36 @@ public class Memoria : MonoBehaviour
     {
         botoesImage[i].sprite = cartasScriptableObjects[i].verso;
         botoesImage[j].sprite = cartasScriptableObjects[j].verso;
+        botoesCartas[i].interactable = true;
+        botoesCartas[j].interactable = true;
+        indicePrimeiraCartaAberta = -1;
     }
 
     private void AbrirCarta(int indice)
     {
         botoesImage[indice].sprite = cartasScriptableObjects[indice].frente;
-        quantidadeCartasAbertas++;
+        botoesCartas[indice].interactable = false;
     }
 
     private void ClickCarta(int indice)
     {
-        if (quantidadeCartasAbertas == 0 && indicePrimeiraCartaAberta != indice) //indicePrimeiraCartaAberta != indice && indiceSegundaCartaAberta == -1)
+        AbrirCarta(indice);
+
+        if (indicePrimeiraCartaAberta == -1)
         {
-            AbrirCarta(indice);
+            print($"setando indice primeira carta {indice}");
             indicePrimeiraCartaAberta = indice;
         }
-        else if (quantidadeCartasAbertas == 1 && indiceSegundaCartaAberta != indice) //indiceSegundaCartaAberta != indice && indicePrimeiraCartaAberta != -1)
+        else if (cartasScriptableObjects[indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
-            AbrirCarta(indice);
-            indiceSegundaCartaAberta = indice;
-        }
-        
-        /*
-        if (quantidadeCartasAbertas <= 2 && indiceUltimaCartaAberta != indice)
-        {
-            print("ALOU");
-            indiceUltimaCartaAberta = indice;
-        }*/
-        /*
-        if (quantidadeCartasAbertas <= 2)
-        {
-            botoesImage[indice].sprite = cartasScriptableObjects[indice].frente;
-            quantidadeCartasAbertas++;
+            print("deu bom");
+            indicePrimeiraCartaAberta = -1;
         }
         else
         {
-            botoesCartas[indice].interactable = false;
-        }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        if (quantidadeCartasAbertas <= 2 && indiceUltimaCartaAberta != indice) // Se a carta esta fechada
-        {
-            botoesImage[indice].sprite = cartasScriptableObjects[indice].frente;
-            quantidadeCartasAbertas++;
-            indiceUltimaCartaAberta = indice;
-
-            if (quantidadeCartasAbertas == 2)
-            {
-                if (cartasScriptableObjects[indiceUltimaCartaAberta].indice == cartasScriptableObjects[indice].indice) // Achou o par
-                {
-                    print(indiceUltimaCartaAberta);
-                    botoesCartas[indice].interactable = false;
-                    botoesCartas[indiceUltimaCartaAberta].interactable = false;
-                    botoesImage[indice].sprite = null;
-                    botoesImage[indiceUltimaCartaAberta].sprite = null;
-                    quantidadeCartasAbertas = 0;
-                    indiceUltimaCartaAberta = -1;
-                }
-            }
-        }*/
+            DesvirarCartas(indicePrimeiraCartaAberta, indice);
+            print("desvirando cartas");
+        }
     }
 
     private void FisherYatesShuffle(GameObject[] array)
