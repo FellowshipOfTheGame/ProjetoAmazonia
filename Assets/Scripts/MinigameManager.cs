@@ -13,6 +13,7 @@ public class MinigameManager : MonoBehaviour
     private int[] posicaoPlayers = new int[4];
     private Quiz quiz;
     private Memoria memoria;
+    private SorteReves sorteReves;
     //private QuebraCabeca quebraCabeca;
     //private Forca forca;
 
@@ -20,6 +21,7 @@ public class MinigameManager : MonoBehaviour
     {
         quiz = FindObjectOfType<Quiz>();
         memoria = FindObjectOfType<Memoria>();
+        sorteReves = FindObjectOfType<SorteReves>();
     }
 
     public void ComecarQuizMinigame()
@@ -55,6 +57,6 @@ public class MinigameManager : MonoBehaviour
     public void ComecarSorteRevesMinigame()
     {
         estadoMinigame = EstadoMinigame.sorteReves;
-        //sorteReves.gameObject.SetActive(true);
+        sorteReves.gameObject.SetActive(true);
     }
 }
