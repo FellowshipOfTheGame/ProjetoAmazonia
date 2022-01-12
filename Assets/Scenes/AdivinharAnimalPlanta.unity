@@ -888,7 +888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b375ff59238078446986270b384b5248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adivinharAnimalPlantaScriptableObjects: []
+  adivinharAnimalPlantaScriptableObjects:
+  - {fileID: 11400000, guid: 0342afc1f3664614aa5400035d30e31e, type: 2}
 --- !u!114 &1174790361
 MonoBehaviour:
   m_ObjectHideFlags: 0

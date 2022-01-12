@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c92c89e4042c8c4fb470826f1bab169, type: 3}
   m_Name: AdinharAnimalPlanta 1
   m_EditorClassIdentifier: 
-  spriteAnimalPlanta: {fileID: 0}
+  spriteAnimalPlanta: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   resposta: Tucano
