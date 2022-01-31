@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EstadoMinigame
 {
-    nenhum = 0, quebraCabeca = 1, forca = 2, quiz = 3, memoria = 4, qualAnimal = 5, sorteReves = 6, paradaObrigatoria = 7
+    nenhum = 0, quebraCabeca = 1, forca = 2, quiz = 3, memoria = 4, qualAnimal = 5, sorteReves = 6, paradaObrigatoria = 7, pedagioOnca = 8
 }
 
 public class MinigameManager : MonoBehaviour
@@ -18,6 +18,7 @@ public class MinigameManager : MonoBehaviour
     private Forca forca;
     private Adivinhar adivinharAnimalPlanta;
     private ParadaObrigatoria paradaObrigatoria;
+    private PedagioOnca pedagioOnca;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class MinigameManager : MonoBehaviour
         forca = FindObjectOfType<Forca>();
         adivinharAnimalPlanta = FindObjectOfType<Adivinhar>();
         paradaObrigatoria = FindObjectOfType<ParadaObrigatoria>();
+        pedagioOnca = FindObjectOfType<PedagioOnca>();
     }
 
     public void ComecarQuizMinigame()
@@ -70,5 +72,12 @@ public class MinigameManager : MonoBehaviour
         // verificacao se esta é a primeira vez que esta funcao é chamada deve ser feita no script que chama esta funcao
         estadoMinigame = EstadoMinigame.paradaObrigatoria;
         paradaObrigatoria.gameObject.SetActive(true);
+    }
+
+    public void ComecarPedagioOnca()
+    {
+        // verificacao se esta é a primeira vez que esta funcao é chamada deve ser feita no script que chama esta funcao
+        estadoMinigame = EstadoMinigame.pedagioOnca;
+        pedagioOnca.gameObject.SetActive(true);
     }
 }

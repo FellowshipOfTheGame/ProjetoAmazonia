@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
@@ -13,6 +11,12 @@ public class ParadaObrigatoria : MonoBehaviour
     private void Start()
     {
         videoPlayer = GetComponentInChildren<VideoPlayer>();
+        backButton.onClick.AddListener(delegate { BackButtonClick(); });
+    }
+
+    private void OnEnable()
+    {
+        // PEGAR UMA ANIMACAO ALEATORIA
     }
 
     private void Update()
@@ -23,8 +27,8 @@ public class ParadaObrigatoria : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void BackButtonClick()
     {
-        
+        gameObject.SetActive(false);
     }
 }
