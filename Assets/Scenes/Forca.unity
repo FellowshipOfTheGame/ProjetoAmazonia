@@ -532,6 +532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letraPrefab: {fileID: 7545766767463565950, guid: 18c95f996c849d442ad37ab469cc950a, type: 3}
   palavraAleatoriaText: {fileID: 200673751}
+  forcaScriptableObjects:
+  - {fileID: 11400000, guid: 7755f3292e4599946903b2f52556c77e, type: 2}
 --- !u!1 &1520151114
 GameObject:
   m_ObjectHideFlags: 0
