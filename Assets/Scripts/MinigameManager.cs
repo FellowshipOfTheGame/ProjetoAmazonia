@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EstadoMinigame
 {
-    nenhum = 0, quebraCabeca = 1, forca = 2, quiz = 3, memoria = 4, qualAnimal = 5, sorteReves = 6
+    nenhum = 0, quebraCabeca = 1, forca = 2, quiz = 3, memoria = 4, qualAnimal = 5, sorteReves = 6, paradaObrigatoria = 7
 }
 
 public class MinigameManager : MonoBehaviour
@@ -14,14 +14,20 @@ public class MinigameManager : MonoBehaviour
     private Quiz quiz;
     private Memoria memoria;
     private SorteReves sorteReves;
-    //private QuebraCabeca quebraCabeca;
-    //private Forca forca;
+    private QuebraCabeca quebraCabeca;
+    private Forca forca;
+    private Adivinhar adivinharAnimalPlanta;
+    private ParadaObrigatoria paradaObrigatoria;
 
     private void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
         memoria = FindObjectOfType<Memoria>();
         sorteReves = FindObjectOfType<SorteReves>();
+        quebraCabeca = FindObjectOfType<QuebraCabeca>();
+        forca = FindObjectOfType<Forca>();
+        adivinharAnimalPlanta = FindObjectOfType<Adivinhar>();
+        paradaObrigatoria = FindObjectOfType<ParadaObrigatoria>();
     }
 
     public void ComecarQuizMinigame()
@@ -33,7 +39,7 @@ public class MinigameManager : MonoBehaviour
     public void ComecarForcaMinigame()
     {
         estadoMinigame = EstadoMinigame.forca;
-        //forca.gameObject.SetActive(true);
+        forca.gameObject.SetActive(true);
     }
 
     public void ComecarMemoriaMinigame()
@@ -45,18 +51,24 @@ public class MinigameManager : MonoBehaviour
     public void ComecarQuebraCabecaMinigame()
     {
         estadoMinigame = EstadoMinigame.quebraCabeca;
-        //quebraCabeca.gameObject.SetActive(true);
+        quebraCabeca.gameObject.SetActive(true);
     }
 
     public void ComecarQualAnimalMinigame()
     {
         estadoMinigame = EstadoMinigame.qualAnimal;
-        //qualAnimal.gameObject.SetActive(true);
+        adivinharAnimalPlanta.gameObject.SetActive(true);
     }
 
     public void ComecarSorteRevesMinigame()
     {
         estadoMinigame = EstadoMinigame.sorteReves;
         sorteReves.gameObject.SetActive(true);
+    }
+    public void ComecarParadaObrigatoria()
+    {
+        // verificacao se esta é a primeira vez que esta funcao é chamada deve ser feita no script que chama esta funcao
+        estadoMinigame = EstadoMinigame.paradaObrigatoria;
+        paradaObrigatoria.gameObject.SetActive(true);
     }
 }
