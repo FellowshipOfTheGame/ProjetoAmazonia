@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +7,15 @@ public class Memoria : MonoBehaviour
 {
     [SerializeField] private GameObject cartaPrefab;
     [SerializeField] private GameObject gridLayoutGroup;
+    public CartasScriptableObject[] cartasScriptableObjects;
     private GameObject[] cartas;
     private Button[] botoesCartas;
     private Image[] botoesImage;
-    private int i;
     private int quantidadeCartas = 0;
     private int indicePrimeiraCartaAberta = -1;
-    public CartasScriptableObject[] cartasScriptableObjects;
+    private int jogador = 0;
+    private int[] pontos = new int[4];
+    private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class Memoria : MonoBehaviour
         botoesCartas = new Button[quantidadeCartas];
         botoesImage = new Image[quantidadeCartas];
 
-        for (i = 0; i < quantidadeCartas; i++)
+        for (int i = 0; i < quantidadeCartas; i++)
         {
             cartas[i] = Instantiate(cartaPrefab, gridLayoutGroup.transform, false);
             botoesCartas[i] = cartas[i].GetComponent<Button>();
@@ -36,17 +37,21 @@ public class Memoria : MonoBehaviour
     {
         FisherYatesShuffle(cartas);
 
-        for (i = 0; i < quantidadeCartas; i++)
+        for (int i = 0; i < quantidadeCartas; i++)
         {
             int wtf = i;
             botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ?????????????
             botoesImage[i].sprite = cartasScriptableObjects[i].verso;
         }
+
+        jogador = 0;
+        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        FisherYatesShuffle(ordemJogada);
     }
 
     private void OnDisable()
     {
-        for (i = 0; i < quantidadeCartas; i++)
+        for (int i = 0; i < quantidadeCartas; i++)
         {
             botoesCartas[i].onClick.RemoveAllListeners();
         }
@@ -78,29 +83,53 @@ public class Memoria : MonoBehaviour
         }
         else if (cartasScriptableObjects[indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
+            pontos[jogador] += 10;
             print("deu bom");
             indicePrimeiraCartaAberta = -1;
+
+            for (int i = 0; i < ordemJogada.Length; i++)
+            {
+                if (ordemJogada[i] == jogador)
+                {
+                    jogador = ordemJogada[(i + 1) % ordemJogada.Length];
+                    break;
+                }
+            }
         }
         else
         {
             DesvirarCartas(indicePrimeiraCartaAberta, indice);
             print("desvirando cartas");
+            jogador = ordemJogada[(jogador + 1) % ordemJogada.Length];
         }
     }
 
     private void FisherYatesShuffle(GameObject[] array)
     {
-        System.Random random = new System.Random();
         int tamanho = array.Length;
 
-        for (i = 0; i < tamanho - 1; i++)
+        for (int i = 0; i < tamanho - 1; i++)
         {
-            int r = i + random.Next(tamanho - i);
+            int r = i + Random.Range(0, tamanho - i);
 
             GameObject t = array[r];
             array[r] = array[i];
             array[r].transform.SetSiblingIndex(i);
             array[i].transform.SetSiblingIndex(r);
+            array[i] = t;
+        }
+    }
+
+    private void FisherYatesShuffle(int[] array)
+    {
+        int tamanho = array.Length;
+
+        for (int i = 0; i < tamanho - 1; i++)
+        {
+            int r = i + Random.Range(0, tamanho - i);
+
+            int t = array[r];
+            array[r] = array[i];
             array[i] = t;
         }
     }

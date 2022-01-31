@@ -6,41 +6,72 @@ public class Adivinhar : MonoBehaviour
 {
     [SerializeField] private AdivinharAnimalPlantaScriptableObject[] adivinharAnimalPlantaScriptableObjects;
 
-    private TMP_InputField inputField;
     private Image animalPlantaImage;
     private int randomNumber;
+    private int jogador = 0;
+    private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
+    private Button[] botoes;
+    private TMP_Text[] textoBotoes;
 
-    private void Start()
+    private void Awake()
     {
-        inputField = GetComponentInChildren<TMP_InputField>();
-        animalPlantaImage = GetComponentInChildren<Image>();
+        animalPlantaImage = GetComponentsInChildren<Image>()[1];
+        botoes = GetComponentsInChildren<Button>();
     }
 
     private void OnEnable()
     {
         randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
-
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[randomNumber].spriteAnimalPlanta;
-    }
+        jogador = 0;
+        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        FisherYatesShuffle(ordemJogada);
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
+        for (int i = 0; i < botoes.Length; i++)
         {
-            ResponderButtonClick();
+            textoBotoes[i].text = adivinharAnimalPlantaScriptableObjects[randomNumber].respostas[i];
+
+            if (i == adivinharAnimalPlantaScriptableObjects[randomNumber].respostaCorreta)
+            {
+                botoes[i].onClick.AddListener(delegate { RespostaCorreta(); });
+            }
+            else
+            {
+                botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
+            }
         }
     }
 
-    private void ResponderButtonClick()
+    public void RespostaCorreta()
     {
-        // se alguem nao lembrar de colocar as respostas em lowercase, colocar o adivinhar para .ToLower() tambem
-        if (inputField.text.ToLower() == adivinharAnimalPlantaScriptableObjects[randomNumber].resposta)
+        print($"O jogador {jogador} acertou");
+    }
+
+    private void RespostaErrada()
+    {
+        print("Resposta errada");
+
+        for (int i = 0; i < ordemJogada.Length; i++)
         {
-            // Acertou
+            if (ordemJogada[i] == jogador)
+            {
+                jogador = ordemJogada[(i + 1) % ordemJogada.Length];
+                break;
+            }
         }
-        else
+    }
+
+    private void FisherYatesShuffle(int[] array)
+    {
+        int tamanho = array.Length;
+
+        for (int i = 0; i < tamanho - 1; i++)
         {
-            // Errou
+            int r = i + Random.Range(0, tamanho - i);
+
+            int t = array[r];
+            array[r] = array[i];
+            array[i] = t;
         }
     }
 }
