@@ -4,5 +4,7 @@ using UnityEngine;
 public class AdivinharAnimalPlantaScriptableObject : ScriptableObject
 {
     public Sprite spriteAnimalPlanta;
-    public string resposta;
+
+    [TextArea] public string[] respostas;
+    public int respostaCorreta;
 }

@@ -6,41 +6,43 @@ public class Adivinhar : MonoBehaviour
 {
     [SerializeField] private AdivinharAnimalPlantaScriptableObject[] adivinharAnimalPlantaScriptableObjects;
 
-    private TMP_InputField inputField;
     private Image animalPlantaImage;
     private int randomNumber;
+    private int jogador = 0;
+    private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
+    private Button[] buttons;
 
-    private void Start()
+    private void Awake()
     {
-        inputField = GetComponentInChildren<TMP_InputField>();
-        animalPlantaImage = GetComponentInChildren<Image>();
+        animalPlantaImage = GetComponentsInChildren<Image>()[1];
+        buttons = GetComponentsInChildren<Button>();
     }
 
     private void OnEnable()
     {
         randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
-
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[randomNumber].spriteAnimalPlanta;
+        jogador = 0;
+        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        FisherYatesShuffle(ordemJogada);
     }
 
-    private void Update()
+    public void ResponderButtonClick(int indice)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ResponderButtonClick();
-        }
+        buttons[indice].interactable = false;
     }
 
-    private void ResponderButtonClick()
+    private void FisherYatesShuffle(int[] array)
     {
-        // se alguem nao lembrar de colocar as respostas em lowercase, colocar o adivinhar para .ToLower() tambem
-        if (inputField.text.ToLower() == adivinharAnimalPlantaScriptableObjects[randomNumber].resposta)
+        int tamanho = array.Length;
+
+        for (int i = 0; i < tamanho - 1; i++)
         {
-            // Acertou
-        }
-        else
-        {
-            // Errou
+            int r = i + Random.Range(0, tamanho - i);
+
+            int t = array[r];
+            array[r] = array[i];
+            array[i] = t;
         }
     }
 }
