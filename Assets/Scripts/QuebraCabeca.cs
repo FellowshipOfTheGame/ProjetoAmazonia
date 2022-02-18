@@ -1,86 +1,58 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class QuebraCabeca : MonoBehaviour
 {
-    private struct PecaPosicaoIndice
-    {
-        public Vector3 posicao;
-        public int indice;
-
-        public PecaPosicaoIndice(Vector3 position, int index)
-        {
-            posicao = position;
-            indice = index;
-        }
-    }
-    
     private Peca[] _pecas;
-    private int pecasCorretas = 0;
+    private int pecasCorretas;
     public static bool ganhou = false;
-    private GameObject[] pecasGameObjects;
-    private RectTransform[] pecasRectTransforms;
-    //private Vector3[] pecasIni
+    private GameObject[] _pecasGameObjects;
+    private RectTransform[] _pecasRectTransforms;
 
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
-    private float tempoRestante;
-    private bool pararTempo = false;
-    private int player = 0;
+    private float _tempoRestante;
+    private bool _pararTempo;
+    private int _player;
 
-    private PecaPosicaoIndice[] _pecaPosicaoIndices;
-    // Start is called before the first frame update
     void Awake()
     {
         _pecas = FindObjectsOfType<Peca>();
         int pecasLength = _pecas.Length;
-        pecasGameObjects = new GameObject[pecasLength];
-        pecasRectTransforms = new RectTransform[pecasLength];
-        _pecaPosicaoIndices = new PecaPosicaoIndice[pecasLength];
+        _pecasGameObjects = new GameObject[pecasLength];
+        _pecasRectTransforms = new RectTransform[pecasLength];
 
         for (int i = 0; i < pecasLength; i++)
         {
-            pecasGameObjects[i] = _pecas[i].gameObject;
-            pecasRectTransforms[i] = pecasGameObjects[i].GetComponent<RectTransform>();
+            _pecasGameObjects[i] = _pecas[i].gameObject;
+            _pecasRectTransforms[i] = _pecasGameObjects[i].GetComponent<RectTransform>();
         }
         
         foreach (Peca peca in _pecas)
         {
             peca.OnChanged += VerificarAcerto;
-            peca.OnRelease += VerifyDistance;
+            peca.OnRelease += VerifyPieceOverMouseDrag;
+            peca.SwapPieces += Swap;
         }
-
-        //GameObject.FindGameObjectsWithTag("Peca");
     }
 
     private void OnEnable()
     {
-        tempoRestante = tempoEmSegundosParaCronometro;
-        FisherYatesShuffle(pecasGameObjects);
-    }
-
-    private void Start()
-    {
-        print(transform.GetChild(0));
-        LayoutRebuilder.ForceRebuildLayoutImmediate(transform.GetChild(0).GetComponent<RectTransform>());
-        for (int i = 0; i < _pecas.Length; i++)
-        {
-            _pecaPosicaoIndices[i] = new PecaPosicaoIndice(pecasRectTransforms[i].position, i);
-            print(_pecaPosicaoIndices[i].posicao.ToString());
-        }
+        _tempoRestante = tempoEmSegundosParaCronometro;
+        FisherYatesShuffle(_pecasGameObjects);
     }
 
     private void Update()
     {
         if (tempoEmSegundosParaCronometro > 0)
         {
-            if (pararTempo) return;
+            if (_pararTempo) return;
             
-            tempoRestante -= Time.deltaTime;
-            MostrarTempo(tempoRestante);
+            _tempoRestante -= Time.deltaTime;
+            MostrarTempo(_tempoRestante);
         }
         else
         {
@@ -93,7 +65,8 @@ public class QuebraCabeca : MonoBehaviour
         foreach (Peca peca in _pecas)
         {
             peca.OnChanged -= VerificarAcerto;
-            peca.OnRelease -= VerifyDistance;
+            peca.OnRelease -= VerifyPieceOverMouseDrag;
+            peca.SwapPieces -= Swap;
         }
     }
 
@@ -110,9 +83,9 @@ public class QuebraCabeca : MonoBehaviour
 
         if (pecasCorretas != _pecas.Length) return;
 
-        pararTempo = true;
-        ganhou = true;
-        Debug.Log($"Player { player.ToString() } ganhou!", this);
+        _pararTempo = true;
+        //ganhou = true;
+        Debug.Log($"Player { _player.ToString() } ganhou!", this);
     }
 
     private void MostrarTempo(float tempoParaMostrar)
@@ -142,38 +115,46 @@ public class QuebraCabeca : MonoBehaviour
             int r = i + Random.Range(0, tamanho - i);
             randomRotationIndex = Random.Range(0, rotations.Length);
             
+            Transform transformI = _pecasGameObjects[i].transform;
+            
             array[r].transform.SetSiblingIndex(i);
-            array[i].transform.SetSiblingIndex(r);
-            array[i].transform.Rotate(0f, 0f, rotations[randomRotationIndex]);
+            transformI.SetSiblingIndex(r);
+            transformI.Rotate(0f, 0f, rotations[randomRotationIndex]);
         }
 
         randomRotationIndex = Random.Range(0, rotations.Length);
         array[tamanho - 1].transform.Rotate(0f, 0f, rotations[randomRotationIndex]);
     }
 
-    private void Swap(GameObject[] gameObjectsArray, int indexA, int indexB)
+    private void Swap(int indexA, int indexB)
     {
-        gameObjectsArray[indexA].transform.SetSiblingIndex(indexB);
-        gameObjectsArray[indexB].transform.SetSiblingIndex(indexA);
+        Transform transformB = transform.GetChild(0).GetChild(indexB);
+
+        //print($"Swap {indexA} e {indexB}");
+        transform.GetChild(0).GetChild(indexA).SetSiblingIndex(indexB);
+        transformB.SetSiblingIndex(indexA);
     }
 
-    private int VerifyDistance(Vector3 position)
+    private int VerifyPieceOverMouseDrag(Vector3 pecaPosition)
     {
-        //float[] distances = new float[_pecaPosicaoIndices.Length];
-        float smallest = 10000;
-        int index = 0;
+        EventSystem currentEventSystem = EventSystem.current;
+        PointerEventData pointerEventData = new PointerEventData(currentEventSystem) { position = pecaPosition };
+        List<RaycastResult> raycasts = new List<RaycastResult>();
+        currentEventSystem.RaycastAll(pointerEventData, raycasts);
         
-        for (int i = 0; i < _pecaPosicaoIndices.Length; i++)
+        //print($"Antes: { raycasts.Count.ToString() }");
+        
+        for (int i = 0; i < raycasts.Count; i++)
         {
-            float distance = Vector2.Distance(position, _pecaPosicaoIndices[i].posicao);
-
-            if (!(smallest > distance)) continue;
-            
-            smallest = distance;
-            index = i;
+            if (!raycasts[i].gameObject.CompareTag("Peca"))
+            {
+                raycasts.Remove(raycasts[i]);
+                i--;
+            }
         }
-        
-        //return _pecaPosicaoIndices[index].indice;
-        return index;
+
+        //print($"Depois: { raycasts.Count.ToString() }");
+
+        return raycasts.Count > 1 ? raycasts[1].gameObject.transform.GetSiblingIndex() : -1;
     }
 }
