@@ -45,9 +45,9 @@ public class Quiz : MonoBehaviour
 
     private void OnDisable()
     {
-        for (int i = 0; i < botoes.Length; i++)
+        foreach (Button button in botoes)
         {
-            botoes[i].onClick.RemoveAllListeners();
+            button.onClick.RemoveAllListeners();
         }
     }
 

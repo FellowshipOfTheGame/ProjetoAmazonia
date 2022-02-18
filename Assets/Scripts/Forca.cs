@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,6 +17,7 @@ public class Forca : MonoBehaviour
     private char[] charArray;
     private char[] palavra;
     private bool acertou;
+    private int errosMax = 6;
     private int jogador = 0;
     private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
 
@@ -55,9 +54,9 @@ public class Forca : MonoBehaviour
 
     private void OnDestroy()
     {
-        for (int i = 0; i < letrasButton.Length; i++)
+        foreach (Button button in letrasButton)
         {
-            letrasButton[i].onClick.RemoveAllListeners();
+            button.onClick.RemoveAllListeners();
         }
     }
 
@@ -67,12 +66,10 @@ public class Forca : MonoBehaviour
 
         for (int i = 0; i < charArray.Length; i++)
         {
-            if (charArray[i] == indice + 'A')
-            {
-                int numero = indice + 'A';
-                palavra[i] = (char) numero;
-                acertou = true;
-            }
+            if (charArray[i] != indice + 'A') continue;
+            int numero = indice + 'A';
+            palavra[i] = (char) numero;
+            acertou = true;
         }
         if (acertou)
         {
@@ -90,7 +87,7 @@ public class Forca : MonoBehaviour
             erros++;
             // trocar a imagem da forca
 
-            if (erros >= 6)
+            if (erros >= errosMax)
             {
                 print("Todos perdem");
 
@@ -99,11 +96,8 @@ public class Forca : MonoBehaviour
 
             for (int i = 0; i < ordemJogada.Length; i++)
             {
-                if (ordemJogada[i] == jogador)
-                {
-                    jogador = ordemJogada[(i + 1) % ordemJogada.Length];
-                    break;
-                }
+                if (ordemJogada[i] != jogador) continue;
+                jogador = ordemJogada[(i + 1) % ordemJogada.Length]; 
             }
         }
 
@@ -118,9 +112,7 @@ public class Forca : MonoBehaviour
         {
             int r = i + Random.Range(0, tamanho - i);
 
-            int t = array[r];
-            array[r] = array[i];
-            array[i] = t;
+            (array[r], array[i]) = (array[i], array[r]);
         }
     }
 }
