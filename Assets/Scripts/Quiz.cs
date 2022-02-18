@@ -2,65 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Quiz : MonoBehaviour
 {
-    private Text perguntaText;
-    private Dictionary<string, Respostas> perguntasDicionario = new Dictionary<string, Respostas>();
-    private Button[] botoes;
-    private Text[] textoBotoes;
+    [SerializeField] private TMP_Text perguntaText;
+    [SerializeField] private Button[] botoes;
+    private TMP_Text[] textoBotoes;
+
+    public PerguntasScriptableObject[] perguntasScriptableObjects;
     
     private void Awake()
     {
-        perguntaText = GetComponent<Text>();
-        perguntasDicionario = BancoPerguntas.perguntasDicionario;
-        botoes = GetComponentsInChildren<Button>();
+        textoBotoes = new TMP_Text[botoes.Length];
 
         for (int i = 0; i < botoes.Length; i++)
         {
-            textoBotoes[i] = botoes[i].GetComponentInChildren<Text>();
+            textoBotoes[i] = botoes[i].GetComponentInChildren<TMP_Text>();
         }
     }
 
     private void OnEnable()
     {
-        int numeroAleatorio = Random.Range(0, perguntasDicionario.Count);
-        int contador = 0;
+        int perguntaAleatoria = Random.Range(0, perguntasScriptableObjects.Length);
 
-        foreach(KeyValuePair<string, Respostas> pergunta in perguntasDicionario)
+        perguntaText.text = perguntasScriptableObjects[perguntaAleatoria].pergunta;
+
+        for (int i = 0; i < botoes.Length; i++)
         {
-            if (contador == numeroAleatorio)
+            textoBotoes[i].text = perguntasScriptableObjects[perguntaAleatoria].respostas[i];
+
+            if (i == perguntasScriptableObjects[perguntaAleatoria].respostaCorreta)
             {
-                perguntaText.text = pergunta.Key;
-
-                for (int i = 0; i < botoes.Length; i++)
-                {
-                    textoBotoes[i].text = pergunta.Value.respostas[i];
-
-                    if (i == pergunta.Value.respostaCorreta)
-                    {
-                        botoes[i].onClick.AddListener(delegate { RespostaCorreta(); });
-                    }
-                    else
-                    {
-                        botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
-                    }
-                }
-
-                break;
+                botoes[i].onClick.AddListener(delegate { RespostaCorreta(); });
             }
+            else
+            {
+                botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
+            }
+        }
+    }
 
-            contador++;
+    private void OnDisable()
+    {
+        foreach (Button button in botoes)
+        {
+            button.onClick.RemoveAllListeners();
         }
     }
 
     private void RespostaCorreta()
     {
-        
+        // pessoa x anda y casas
+        gameObject.SetActive(false);
     }
 
     private void RespostaErrada()
     {
-
+        // pessoa x nao anda
+        gameObject.SetActive(false);
     }
 }
