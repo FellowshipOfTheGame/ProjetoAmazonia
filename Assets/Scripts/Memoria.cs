@@ -45,7 +45,7 @@ public class Memoria : MonoBehaviour
         }
 
         jogador = 0;
-        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
         FisherYatesShuffle(ordemJogada);
     }
 
@@ -111,12 +111,9 @@ public class Memoria : MonoBehaviour
         for (int i = 0; i < tamanho - 1; i++)
         {
             int r = i + Random.Range(0, tamanho - i);
-
-            GameObject t = array[r];
-            array[r] = array[i];
+            
             array[r].transform.SetSiblingIndex(i);
             array[i].transform.SetSiblingIndex(r);
-            array[i] = t;
         }
     }
 
@@ -128,9 +125,7 @@ public class Memoria : MonoBehaviour
         {
             int r = i + Random.Range(0, tamanho - i);
 
-            int t = array[r];
-            array[r] = array[i];
-            array[i] = t;
+            (array[r], array[i]) = (array[i], array[r]);
         }
     }
 }

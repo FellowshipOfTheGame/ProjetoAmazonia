@@ -335,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &254096786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +417,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: 11}
-  m_SizeDelta: {x: 308.51, y: 296.7}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343062461
 MonoBehaviour:
@@ -441,7 +443,7 @@ MonoBehaviour:
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
-  m_ConstraintCount: 2
+  m_ConstraintCount: 3
 --- !u!1 &411029164
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &411029168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &752579542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,6 +994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &878757783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &981980936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &1824084525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.76, y: 13.06}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1500, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833680205
@@ -1417,7 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 721798375}
-  tempoEmSegundos: 100
+  tempoEmSegundosParaCronometro: 100
 --- !u!1 &1837756492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &1837756496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,6 +1694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &1848615099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,6 +1995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indice: 0
+  posicaoCorreta: 0
 --- !u!114 &2111791347
 MonoBehaviour:
   m_ObjectHideFlags: 0
