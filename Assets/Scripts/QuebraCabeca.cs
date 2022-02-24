@@ -1,19 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 using Random = UnityEngine.Random;
 
 public class QuebraCabeca : MonoBehaviour
 {
-    private Peca[] _pecas;
-    private int pecasCorretas;
-    public static bool ganhou = false;
-    private GameObject[] _pecasGameObjects;
-    private RectTransform[] _pecasRectTransforms;
-
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
+    
+    public static bool ganhou = false;
+    
+    private Peca[] _pecas;
+    private GameObject[] _pecasGameObjects;
+    private Image[] _pecasImages;
+    private RectTransform[] _pecasRectTransforms;
+    
+    private int _pecasCorretas;
     private float _tempoRestante;
     private bool _pararTempo;
     private int _player;
@@ -24,11 +29,13 @@ public class QuebraCabeca : MonoBehaviour
         int pecasLength = _pecas.Length;
         _pecasGameObjects = new GameObject[pecasLength];
         _pecasRectTransforms = new RectTransform[pecasLength];
+        _pecasImages = new Image[pecasLength];
 
         for (int i = 0; i < pecasLength; i++)
         {
             _pecasGameObjects[i] = _pecas[i].gameObject;
             _pecasRectTransforms[i] = _pecasGameObjects[i].GetComponent<RectTransform>();
+            _pecasImages[i] = _pecasGameObjects[i].GetComponent<Image>();
         }
         
         foreach (Peca peca in _pecas)
@@ -41,8 +48,15 @@ public class QuebraCabeca : MonoBehaviour
 
     private void OnEnable()
     {
+        int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
+
+        for (int i = 0 ; i < _pecas.Length; i++)
+        {
+            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[i];
+        }
+        
         _tempoRestante = tempoEmSegundosParaCronometro;
-        FisherYatesShuffle(_pecasGameObjects);
+        //FisherYatesShuffle(_pecasGameObjects);
     }
 
     private void Update()
@@ -72,20 +86,46 @@ public class QuebraCabeca : MonoBehaviour
 
     private void VerificarAcerto(Peca peca)
     {
-        if (peca.posicaoCorreta)
+        if (peca.indiceCorreto == peca.indiceAtual && Mathf.Abs(peca.gameObject.transform.rotation.z) <= Mathf.Epsilon)
         {
-            pecasCorretas++;
+            if (!peca.posicaoCorreta)
+            {
+                _pecasCorretas++;
+                peca.posicaoCorreta = true;
+            }
+
         }
         else
         {
-            pecasCorretas = pecasCorretas <= 0 ? 0 : pecasCorretas--;
+            if (peca.posicaoCorreta)
+            {
+                _pecasCorretas--;
+                peca.posicaoCorreta = false;
+            }
+        }
+        
+        if (_pecasCorretas != _pecas.Length) return;
+
+        _pararTempo = true;
+        ganhou = true;
+        Debug.Log($"Player { _player.ToString() } ganhou!", this);
+        
+        
+        /*
+        if (peca.posicaoCorreta)
+        {
+            _pecasCorretas++;
+        }
+        else
+        {
+            _pecasCorretas = _pecasCorretas <= 0 ? 0 : _pecasCorretas--;
         }
 
-        if (pecasCorretas != _pecas.Length) return;
+        if (_pecasCorretas != _pecas.Length) return;
 
         _pararTempo = true;
         //ganhou = true;
-        Debug.Log($"Player { _player.ToString() } ganhou!", this);
+        Debug.Log($"Player { _player.ToString() } ganhou!", this);*/
     }
 
     private void MostrarTempo(float tempoParaMostrar)
@@ -119,11 +159,11 @@ public class QuebraCabeca : MonoBehaviour
             
             array[r].transform.SetSiblingIndex(i);
             transformI.SetSiblingIndex(r);
-            transformI.Rotate(0f, 0f, rotations[randomRotationIndex]);
+            _pecasRectTransforms[i].rotation = Quaternion.Euler(0f, 0f, rotations[randomRotationIndex]);
         }
 
         randomRotationIndex = Random.Range(0, rotations.Length);
-        array[tamanho - 1].transform.Rotate(0f, 0f, rotations[randomRotationIndex]);
+        _pecasRectTransforms[tamanho - 1].rotation = Quaternion.Euler(0f, 0f, rotations[randomRotationIndex]);
     }
 
     private void Swap(int indexA, int indexB)

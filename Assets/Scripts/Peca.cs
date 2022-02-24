@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Peca : MonoBehaviour
 {
-    private bool _isDragging;
-    private RectTransform _pecaRectTransform;
-    private RectTransform _gridLayoutGroupRectTransform;
-    private int _indice;
+    public event Action<Peca> OnChanged;
+    public event Func<Vector3, int> OnRelease;
+    public event Action<int, int> SwapPieces;
+    
+    public int indiceAtual;
     public int indiceCorreto;
     public bool posicaoCorreta;
     
@@ -16,12 +17,13 @@ public class Peca : MonoBehaviour
     private GridLayoutGroup _gridLayoutGroup;
     private Camera _mainCamera;
     private Vector3 _mousePos;
-    public event Action<Peca> OnChanged;
-    public event Func<Vector3, int> OnRelease;
-    public event Action<int, int> SwapPieces;
+    private RectTransform _pecaRectTransform;
+    private RectTransform _gridLayoutGroupRectTransform;
+    private bool _isDragging;
 
     private void Awake()
     {
+        indiceCorreto = transform.GetSiblingIndex();
         _mainCamera = Camera.main;
         _pecaRectTransform = GetComponent<RectTransform>();
     }
@@ -55,7 +57,7 @@ public class Peca : MonoBehaviour
         if (!_isDragging)
         {
             _isDragging = true;
-            _indice = transform.GetSiblingIndex();
+            indiceAtual = transform.GetSiblingIndex();
             _gridLayoutGroup.enabled = false;
             //print($"variavel indice click drag {_indice}");
             transform.SetSiblingIndex(8);
@@ -69,7 +71,7 @@ public class Peca : MonoBehaviour
             _pecaRectTransform.position = objPosition;
         }
 
-        OnChanged?.Invoke(this);
+        //OnChanged?.Invoke(this);
     }
 
     public void EndDrag()
@@ -78,7 +80,7 @@ public class Peca : MonoBehaviour
 
         if (OnRelease != null)
         {
-            transform.SetSiblingIndex(_indice);
+            transform.SetSiblingIndex(indiceAtual);
             //print($"variavel indice end drag {_indice}");
             //print($"endereco de origem: {transform.GetSiblingIndex().ToString() }");
             int indexDestiny = OnRelease.Invoke(_mousePos);
@@ -87,12 +89,13 @@ public class Peca : MonoBehaviour
 
             if (indexDestiny != -1)
             {
-                SwapPieces?.Invoke(_indice, indexDestiny);
-                _indice = indexDestiny;
+                SwapPieces?.Invoke(indiceAtual, indexDestiny);
+                OnChanged?.Invoke(this);
+                indiceAtual = indexDestiny;
             }
             else
             {
-                transform.SetSiblingIndex(_indice);
+                transform.SetSiblingIndex(indiceAtual);
             }
             
             LayoutRebuilder.ForceRebuildLayoutImmediate(_gridLayoutGroupRectTransform);
