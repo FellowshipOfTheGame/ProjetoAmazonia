@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Peca : MonoBehaviour
@@ -18,27 +17,23 @@ public class Peca : MonoBehaviour
     private Camera _mainCamera;
     private Vector3 _mousePos;
     private RectTransform _pecaRectTransform;
-    private RectTransform _gridLayoutGroupRectTransform;
+    //private RectTransform _gridLayoutGroupRectTransform;
     private bool _isDragging;
 
     private void Awake()
     {
-        indiceCorreto = transform.GetSiblingIndex();
+        indiceCorreto  = transform.GetSiblingIndex();
         _mainCamera = Camera.main;
         _pecaRectTransform = GetComponent<RectTransform>();
-    }
-
-    private void Start()
-    {
         _gridLayoutGroupTransform = transform.parent;
-        _gridLayoutGroupRectTransform = _gridLayoutGroupTransform.gameObject.GetComponent<RectTransform>();
         _gridLayoutGroup = _gridLayoutGroupTransform.GetComponent<GridLayoutGroup>();
-        OnChanged?.Invoke(this);
+        //_gridLayoutGroupRectTransform = _gridLayoutGroupTransform.gameObject.GetComponent<RectTransform>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        posicaoCorreta = _pecaRectTransform.rotation.z == 0f;
+        indiceAtual = transform.GetSiblingIndex();
+        OnChanged?.Invoke(this);
     }
 
     public void ClickDown()
@@ -90,15 +85,14 @@ public class Peca : MonoBehaviour
             if (indexDestiny != -1)
             {
                 SwapPieces?.Invoke(indiceAtual, indexDestiny);
-                OnChanged?.Invoke(this);
-                indiceAtual = indexDestiny;
+                //OnChanged?.Invoke(this);
             }
             else
             {
                 transform.SetSiblingIndex(indiceAtual);
             }
             
-            LayoutRebuilder.ForceRebuildLayoutImmediate(_gridLayoutGroupRectTransform);
+            //LayoutRebuilder.ForceRebuildLayoutImmediate(_gridLayoutGroupRectTransform);
         }
         else
         {

@@ -11,7 +11,7 @@ public class QuebraCabeca : MonoBehaviour
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
-    public static bool ganhou = false;
+    public static bool ganhou;
     
     private Peca[] _pecas;
     private GameObject[] _pecasGameObjects;
@@ -49,29 +49,31 @@ public class QuebraCabeca : MonoBehaviour
     private void OnEnable()
     {
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
+        ganhou = false;
+        _pecasCorretas  = 0;
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {
-            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[i];
+            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[_pecas.Length - i - 1];
         }
         
         _tempoRestante = tempoEmSegundosParaCronometro;
-        //FisherYatesShuffle(_pecasGameObjects);
+        FisherYatesShuffle(_pecasGameObjects);
     }
 
     private void Update()
     {
-        if (tempoEmSegundosParaCronometro > 0)
+        if (_tempoRestante > 0)
         {
             if (_pararTempo) return;
             
             _tempoRestante -= Time.deltaTime;
             MostrarTempo(_tempoRestante);
         }
-        else
+        /*else if (perdeu)
         {
             Debug.Log("Player perdeu", this);
-        }
+        }*/
     }
 
     private void OnDestroy()
@@ -86,14 +88,19 @@ public class QuebraCabeca : MonoBehaviour
 
     private void VerificarAcerto(Peca peca)
     {
-        if (peca.indiceCorreto == peca.indiceAtual && Mathf.Abs(peca.gameObject.transform.rotation.z) <= Mathf.Epsilon)
+        //print($"{peca.name}: Indice Atual: {peca.indiceAtual.ToString()} Indice Correto: {peca.indiceCorreto.ToString()}");
+
+        //print($"{peca.indiceCorreto == peca.indiceAtual} && { Mathf.Abs(peca.gameObject.transform.rotation.z) <= Mathf.Epsilon }");
+        //print($"abs: {Mathf.Abs(peca.gameObject.transform.rotation.eulerAngles.z)} sem abs: {peca.gameObject.transform.rotation.eulerAngles.z}");
+        
+        if (peca.indiceCorreto == peca.indiceAtual &&
+            Mathf.Abs(peca.gameObject.transform.rotation.eulerAngles.z) <= 0.01f)
         {
             if (!peca.posicaoCorreta)
             {
                 _pecasCorretas++;
                 peca.posicaoCorreta = true;
             }
-
         }
         else
         {
@@ -103,29 +110,14 @@ public class QuebraCabeca : MonoBehaviour
                 peca.posicaoCorreta = false;
             }
         }
+
+        //print(_pecasCorretas.ToString());
         
         if (_pecasCorretas != _pecas.Length) return;
 
         _pararTempo = true;
         ganhou = true;
         Debug.Log($"Player { _player.ToString() } ganhou!", this);
-        
-        
-        /*
-        if (peca.posicaoCorreta)
-        {
-            _pecasCorretas++;
-        }
-        else
-        {
-            _pecasCorretas = _pecasCorretas <= 0 ? 0 : _pecasCorretas--;
-        }
-
-        if (_pecasCorretas != _pecas.Length) return;
-
-        _pararTempo = true;
-        //ganhou = true;
-        Debug.Log($"Player { _player.ToString() } ganhou!", this);*/
     }
 
     private void MostrarTempo(float tempoParaMostrar)
@@ -141,7 +133,7 @@ public class QuebraCabeca : MonoBehaviour
         //float milisegundos = tempoParaMostrar % 1 * 1000;
 
         //timerText.text = string.Format("{0:00}:{1:00}:{2:000}", minutos, segundos, milisegundos);
-        timerText.text = string.Format("{0:00}:{1:00}", minutos.ToString(), segundos.ToString());
+        timerText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
     }
 
     private void FisherYatesShuffle(GameObject[] array)
@@ -168,11 +160,20 @@ public class QuebraCabeca : MonoBehaviour
 
     private void Swap(int indexA, int indexB)
     {
-        Transform transformB = transform.GetChild(0).GetChild(indexB);
+        Transform transformChild = transform.GetChild(0);
+        Transform transformB = transformChild.GetChild(indexB);
+        Transform transformA = transformChild.GetChild(indexA);
+        Peca pecaA = transformA.GetComponent<Peca>();
+        Peca pecaB = transformB.GetComponent<Peca>();
 
-        //print($"Swap {indexA} e {indexB}");
-        transform.GetChild(0).GetChild(indexA).SetSiblingIndex(indexB);
+        pecaA.indiceAtual = indexB;
+        pecaB.indiceAtual = indexA;
+        
+        transformA.SetSiblingIndex(indexB);
         transformB.SetSiblingIndex(indexA);
+        
+        VerificarAcerto(pecaA);
+        VerificarAcerto(pecaB);
     }
 
     private int VerifyPieceOverMouseDrag(Vector3 pecaPosition)

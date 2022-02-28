@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173803625317890
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173803870565593
@@ -395,7 +397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2526173804919955989}
-  tempoEmSegundosParaCronometro: 100
+  quebraCabecaScriptableObjects:
+  - {fileID: 11400000, guid: 51beca9e5145b0a48b930fc3e1b5de89, type: 2}
+  tempoEmSegundosParaCronometro: 10
 --- !u!1 &2526173803888416446
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173803888416444
@@ -637,6 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173803894851147
@@ -858,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173804067858524
@@ -1010,6 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173804448076642
@@ -1162,6 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173804535980391
@@ -1314,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173804643004916
@@ -1600,6 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f17849d705a4e14d80d9ea12a90096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceAtual: 0
   indiceCorreto: 0
   posicaoCorreta: 0
 --- !u!114 &2526173804950459686
