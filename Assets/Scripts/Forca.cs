@@ -2,59 +2,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class Forca : MonoBehaviour
 {
     [SerializeField] private GameObject letraPrefab;
     [SerializeField] private TMP_Text palavraAleatoriaText;
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
+    
+    private Button[] _letrasButton;
+    private GridLayoutGroup _gridLayoutGroup;
+    private const int AlfabetoTamanho = 26;
+    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
+    private int _errosMax = 6;
+    private int _jogador;
+    private int _erros;
+    private char[] _charArray;
+    private char[] _palavra;
+    private bool _acertou;
 
-    private const int alfabetoTamanho = 26;
-    private Button[] letrasButton;
-    private GridLayoutGroup gridLayoutGroup;
-    //private string palavra = "PALAVRA";
-    private int erros = 0;
-    private char[] charArray;
-    private char[] palavra;
-    private bool acertou;
-    private int errosMax = 6;
-    private int jogador = 0;
-    private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
-
-    void Start()
+    private void Awake()
     {
-        gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
-        letrasButton = new Button[alfabetoTamanho];
+        _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
+        _letrasButton = new Button[AlfabetoTamanho];
 
-        for (int i = 'A'; i < alfabetoTamanho + 'A'; i++)
+        for (int i = 'A'; i < AlfabetoTamanho + 'A'; i++)
         {
             int indice = i - 'A';
-            GameObject letraGameObject =  Instantiate(letraPrefab, gridLayoutGroup.transform, false);
-            letrasButton[indice] = letraGameObject.GetComponent<Button>();
+            GameObject letraGameObject =  Instantiate(letraPrefab, _gridLayoutGroup.transform, false);
+            _letrasButton[indice] = letraGameObject.GetComponent<Button>();
             letraGameObject.GetComponentInChildren<TMP_Text>().text = char.ConvertFromUtf32(i);
-            letrasButton[indice].onClick.AddListener(delegate { LetraClick(indice); });
+            _letrasButton[indice].onClick.AddListener(delegate { LetraClick(indice); });
         }
     }
 
     private void OnEnable()
     {
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
-        palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
-        charArray = forcaScriptableObjects[0].animal.ToCharArray();
+        _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
+        _charArray = forcaScriptableObjects[randomNumber].animal.ToCharArray();
 
-        for (int i = 0; i < palavra.Length; i++)
+        for (int i = 0; i < _palavra.Length; i++)
         {
-            palavra[i] = '-';
+            _palavra[i] = '-';
         }
 
-        jogador = 0;
-        FisherYatesShuffle(ordemJogada);
-        palavraAleatoriaText.text = new string(palavra);
+        foreach (Button button in _letrasButton)
+        {
+            button.interactable = true;
+        }
+
+        _jogador = 0;
+        _erros = 0;
+        FisherYatesShuffle(_ordemJogada);
+        palavraAleatoriaText.text = new string(_palavra);
     }
 
     private void OnDestroy()
     {
-        foreach (Button button in letrasButton)
+        foreach (Button button in _letrasButton)
         {
             button.onClick.RemoveAllListeners();
         }
@@ -62,49 +68,49 @@ public class Forca : MonoBehaviour
 
     private void LetraClick(int indice)
     {
-        acertou = false;
+        _acertou = false;
 
-        for (int i = 0; i < charArray.Length; i++)
+        for (int i = 0; i < _charArray.Length; i++)
         {
-            if (charArray[i] != indice + 'A') continue;
+            if (_charArray[i] != indice + 'A') continue;
             int numero = indice + 'A';
-            palavra[i] = (char) numero;
-            acertou = true;
+            _palavra[i] = (char) numero;
+            _acertou = true;
         }
-        if (acertou)
+        if (_acertou)
         {
             print("Acertou");
-            palavraAleatoriaText.text = new string(palavra);
+            palavraAleatoriaText.text = new string(_palavra);
             
-            if (!palavra.Contains('-'))
+            if (!_palavra.Contains('-'))
             {
-                print($"O jogador {jogador} acertou");
+                print($"O jogador {_jogador.ToString()} acertou");
             }
         }
         else
         {
             print("Errou");
-            erros++;
+            _erros++;
             // trocar a imagem da forca
 
-            if (erros >= errosMax)
+            if (_erros >= _errosMax)
             {
                 print("Todos perdem");
 
                 return;
             }
 
-            for (int i = 0; i < ordemJogada.Length; i++)
+            for (int i = 0; i < _ordemJogada.Length; i++)
             {
-                if (ordemJogada[i] != jogador) continue;
-                jogador = ordemJogada[(i + 1) % ordemJogada.Length]; 
+                if (_ordemJogada[i] != _jogador) continue;
+                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length]; 
             }
         }
 
-        letrasButton[indice].interactable = false;
+        _letrasButton[indice].interactable = false;
     }
 
-    private void FisherYatesShuffle(int[] array)
+    private static void FisherYatesShuffle(int[] array)
     {
         int tamanho = array.Length;
 

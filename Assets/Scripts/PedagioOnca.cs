@@ -5,15 +5,17 @@ public class PedagioOnca : MonoBehaviour
 {
     [SerializeField] private Button backButton;
 
-    void Start()
+    void Awake()
     {
-        backButton.onClick.AddListener(delegate { BackButtonClick(); });
+        backButton.onClick.AddListener(BackButtonClick);
     }
-
+    
+    /*
     private void OnEnable()
     {
-        // PEGAR UMA FRASE ALEATORIA
+        PEGAR UMA FRASE ALEATORIA
     }
+    */
 
     private void BackButtonClick()
     {

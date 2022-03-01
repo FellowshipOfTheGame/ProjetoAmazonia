@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class SorteReves : MonoBehaviour
 {
-    public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
     [SerializeField] private TMP_Text textoSorteado;
+    
+    public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
 
     //private Players[] players = new Players[4];
 
+    /*
     private void Awake()
     {
         //players = FindObjectsOfType<Player>();
     }
+    */
 
     private void OnEnable()
     {

@@ -11,7 +11,7 @@ public class QuebraCabeca : MonoBehaviour
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
-    public static bool ganhou;
+    public static bool Ganhou;
     
     private Peca[] _pecas;
     private GameObject[] _pecasGameObjects;
@@ -49,7 +49,7 @@ public class QuebraCabeca : MonoBehaviour
     private void OnEnable()
     {
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
-        ganhou = false;
+        Ganhou = false;
         _pecasCorretas  = 0;
 
         for (int i = 0 ; i < _pecas.Length; i++)
@@ -116,7 +116,7 @@ public class QuebraCabeca : MonoBehaviour
         if (_pecasCorretas != _pecas.Length) return;
 
         _pararTempo = true;
-        ganhou = true;
+        Ganhou = true;
         Debug.Log($"Player { _player.ToString() } ganhou!", this);
     }
 
