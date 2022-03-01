@@ -1,106 +1,106 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Memoria : MonoBehaviour
 {
     [SerializeField] private GameObject cartaPrefab;
     [SerializeField] private GameObject gridLayoutGroup;
+    
     public CartasScriptableObject[] cartasScriptableObjects;
-    private GameObject[] cartas;
-    private Button[] botoesCartas;
-    private Image[] botoesImage;
-    private int quantidadeCartas = 0;
-    private int indicePrimeiraCartaAberta = -1;
-    private int jogador = 0;
-    private int[] pontos = new int[4];
-    private int[] ordemJogada = new int[4] { 0, 1, 2, 3 };
+    
+    private GameObject[] _cartasGameObjects;
+    private Button[] _botoesCartas;
+    private Image[] _botoesImage;
+    private int _quantidadeCartas;
+    private int _indicePrimeiraCartaAberta = -1;
+    private int _jogador;
+    private int[] _pontos = new int[4];
+    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
 
     private void Awake()
     {
-        quantidadeCartas = cartasScriptableObjects.Length;
-        cartas = new GameObject[quantidadeCartas];
-        botoesCartas = new Button[quantidadeCartas];
-        botoesImage = new Image[quantidadeCartas];
+        _quantidadeCartas = cartasScriptableObjects.Length;
+        _cartasGameObjects = new GameObject[_quantidadeCartas];
+        _botoesCartas = new Button[_quantidadeCartas];
+        _botoesImage = new Image[_quantidadeCartas];
 
-        for (int i = 0; i < quantidadeCartas; i++)
+        for (int i = 0; i < _quantidadeCartas; i++)
         {
-            cartas[i] = Instantiate(cartaPrefab, gridLayoutGroup.transform, false);
-            botoesCartas[i] = cartas[i].GetComponent<Button>();
-            botoesImage[i] = cartas[i].GetComponent<Image>();
-            botoesImage[i].sprite = cartasScriptableObjects[i].verso;
+            _cartasGameObjects[i] = Instantiate(cartaPrefab, gridLayoutGroup.transform, false);
+            _botoesCartas[i] = _cartasGameObjects[i].GetComponent<Button>();
+            _botoesImage[i] = _cartasGameObjects[i].GetComponent<Image>();
+
+            int wtf = i;
+            _botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ?????????????
         }
     }
 
     private void OnEnable()
     {
-        FisherYatesShuffle(cartas);
-
-        for (int i = 0; i < quantidadeCartas; i++)
+        for(int i = 0; i < _quantidadeCartas; i++)
         {
-            int wtf = i;
-            botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ?????????????
-            botoesImage[i].sprite = cartasScriptableObjects[i].verso;
+            _botoesCartas[i].interactable = true;
+            _botoesImage[i].sprite = cartasScriptableObjects[i].verso;
         }
-
-        jogador = 0;
+        
+        FisherYatesShuffle(_cartasGameObjects);
+        _jogador = 0;
         Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
-        FisherYatesShuffle(ordemJogada);
+        Array.Clear(_pontos, 0, _pontos.Length);
+        FisherYatesShuffle(_ordemJogada);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        for (int i = 0; i < quantidadeCartas; i++)
+        foreach (Button button in _botoesCartas) 
         {
-            botoesCartas[i].onClick.RemoveAllListeners();
+            button.onClick.RemoveAllListeners();
         }
     }
 
     private void DesvirarCartas(int i, int j)
     {
-        botoesImage[i].sprite = cartasScriptableObjects[i].verso;
-        botoesImage[j].sprite = cartasScriptableObjects[j].verso;
-        botoesCartas[i].interactable = true;
-        botoesCartas[j].interactable = true;
-        indicePrimeiraCartaAberta = -1;
+        _botoesImage[i].sprite = cartasScriptableObjects[i].verso;
+        _botoesImage[j].sprite = cartasScriptableObjects[j].verso;
+        _botoesCartas[i].interactable = true;
+        _botoesCartas[j].interactable = true;
+        _indicePrimeiraCartaAberta = -1;
     }
 
     private void AbrirCarta(int indice)
     {
-        botoesImage[indice].sprite = cartasScriptableObjects[indice].frente;
-        botoesCartas[indice].interactable = false;
+        _botoesImage[indice].sprite = cartasScriptableObjects[indice].frente;
+        _botoesCartas[indice].interactable = false;
     }
 
     private void ClickCarta(int indice)
     {
         AbrirCarta(indice);
 
-        if (indicePrimeiraCartaAberta == -1)
+        if (_indicePrimeiraCartaAberta == -1)
         {
-            print($"setando indice primeira carta {indice}");
-            indicePrimeiraCartaAberta = indice;
+            print($"setando indice primeira carta {indice.ToString()}");
+            _indicePrimeiraCartaAberta = indice;
         }
-        else if (cartasScriptableObjects[indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
+        else if (cartasScriptableObjects[_indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
-            pontos[jogador] += 10;
+            _pontos[_jogador] += 10;
             print("deu bom");
-            indicePrimeiraCartaAberta = -1;
+            _indicePrimeiraCartaAberta = -1;
 
-            for (int i = 0; i < ordemJogada.Length; i++)
+            for (int i = 0; i < _ordemJogada.Length; i++)
             {
-                if (ordemJogada[i] == jogador)
-                {
-                    jogador = ordemJogada[(i + 1) % ordemJogada.Length];
-                    break;
-                }
+                if (_ordemJogada[i] != _jogador) continue;
+                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
             }
         }
         else
         {
-            DesvirarCartas(indicePrimeiraCartaAberta, indice);
+            DesvirarCartas(_indicePrimeiraCartaAberta, indice);
             print("desvirando cartas");
-            jogador = ordemJogada[(jogador + 1) % ordemJogada.Length];
+            _jogador = _ordemJogada[(_jogador + 1) % _ordemJogada.Length];
         }
     }
 
@@ -111,9 +111,11 @@ public class Memoria : MonoBehaviour
         for (int i = 0; i < tamanho - 1; i++)
         {
             int r = i + Random.Range(0, tamanho - i);
+
+            Transform transformI = array[i].transform;
             
             array[r].transform.SetSiblingIndex(i);
-            array[i].transform.SetSiblingIndex(r);
+            transformI.SetSiblingIndex(r);
         }
     }
 

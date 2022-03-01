@@ -39,7 +39,7 @@ public class Peca : MonoBehaviour
     public void ClickDown()
     {
         if (_isDragging) return;
-        if (QuebraCabeca.ganhou) return;
+        if (QuebraCabeca.Ganhou) return;
 
         //print(transform.GetSiblingIndex());
         _pecaRectTransform.Rotate(0f, 0f, 90f);

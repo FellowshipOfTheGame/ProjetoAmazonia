@@ -1,67 +1,76 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Adivinhar : MonoBehaviour
 {
     [SerializeField] private AdivinharAnimalPlantaScriptableObject[] adivinharAnimalPlantaScriptableObjects;
 
-    private Image animalPlantaImage;
-    private int randomNumber;
-    private int jogador = 0;
-    private int[] ordemJogada = { 0, 1, 2, 3 };
-    private Button[] botoes;
-    private TMP_Text[] textoBotoes;
+    private Image _animalPlantaImage;
+    private Button[] _buttons;
+    private TMP_Text[] _textButtons;
+    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
+    private int _randomNumber;
+    private int _player;
 
     private void Awake()
     {
-        animalPlantaImage = GetComponentsInChildren<Image>()[1];
-        botoes = GetComponentsInChildren<Button>();
+        _animalPlantaImage = GetComponentsInChildren<Image>()[1];
+        _buttons = GetComponentsInChildren<Button>();
         
-        textoBotoes = new TMP_Text[botoes.Length];
+        _textButtons = new TMP_Text[_buttons.Length];
 
-        for (int i = 0; i < botoes.Length; i++)
+        for (int i = 0; i < _buttons.Length; i++)
         {
-            textoBotoes[i] = botoes[i].GetComponentInChildren<TMP_Text>();
+            _textButtons[i] = _buttons[i].GetComponentInChildren<TMP_Text>();
         }
     }
 
     private void OnEnable()
     {
-        randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
-        animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[randomNumber].spriteAnimalPlanta;
-        jogador = 0;
+        _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
+        _animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
+        _player = 0;
         Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
-        FisherYatesShuffle(ordemJogada);
+        FisherYatesShuffle(_ordemJogada);
 
-        for (int i = 0; i < botoes.Length; i++)
+        for (int i = 0; i < _buttons.Length; i++)
         {
-            textoBotoes[i].text = adivinharAnimalPlantaScriptableObjects[randomNumber].respostas[i];
+            _textButtons[i].text = adivinharAnimalPlantaScriptableObjects[_randomNumber].respostas[i];
 
-            if (i == adivinharAnimalPlantaScriptableObjects[randomNumber].respostaCorreta)
+            if (i == adivinharAnimalPlantaScriptableObjects[_randomNumber].respostaCorreta)
             {
-                botoes[i].onClick.AddListener(delegate { RespostaCorreta(); });
+                _buttons[i].onClick.AddListener(RespostaCorreta);
             }
             else
             {
-                botoes[i].onClick.AddListener(delegate { RespostaErrada(); });
+                _buttons[i].onClick.AddListener(RespostaErrada);
             }
         }
     }
 
-    public void RespostaCorreta()
+    private void OnDisable()
     {
-        print($"O jogador {jogador} acertou");
+        foreach (var button in _buttons)
+        {
+            button.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void RespostaCorreta()
+    {
+        print($"O jogador {_player} acertou");
     }
 
     private void RespostaErrada()
     {
         print("Resposta errada");
 
-        for (int i = 0; i < ordemJogada.Length; i++)
+        for (int i = 0; i < _ordemJogada.Length; i++)
         {
-            if (ordemJogada[i] != jogador) continue;
-            jogador = ordemJogada[(i + 1) % ordemJogada.Length];
+            if (_ordemJogada[i] != _player) continue;
+            _player = _ordemJogada[(i + 1) % _ordemJogada.Length];
         }
     }
 
