@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Quiz.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Menu.unity
+    guid: a251f788087e1a645a80afe5d8b406e9
+  - enabled: 1
+    path: Assets/Scenes/Tabuleiro.unity
+    guid: 28a22f1799b8a94468d833fd476c965e
   m_configObjects: {}
