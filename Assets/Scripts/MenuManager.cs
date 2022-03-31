@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -6,6 +7,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject creditsMenu;
     [SerializeField] private GameObject playersMenu;
+    
+    private SceneTransition _sceneTransition;
+
+    private void Awake()
+    {
+        _sceneTransition = SceneTransition.Instance;
+    }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
     public void OpenOptions()
     {
@@ -37,4 +50,10 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
     }
     
+    public void SetPlayersCount(int count)
+    {
+        //GameManager.Instance.SetPlayersCount(count);
+        PlayerPrefsController.SetPlayersCount(count);
+        _sceneTransition.LoadScene("Tabuleiro");
+    }
 }

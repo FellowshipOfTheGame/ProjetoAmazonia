@@ -5,6 +5,7 @@ public class PlayerPrefsController: MonoBehaviour
     private const string MasterVolumeKey = "master volume";
     private const string MusicVolumeKey = "music volume";
     private const string SoundEffectsVolumeKey = "sfx volume";
+    private const string PlayersCountKey = "players count";
 
     private const float MinVolume = 0f;
     private const float MaxVolume = 1f;
@@ -60,5 +61,15 @@ public class PlayerPrefsController: MonoBehaviour
     public static float GetSoundEffectsVolume()
     {
         return PlayerPrefs.GetFloat(SoundEffectsVolumeKey, 1f);
+    }
+    
+    public static void SetPlayersCount(int count)
+    {
+        PlayerPrefs.SetInt(PlayersCountKey, count);
+    }
+    
+    public static int GetPlayersCount()
+    {
+        return PlayerPrefs.GetInt(PlayersCountKey, 1);
     }
 }
