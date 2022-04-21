@@ -20,6 +20,8 @@ public class PlayerPrefsController: MonoBehaviour
         {
             Debug.LogError("Master volume is out of range");
         }
+        
+        PlayerPrefs.Save();
     }
 
     public static float GetMasterVolume()
@@ -38,6 +40,8 @@ public class PlayerPrefsController: MonoBehaviour
         {
             Debug.LogError("Music Volume is out of Range");
         }
+        
+        PlayerPrefs.Save();
     }
 
     public static float GetMusicVolume()
@@ -56,6 +60,8 @@ public class PlayerPrefsController: MonoBehaviour
         {
             Debug.LogError("Sound effects volume is out of Range");
         }
+        
+        PlayerPrefs.Save();
     }
 
     public static float GetSoundEffectsVolume()
