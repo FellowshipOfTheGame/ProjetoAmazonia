@@ -28,34 +28,34 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         
-        if(player1.GetComponent<Movimento>().numeroCasa > casaJogador1 + dado)
+        if(player1.GetComponent<Movimento>().numeroCasa == casaJogador1 + dado)
         {
-            player1.GetComponent<Movimento>().andar = false;
-            casaJogador1 = player1.GetComponent<Movimento>().numeroCasa - 1;
+            TipoDaCasa(player1.GetComponent<Movimento>().casaAtual);
+
             canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
             theCM.GetComponent<CameraMove>().SwitchCamera();
         }
 
-        if (player2.GetComponent<Movimento>().numeroCasa > casaJogador2 + dado)
+        if (player2.GetComponent<Movimento>().numeroCasa == casaJogador2 + dado)
         {
-            player2.GetComponent<Movimento>().andar = false;
-            casaJogador2 = player2.GetComponent<Movimento>().numeroCasa - 1;
+            TipoDaCasa(player2.GetComponent<Movimento>().casaAtual);
+
             canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
             theCM.GetComponent<CameraMove>().SwitchCamera();
         }
 
-        if (player3.GetComponent<Movimento>().numeroCasa > casaJogador3 + dado)
+        if (player3.GetComponent<Movimento>().numeroCasa == casaJogador3 + dado)
         {
-            player3.GetComponent<Movimento>().andar = false;
-            casaJogador3 = player3.GetComponent<Movimento>().numeroCasa - 1;
+            TipoDaCasa(player3.GetComponent<Movimento>().casaAtual);
+
             canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
             theCM.GetComponent<CameraMove>().SwitchCamera();
         }
 
-    }
+    }*/
 
     public static void MoverJogador(int jogador)
     {
@@ -64,14 +64,17 @@ public class GameManager : MonoBehaviour
         {
 
             case 1:
+                player1.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player1.GetComponent<Movimento>().andar = true;
                 break;
             
             case 2:
+                player2.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player2.GetComponent<Movimento>().andar = true;
                 break;
 
             case 3:
+                player3.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player3.GetComponent<Movimento>().andar = true;
                 break;
 
