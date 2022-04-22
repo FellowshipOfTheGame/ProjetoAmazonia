@@ -20,14 +20,14 @@ public class MinigameManager : MonoBehaviour
 
     private void Awake()
     {
-        _quiz = FindObjectOfType<Quiz>();
-        _memoria = FindObjectOfType<Memoria>();
-        _sorteReves = FindObjectOfType<SorteReves>();
-        _quebraCabeca = FindObjectOfType<QuebraCabeca>();
-        _forca = FindObjectOfType<Forca>();
-        _adivinharAnimalPlanta = FindObjectOfType<Adivinhar>();
-        _paradaObrigatoria = FindObjectOfType<ParadaObrigatoria>();
-        _pedagioOnca = FindObjectOfType<PedagioOnca>();
+        _quiz = FindObjectOfType<Quiz>(true);
+        _memoria = FindObjectOfType<Memoria>(true);
+        _sorteReves = FindObjectOfType<SorteReves>(true);
+        _quebraCabeca = FindObjectOfType<QuebraCabeca>(true);
+        _forca = FindObjectOfType<Forca>(true);
+        _adivinharAnimalPlanta = FindObjectOfType<Adivinhar>(true);
+        _paradaObrigatoria = FindObjectOfType<ParadaObrigatoria>(true);
+        _pedagioOnca = FindObjectOfType<PedagioOnca>(true);
     }
 
     public void ComecarQuizMinigame()
