@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayersData: MonoBehaviour
 {
     public static PlayersData Instance;
+    public int playersCount;
     public struct Player
     {
         public int index;
@@ -30,6 +31,8 @@ public class PlayersData: MonoBehaviour
         }
         
         #endregion
+
+        playersCount = PlayerPrefsController.GetPlayersCount();
     }
 
     public Player[] players;
