@@ -6,11 +6,15 @@ using Random = UnityEngine.Random;
 public class Adivinhar : MonoBehaviour
 {
     [SerializeField] private AdivinharAnimalPlantaScriptableObject[] adivinharAnimalPlantaScriptableObjects;
-
-    private Image _animalPlantaImage;
+    
     private Button[] _buttons;
     private TMP_Text[] _textButtons;
-    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
+    
+    private Image _animalPlantaImage;
+    private Resultados _resultados;
+    
+    private int[] _ordemJogada;
+    
     private int _randomNumber;
     private int _player;
 
@@ -18,8 +22,20 @@ public class Adivinhar : MonoBehaviour
     {
         _animalPlantaImage = GetComponentsInChildren<Image>()[1];
         _buttons = GetComponentsInChildren<Button>();
+        _resultados = FindObjectOfType<Resultados>(true);
+        
+        _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
         
         _textButtons = new TMP_Text[_buttons.Length];
+        
+        int playersCount = PlayersData.Instance.playersCount;
+        
+        _ordemJogada = new int[playersCount];
+        
+        for (int i = 0; i < playersCount; i++)
+        {
+            _ordemJogada[i] = i;
+        }
 
         for (int i = 0; i < _buttons.Length; i++)
         {
@@ -61,6 +77,8 @@ public class Adivinhar : MonoBehaviour
     private void RespostaCorreta()
     {
         print($"O jogador {_player} acertou");
+        _resultados.gameObject.SetActive(true);
+        _resultados.resultadosText.text = $"O jogador {_player} acertou";
     }
 
     private void RespostaErrada()

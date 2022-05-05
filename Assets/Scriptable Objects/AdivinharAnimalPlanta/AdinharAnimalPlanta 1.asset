@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c92c89e4042c8c4fb470826f1bab169, type: 3}
   m_Name: AdinharAnimalPlanta 1
   m_EditorClassIdentifier: 
-  spriteAnimalPlanta: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  spriteAnimalPlanta: {fileID: 21300000, guid: b72ec211b509b5f40ba321bc09fc0f9a, type: 3}
   respostas:
   - Baleia
   - Peixe
@@ -22,4 +22,4 @@ MonoBehaviour:
   - Jabuti
   - Capivara
   - Macaco
-  respostaCorreta: 5
+  respostaCorreta: 6
