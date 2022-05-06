@@ -65,7 +65,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            _playersData.players[_playerNumber - 1] = new PlayersData.Player(_playerNumber - 1, playerCharacter);
+            _playersData.players[_playerNumber - 1] = new PlayersData.Player(playerCharacter);
             _playerNumber++;
             playersQuantityText.text = $"Player {_playerNumber} selecione seu personagem";
         }
