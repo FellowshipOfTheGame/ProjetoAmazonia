@@ -28,7 +28,7 @@ public class Adivinhar : MonoBehaviour
         
         _textButtons = new TMP_Text[_buttons.Length];
         
-        int playersCount = PlayersData.Instance.playersCount;
+        int playersCount = PlayersData.Instance.players.Length;
         
         _ordemJogada = new int[playersCount];
         

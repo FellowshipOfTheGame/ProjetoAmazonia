@@ -35,7 +35,7 @@ public class Memoria : MonoBehaviour
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
         
-        int playersCount = PlayersData.Instance.playersCount;
+        int playersCount = PlayersData.Instance.players.Length;
         
         _ordemJogada = new int[playersCount];
         _pontos = new int[playersCount];
