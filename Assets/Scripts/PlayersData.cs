@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayersData: MonoBehaviour
 {
     public static PlayersData Instance;
-    public Player[] players;
+    public Player[] players = new Player[1];
     public struct Player
     {
         public int character;

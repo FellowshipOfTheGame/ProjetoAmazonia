@@ -33,8 +33,16 @@ public class Forca : MonoBehaviour
         _resultados = FindObjectOfType<Resultados>(true);
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
 
-        int playersCount = PlayersData.Instance.players.Length;
+        int playersCount;
         
+        try
+        {
+            playersCount = PlayersData.Instance.players.Length;
+        }
+        catch (System.NullReferenceException)
+        {
+            playersCount = 1;
+        }        
         _ordemJogada = new int[playersCount];
         
         for (int i = 0; i < playersCount; i++)
