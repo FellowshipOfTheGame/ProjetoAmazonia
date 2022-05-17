@@ -151,7 +151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726504547
 GameObject:
@@ -234,7 +234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1161813285
 GameObject:
@@ -330,7 +330,7 @@ RectTransform:
   - {fileID: 1174790359}
   - {fileID: 1244295048}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -508,7 +508,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2123234273
 PrefabInstance:
@@ -523,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,10 +577,6 @@ PrefabInstance:
     - target: {fileID: 308277954257276380, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
       propertyPath: m_Name
       value: Adivinhar Animal Planta
-      objectReference: {fileID: 0}
-    - target: {fileID: 308277954257276380, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 308277954257276381, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
       propertyPath: m_Pivot.x
@@ -652,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 308277954257276381, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00000095367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 308277954257276381, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -664,14 +660,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 308277954257276381, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 308277955378800884, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1584382560587033504, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
