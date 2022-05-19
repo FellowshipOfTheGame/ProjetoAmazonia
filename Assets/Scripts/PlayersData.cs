@@ -3,14 +3,13 @@ using UnityEngine;
 public class PlayersData: MonoBehaviour
 {
     public static PlayersData Instance;
+    public Player[] players = new Player[1];
     public struct Player
     {
-        public int index;
         public int character;
         
-        public Player(int index, int character)
+        public Player(int character)
         {
-            this.index = index;
             this.character = character;
         }
     }
@@ -31,6 +30,4 @@ public class PlayersData: MonoBehaviour
         
         #endregion
     }
-
-    public Player[] players;
 }

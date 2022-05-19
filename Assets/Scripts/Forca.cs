@@ -9,22 +9,46 @@ public class Forca : MonoBehaviour
     [SerializeField] private GameObject letraPrefab;
     [SerializeField] private TMP_Text palavraAleatoriaText;
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
-    
+
     private Button[] _letrasButton;
+    
     private GridLayoutGroup _gridLayoutGroup;
+    private Resultados _resultados;
+    
+    private int[] _ordemJogada;
+    private char[] _charArray;
+    private char[] _palavra;
+    
     private const int AlfabetoTamanho = 26;
-    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
+    
     private int _errosMax = 6;
     private int _jogador;
     private int _erros;
-    private char[] _charArray;
-    private char[] _palavra;
     private bool _acertou;
 
     private void Awake()
     {
         _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
         _letrasButton = new Button[AlfabetoTamanho];
+        _resultados = FindObjectOfType<Resultados>(true);
+        _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
+
+        int playersCount;
+        
+        try
+        {
+            playersCount = PlayersData.Instance.players.Length;
+        }
+        catch (System.NullReferenceException)
+        {
+            playersCount = 1;
+        }        
+        _ordemJogada = new int[playersCount];
+        
+        for (int i = 0; i < playersCount; i++)
+        {
+            _ordemJogada[i] = i;
+        }
 
         for (int i = 'A'; i < AlfabetoTamanho + 'A'; i++)
         {
@@ -85,6 +109,8 @@ public class Forca : MonoBehaviour
             if (!_palavra.Contains('-'))
             {
                 print($"O jogador {_jogador.ToString()} acertou");
+                _resultados.gameObject.SetActive(true);
+                _resultados.resultadosText.text = $"O jogador {_jogador.ToString()} acertou";
             }
         }
         else
@@ -96,6 +122,8 @@ public class Forca : MonoBehaviour
             if (_erros >= _errosMax)
             {
                 print("Todos perdem");
+                _resultados.gameObject.SetActive(true);
+                _resultados.resultadosText.text = "Todos perdem";
 
                 return;
             }

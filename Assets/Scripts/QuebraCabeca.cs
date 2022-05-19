@@ -18,10 +18,12 @@ public class QuebraCabeca : MonoBehaviour
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
     
+    private Resultados _resultados;
+    
     private int _pecasCorretas;
+    private int _player;
     private float _tempoRestante;
     private bool _pararTempo;
-    private int _player;
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class QuebraCabeca : MonoBehaviour
         _pecasGameObjects = new GameObject[pecasLength];
         _pecasRectTransforms = new RectTransform[pecasLength];
         _pecasImages = new Image[pecasLength];
+        _resultados = FindObjectOfType<Resultados>(true);
 
         for (int i = 0; i < pecasLength; i++)
         {
@@ -70,10 +73,13 @@ public class QuebraCabeca : MonoBehaviour
             _tempoRestante -= Time.deltaTime;
             MostrarTempo(_tempoRestante);
         }
-        /*else if (perdeu)
+        else
         {
             Debug.Log("Player perdeu", this);
-        }*/
+            _resultados.gameObject.SetActive(true);
+            _resultados.resultadosText.text = $"Player { _player.ToString() } perdeu!";
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()
@@ -117,7 +123,11 @@ public class QuebraCabeca : MonoBehaviour
 
         _pararTempo = true;
         Ganhou = true;
+        
         Debug.Log($"Player { _player.ToString() } ganhou!", this);
+        
+        _resultados.gameObject.SetActive(true);
+        _resultados.resultadosText.text = $"Player { _player.ToString() } ganhou!";
     }
 
     private void MostrarTempo(float tempoParaMostrar)
