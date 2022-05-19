@@ -39,7 +39,7 @@ public class Memoria : MonoBehaviour
         
         try
         {
-            playersCount = PlayersData.Instance.players.Length;
+            playersCount = PlayersData.Instance.players.Count;
         }
         catch (System.NullReferenceException)
         {

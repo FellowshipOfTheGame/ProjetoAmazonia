@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void DefinirPersonagens(){
         
-        int qtdPlayers = thePD.players.Length;
+        int qtdPlayers = thePD.players.Count;
 
         for(int i = 0; i < qtdPlayers; i++){
 
