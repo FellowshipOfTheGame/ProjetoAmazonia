@@ -1,10 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersData: MonoBehaviour
 {
-    public static PlayersData Instance;
-    public Player[] players = new Player[1];
-    public struct Player
+    public class Player
     {
         public int character;
         
@@ -13,6 +12,9 @@ public class PlayersData: MonoBehaviour
             this.character = character;
         }
     }
+    
+    public static PlayersData Instance;
+    public List<Player> players;
 
     private void Awake()
     {
