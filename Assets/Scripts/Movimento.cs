@@ -6,6 +6,7 @@ public class Movimento : MonoBehaviour
 {
 
     private MinigameManager minigameManager;
+    public Animator animator;
 
     private float speed = 2f;
 
@@ -13,18 +14,14 @@ public class Movimento : MonoBehaviour
 
     public bool andar = false;
 
-    // Movimento alternativo
     public Casa casaAtual;
     
-    //public Casa casa;
     public int qtdCasasAndar;
     private GameObject canvas, theCM;
-    //********************//
 
     private void Start()
     {
         minigameManager = FindObjectOfType<MinigameManager>();
-        //casaAtual = casa.GetComponent<Casa>();
         canvas = GameObject.Find("Canvas");
         theCM = GameObject.Find("CinemachineManager");
     }
@@ -38,6 +35,8 @@ public class Movimento : MonoBehaviour
 
     private void Andar()
     {
+
+        animator.SetBool("Andar", andar);
 
         if(qtdCasasAndar >= 0){
 
@@ -76,6 +75,7 @@ public class Movimento : MonoBehaviour
             }
 
             andar = false;
+            animator.SetBool("Andar", andar);
             
             canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
             theCM.GetComponent<CameraMove>().SwitchCamera();
