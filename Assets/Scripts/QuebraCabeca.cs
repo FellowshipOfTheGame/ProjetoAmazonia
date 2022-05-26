@@ -19,6 +19,7 @@ public class QuebraCabeca : MonoBehaviour
     private RectTransform[] _pecasRectTransforms;
     
     private Resultados _resultados;
+    private Dado _dado;
     
     private int _pecasCorretas;
     private int _player;
@@ -28,6 +29,7 @@ public class QuebraCabeca : MonoBehaviour
     void Awake()
     {
         _pecas = FindObjectsOfType<Peca>();
+        _dado = FindObjectOfType<Dado>();
         int pecasLength = _pecas.Length;
         _pecasGameObjects = new GameObject[pecasLength];
         _pecasRectTransforms = new RectTransform[pecasLength];
@@ -54,6 +56,7 @@ public class QuebraCabeca : MonoBehaviour
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
         Ganhou = false;
         _pecasCorretas  = 0;
+        _player = _dado.jogador;
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {

@@ -16,6 +16,7 @@ public class Forca : MonoBehaviour
     
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
+    private Dado _dado;
     
     private int[] _ordemJogada;
     private char[] _charArray;
@@ -32,6 +33,7 @@ public class Forca : MonoBehaviour
     private void Awake()
     {
         _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
+        _dado = FindObjectOfType<Dado>();
         _letrasButton = new Button[AlfabetoTamanho];
         _resultados = FindObjectOfType<Resultados>(true);
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
@@ -81,7 +83,7 @@ public class Forca : MonoBehaviour
             button.interactable = true;
         }
 
-        _jogador = 0;
+        _jogador = _dado.jogador;
         _erros = 0;
         FisherYatesShuffle(_ordemJogada);
         palavraAleatoriaText.text = new string(_palavra);

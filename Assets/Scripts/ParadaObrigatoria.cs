@@ -7,19 +7,21 @@ public class ParadaObrigatoria : MonoBehaviour
     [SerializeField] private Button backButton;
     
     private VideoPlayer _videoPlayer;
-    //private int _jogador;
+    private Dado _dado;
+    private int _jogador;
 
     private void Awake()
     {
         _videoPlayer = GetComponentInChildren<VideoPlayer>();
+        _dado = FindObjectOfType<Dado>();
         backButton.onClick.AddListener(BackButtonClick);
     }
     
-    /*
+    
     private void OnEnable()
     {
-         PEGAR UMA ANIMACAO ALEATORIA
-    }*/
+        _jogador = _dado.jogador;
+    }
 
     private void OnDestroy()
     {

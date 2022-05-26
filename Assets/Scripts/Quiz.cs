@@ -11,6 +11,7 @@ public class Quiz : MonoBehaviour
     
     private TMP_Text[] _textoBotoes;
     
+    private Dado _dado;
     private Resultados _resultados;
 
     private int _player;
@@ -20,6 +21,7 @@ public class Quiz : MonoBehaviour
         _textoBotoes = new TMP_Text[botoes.Length];
         
         _resultados = FindObjectOfType<Resultados>(true);
+        _dado = FindObjectOfType<Dado>();
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
 
@@ -32,6 +34,7 @@ public class Quiz : MonoBehaviour
     private void OnEnable()
     {
         int perguntaAleatoria = Random.Range(0, perguntasScriptableObjects.Length);
+        _player = _dado.jogador;
 
         perguntaText.text = perguntasScriptableObjects[perguntaAleatoria].pergunta;
 
