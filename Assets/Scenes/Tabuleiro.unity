@@ -229,36 +229,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 308277954257276381, guid: 56eb0b1aaf0f3ef4bafd725c73346dcc, type: 3}
   m_PrefabInstance: {fileID: 37778157}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &102564674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 102564675}
-  m_Layer: 0
-  m_Name: Casa (34)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &102564675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102564674}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.91, y: 0.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 34
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125397001
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +240,7 @@ GameObject:
   - component: {fileID: 125397002}
   - component: {fileID: 125397003}
   m_Layer: 0
-  m_Name: Casa (7)
+  m_Name: Casa 8
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -284,11 +254,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125397001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.59, y: 6.93, z: 0}
+  m_LocalPosition: {x: -7.7, y: -3.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &125397003
 MonoBehaviour:
@@ -306,7 +276,7 @@ MonoBehaviour:
   proxima: {fileID: 1580891872}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 8
+  tipoDaCasa: 5
 --- !u!1 &152928945
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +323,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &152928948
 MonoBehaviour:
@@ -369,36 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1852608606}
   camAtual: {fileID: 1517928028}
---- !u!1 &163670084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 163670086}
-  m_Layer: 0
-  m_Name: Atalho
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &163670086
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163670084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.71, y: 2.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 52
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  tabuleiro: {fileID: 1547255981}
 --- !u!1 &176358380
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +438,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &205278763
 GameObject:
@@ -510,7 +451,7 @@ GameObject:
   - component: {fileID: 205278764}
   - component: {fileID: 205278765}
   m_Layer: 0
-  m_Name: Casa (6)
+  m_Name: Casa 7
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -524,11 +465,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205278763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.53, y: 7.95, z: 0}
+  m_LocalPosition: {x: -10.33, y: -2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205278765
 MonoBehaviour:
@@ -611,7 +552,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &278162584
 GameObject:
@@ -716,8 +657,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 328150456}
+  - component: {fileID: 328150457}
   m_Layer: 0
-  m_Name: Casa (19)
+  m_Name: Casa 20
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -731,72 +673,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328150455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.93, y: -6.42, z: 0}
+  m_LocalPosition: {x: 8.66, y: -1.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 19
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &380836747
-GameObject:
+--- !u!114 &328150457
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 380836748}
-  m_Layer: 0
-  m_Name: Casa (39)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &380836748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380836747}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.95, y: 6.93, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 39
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &444222560
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 444222561}
-  m_Layer: 0
-  m_Name: Casa (46)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &444222561
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444222560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.83, y: 14.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 46
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 328150455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 769113688}
+  proxima: {fileID: 1896341922}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 0
 --- !u!1 &445207101
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,8 +705,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445207102}
+  - component: {fileID: 445207103}
   m_Layer: 0
-  m_Name: Casa (21)
+  m_Name: Casa 22
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -821,12 +721,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445207101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.11, y: -7.95, z: 0}
+  m_LocalPosition: {x: 12.23, y: 0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 21
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445207103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445207101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1896341922}
+  proxima: {fileID: 989507045}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 2
 --- !u!1 &507856188
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +842,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &515655127
 PrefabInstance:
@@ -1260,9 +1177,9 @@ GameObject:
   - component: {fileID: 546340520}
   - component: {fileID: 546340521}
   m_Layer: 0
-  m_Name: Casa (5)
+  m_Name: Casa 6
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1274,11 +1191,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546340519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.64, y: 8.35, z: 0}
+  m_LocalPosition: {x: -11.96, y: -1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &546340521
 MonoBehaviour:
@@ -1296,157 +1213,7 @@ MonoBehaviour:
   proxima: {fileID: 205278765}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 6
---- !u!1 &548284984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 548284985}
-  m_Layer: 0
-  m_Name: Casa (38)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &548284985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548284984}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.33, y: 6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 38
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &548479687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 548479688}
-  m_Layer: 0
-  m_Name: Casa (36)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &548479688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548479687}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.09, y: 1.82, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &584789685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 584789686}
-  m_Layer: 0
-  m_Name: Casa (40)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &584789686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584789685}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.26, y: 8.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 40
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &596732237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 596732238}
-  m_Layer: 0
-  m_Name: Casa (42)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &596732238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596732237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.5, y: 10.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 42
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &608098045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 608098046}
-  m_Layer: 0
-  m_Name: Atalho (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &608098046
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608098045}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.4, y: -1.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 54
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  tipoDaCasa: 0
 --- !u!1 &622672935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1225,7 @@ GameObject:
   - component: {fileID: 622672936}
   - component: {fileID: 622672937}
   m_Layer: 0
-  m_Name: Casa (1)
+  m_Name: Casa 2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1472,11 +1239,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622672935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.21, y: 11.56, z: 0}
+  m_LocalPosition: {x: -12.34, y: 4.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &622672937
 MonoBehaviour:
@@ -1494,7 +1261,7 @@ MonoBehaviour:
   proxima: {fileID: 934709532}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 2
+  tipoDaCasa: 3
 --- !u!1 &658869212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1273,7 @@ GameObject:
   - component: {fileID: 658869213}
   - component: {fileID: 658869214}
   m_Layer: 0
-  m_Name: Casa (4)
+  m_Name: Casa 5
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1520,11 +1287,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658869212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.98, y: 8.72, z: 0}
+  m_LocalPosition: {x: -9.798, y: 0.564, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &658869214
 MonoBehaviour:
@@ -1542,37 +1309,7 @@ MonoBehaviour:
   proxima: {fileID: 546340521}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 5
---- !u!1 &667775035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667775036}
-  m_Layer: 0
-  m_Name: Casa (35)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &667775036
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667775035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.13, y: 1.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 35
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  tipoDaCasa: 2
 --- !u!1 &683373858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,12 +1370,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683373858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.26, y: 14.83, z: -10}
+  m_LocalPosition: {x: -8, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 278162585}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699744866
 GameObject:
@@ -1651,9 +1388,9 @@ GameObject:
   - component: {fileID: 699744867}
   - component: {fileID: 699744868}
   m_Layer: 0
-  m_Name: Casa (9)
+  m_Name: Casa 10
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1665,11 +1402,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699744866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.83, y: 4.07, z: 0}
+  m_LocalPosition: {x: -2.29, y: -6.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 9
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &699744868
 MonoBehaviour:
@@ -1683,11 +1420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 1580891872}
+  proxima: {fileID: 1093926130}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 5
 --- !u!1001 &703585966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1805,7 +1542,7 @@ GameObject:
   - component: {fileID: 767327121}
   - component: {fileID: 767327122}
   m_Layer: 0
-  m_Name: Casa
+  m_Name: Casa 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1819,11 +1556,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767327120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.57, y: 13.55, z: 0}
+  m_LocalPosition: {x: -11, y: 6.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767327122
 MonoBehaviour:
@@ -1841,7 +1578,7 @@ MonoBehaviour:
   proxima: {fileID: 622672937}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 1
+  tipoDaCasa: 0
 --- !u!1 &769113686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,8 +1588,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769113687}
+  - component: {fileID: 769113688}
   m_Layer: 0
-  m_Name: Casa (18)
+  m_Name: Casa 19
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1866,42 +1604,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769113686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.99, y: -6.28, z: 0}
+  m_LocalPosition: {x: 10.4, y: -3.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 18
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &778772907
-GameObject:
+--- !u!114 &769113688
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 778772908}
-  m_Layer: 0
-  m_Name: Casa (44)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &778772908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778772907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.87, y: 11.56, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 44
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 769113686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 945650717}
+  proxima: {fileID: 328150457}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 1
 --- !u!1001 &844335132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2115,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,8 +1893,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907259543}
+  - component: {fileID: 907259544}
   m_Layer: 0
-  m_Name: Casa (26)
+  m_Name: Casa 27
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2183,12 +1909,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907259542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: -14.75, z: 0}
+  m_LocalPosition: {x: 6.43, y: 7.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 26
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907259544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907259542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1244765555}
+  proxima: {fileID: 1201857498}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 8
 --- !u!1 &934709530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,7 +1943,7 @@ GameObject:
   - component: {fileID: 934709531}
   - component: {fileID: 934709532}
   m_Layer: 0
-  m_Name: Casa (2)
+  m_Name: Casa 3
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2214,11 +1957,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934709530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.74, y: 10.59, z: 0}
+  m_LocalPosition: {x: -9.385, y: 3.685, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &934709532
 MonoBehaviour:
@@ -2236,7 +1979,7 @@ MonoBehaviour:
   proxima: {fileID: 1131540397}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 3
+  tipoDaCasa: 5
 --- !u!1 &945650715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,8 +1989,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945650716}
+  - component: {fileID: 945650717}
   m_Layer: 0
-  m_Name: Casa (17)
+  m_Name: Casa 18
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2261,12 +2005,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945650715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01, y: -4.42, z: 0}
+  m_LocalPosition: {x: 12.46, y: -4.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 17
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &945650717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945650715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1363763557}
+  proxima: {fileID: 769113688}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 0
 --- !u!1 &960494052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,7 +2039,7 @@ GameObject:
   - component: {fileID: 960494053}
   - component: {fileID: 960494054}
   m_Layer: 0
-  m_Name: Casa (12)
+  m_Name: Casa 13
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2292,11 +2053,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960494052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.22, y: -0.27, z: 0}
+  m_LocalPosition: {x: 3.78, y: -11.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 12
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &960494054
 MonoBehaviour:
@@ -2310,11 +2071,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 1370717039}
+  proxima: {fileID: 1656720882}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 1
 --- !u!1 &967593831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,8 +2085,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967593832}
+  - component: {fileID: 967593833}
   m_Layer: 0
-  m_Name: Casa (32)
+  m_Name: Atalho 2B
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2339,12 +2101,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967593831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.12, y: -4.14, z: 0}
+  m_LocalPosition: {x: 5.75, y: -7.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 32
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967593833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967593831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1919555850}
+  proxima: {fileID: 2021859444}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 8
 --- !u!1 &974457466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2135,7 @@ GameObject:
   - component: {fileID: 974457467}
   - component: {fileID: 974457468}
   m_Layer: 0
-  m_Name: Casa (51)
+  m_Name: "In\xEDcio P3"
   m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2370,11 +2149,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974457466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14, y: 14.73, z: 0}
+  m_LocalPosition: {x: -6, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 51
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &974457468
 MonoBehaviour:
@@ -2402,8 +2181,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989507044}
+  - component: {fileID: 989507045}
   m_Layer: 0
-  m_Name: Casa (22)
+  m_Name: Casa 23
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2417,12 +2197,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989507043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.07, y: -13.27, z: 0}
+  m_LocalPosition: {x: 13.77, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 22
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989507045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989507043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 445207103}
+  proxima: {fileID: 1918852950}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 2
 --- !u!1001 &1007920387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2432,7 +2229,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2315525799721246088, guid: 321fa87ae3c1e38439b078e0e2313080, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2315525799721246088, guid: 321fa87ae3c1e38439b078e0e2313080, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2602,7 +2399,7 @@ GameObject:
   - component: {fileID: 1093926129}
   - component: {fileID: 1093926130}
   m_Layer: 0
-  m_Name: Casa (10)
+  m_Name: Casa 11
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2616,11 +2413,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093926128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.03, y: 3.1, z: 0}
+  m_LocalPosition: {x: 0.421, y: -7.689, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 10
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1093926130
 MonoBehaviour:
@@ -2634,10 +2431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
-  bifurcacao: 0
-  atalho: {fileID: 0}
+  anterior: {fileID: 699744868}
+  proxima: {fileID: 1370717039}
+  bifurcacao: 1
+  atalho: {fileID: 1919555850}
   tipoDaCasa: 0
 --- !u!1 &1100062322
 GameObject:
@@ -2666,21 +2463,28 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1279175275}
+  - {fileID: 1246099918}
+  - {fileID: 974457467}
   - {fileID: 767327121}
   - {fileID: 622672936}
   - {fileID: 934709531}
   - {fileID: 1131540396}
   - {fileID: 658869213}
+  - {fileID: 1553913285}
   - {fileID: 546340520}
   - {fileID: 205278764}
   - {fileID: 125397002}
+  - {fileID: 1422974162}
   - {fileID: 1580891871}
   - {fileID: 699744867}
   - {fileID: 1093926129}
   - {fileID: 1370717038}
+  - {fileID: 1919555849}
   - {fileID: 960494053}
   - {fileID: 1656720881}
   - {fileID: 1100218744}
+  - {fileID: 967593832}
   - {fileID: 2021859443}
   - {fileID: 1363763556}
   - {fileID: 945650716}
@@ -2695,34 +2499,8 @@ Transform:
   - {fileID: 907259543}
   - {fileID: 1201857497}
   - {fileID: 1654895198}
-  - {fileID: 1553913285}
-  - {fileID: 1422974162}
-  - {fileID: 1919555849}
-  - {fileID: 967593832}
-  - {fileID: 1707071192}
-  - {fileID: 102564675}
-  - {fileID: 667775036}
-  - {fileID: 548479688}
-  - {fileID: 1915535039}
-  - {fileID: 548284985}
-  - {fileID: 380836748}
-  - {fileID: 584789686}
-  - {fileID: 1562319493}
-  - {fileID: 596732238}
-  - {fileID: 1640882319}
-  - {fileID: 778772908}
-  - {fileID: 1158516673}
-  - {fileID: 444222561}
-  - {fileID: 1375212627}
-  - {fileID: 1551242567}
-  - {fileID: 1279175275}
-  - {fileID: 1246099918}
-  - {fileID: 974457467}
-  - {fileID: 163670086}
-  - {fileID: 2101170883}
-  - {fileID: 608098046}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100218743
 GameObject:
@@ -2735,7 +2513,7 @@ GameObject:
   - component: {fileID: 1100218744}
   - component: {fileID: 1100218745}
   m_Layer: 0
-  m_Name: Casa (14)
+  m_Name: Casa 15
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2749,11 +2527,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100218743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.35, y: -2.92, z: 0}
+  m_LocalPosition: {x: 9.19, y: -9.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 14
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1100218745
 MonoBehaviour:
@@ -2767,11 +2545,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 1656720882}
+  proxima: {fileID: 2021859444}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 2
 --- !u!1 &1117749319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,12 +2610,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117749319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.95, y: 14.83, z: -10}
+  m_LocalPosition: {x: -6, y: 7.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 896405450}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131540395
 GameObject:
@@ -2850,7 +2628,7 @@ GameObject:
   - component: {fileID: 1131540396}
   - component: {fileID: 1131540397}
   m_Layer: 0
-  m_Name: Casa (3)
+  m_Name: Casa 4
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2864,11 +2642,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131540395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.8, y: 9.63, z: 0}
+  m_LocalPosition: {x: -7.57, y: 2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1131540397
 MonoBehaviour:
@@ -2884,39 +2662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anterior: {fileID: 934709532}
   proxima: {fileID: 658869214}
-  bifurcacao: 0
-  atalho: {fileID: 0}
-  tipoDaCasa: 4
---- !u!1 &1158516672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1158516673}
-  m_Layer: 0
-  m_Name: Casa (45)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1158516673
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158516672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 13.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 45
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  bifurcacao: 1
+  atalho: {fileID: 1553913286}
+  tipoDaCasa: 8
 --- !u!1 &1180882092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,8 +2674,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180882093}
+  - component: {fileID: 1180882094}
   m_Layer: 0
-  m_Name: Casa (24)
+  m_Name: Casa 25
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2941,12 +2690,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180882092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.03, y: -14.62, z: 0}
+  m_LocalPosition: {x: 11.84, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 24
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180882094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180882092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1918852950}
+  proxima: {fileID: 1244765555}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 7
 --- !u!1 &1194260469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,7 +2811,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198042987
 GameObject:
@@ -3150,8 +2916,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201857497}
+  - component: {fileID: 1201857498}
   m_Layer: 0
-  m_Name: Casa (27)
+  m_Name: Casa 28
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3165,12 +2932,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201857496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.46, y: -12.38, z: 0}
+  m_LocalPosition: {x: 8.15, y: 8.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 27
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1201857498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201857496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 907259544}
+  proxima: {fileID: 1654895199}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 0
 --- !u!1 &1235375814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,8 +3097,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1244765554}
+  - component: {fileID: 1244765555}
   m_Layer: 0
-  m_Name: Casa (25)
+  m_Name: Casa 26
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3328,12 +3113,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244765553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.45, y: -15.66, z: 0}
+  m_LocalPosition: {x: 8.94, y: 5.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 25
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244765555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244765553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1180882094}
+  proxima: {fileID: 907259544}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 5
 --- !u!1 &1246099917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,7 +3147,7 @@ GameObject:
   - component: {fileID: 1246099918}
   - component: {fileID: 1246099919}
   m_Layer: 0
-  m_Name: Casa (50)
+  m_Name: "In\xEDcio P2"
   m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3359,11 +3161,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246099917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.2, y: 14.75, z: 0}
+  m_LocalPosition: {x: -8, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 50
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1246099919
 MonoBehaviour:
@@ -3490,7 +3292,7 @@ GameObject:
   - component: {fileID: 1279175275}
   - component: {fileID: 1279175276}
   m_Layer: 0
-  m_Name: Casa (49)
+  m_Name: "In\xEDcio P1"
   m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3504,11 +3306,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279175274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.34, y: 14.77, z: 0}
+  m_LocalPosition: {x: -10, y: 7.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 49
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1279175276
 MonoBehaviour:
@@ -3644,7 +3446,7 @@ GameObject:
   - component: {fileID: 1363763556}
   - component: {fileID: 1363763557}
   m_Layer: 0
-  m_Name: Casa (16)
+  m_Name: Casa 17
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3658,11 +3460,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363763555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.55, y: -3.58, z: 0}
+  m_LocalPosition: {x: 10.51, y: -5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 16
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1363763557
 MonoBehaviour:
@@ -3676,11 +3478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 2021859444}
+  proxima: {fileID: 945650717}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 1
 --- !u!1 &1370717037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,7 +3494,7 @@ GameObject:
   - component: {fileID: 1370717038}
   - component: {fileID: 1370717039}
   m_Layer: 0
-  m_Name: Casa (11)
+  m_Name: Casa 12
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3706,11 +3508,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370717037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.8, y: 1.4, z: 0}
+  m_LocalPosition: {x: 1.06, y: -9.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 11
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1370717039
 MonoBehaviour:
@@ -3724,41 +3526,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 1093926130}
+  proxima: {fileID: 960494054}
   bifurcacao: 0
   atalho: {fileID: 0}
   tipoDaCasa: 0
---- !u!1 &1375212626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1375212627}
-  m_Layer: 0
-  m_Name: Casa (47)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1375212627
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375212626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.72, y: 14.97, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 47
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422974161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,8 +3540,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422974162}
+  - component: {fileID: 1422974163}
   m_Layer: 0
-  m_Name: Casa (30)
+  m_Name: Atalho 2A
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3783,12 +3556,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422974161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.18, y: -7.93, z: 0}
+  m_LocalPosition: {x: -4.83, y: -1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 30
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422974163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422974161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1553913286}
+  proxima: {fileID: 1580891872}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 6
 --- !u!1 &1427126985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,9 +3723,9 @@ Transform:
   m_Children:
   - {fileID: 2034883779}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1551242566
+--- !u!1 &1547255980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3943,27 +3733,79 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1551242567}
+  - component: {fileID: 1547255982}
+  - component: {fileID: 1547255981}
   m_Layer: 0
-  m_Name: Casa (48)
+  m_Name: new_tabuleiro
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1551242567
+--- !u!212 &1547255981
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547255980}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 21300000, guid: 18e91b33c663b0d4a85e7bbdc99a820d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 8.53, y: 8.56}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1547255982
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551242566}
+  m_GameObject: {fileID: 1547255980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.31, y: 15.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 48
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553913284
 GameObject:
@@ -3974,8 +3816,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1553913285}
+  - component: {fileID: 1553913286}
   m_Layer: 0
-  m_Name: Casa (29)
+  m_Name: Atalho 1A
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3989,42 +3832,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553913284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.47, y: -9.2, z: 0}
+  m_LocalPosition: {x: -5.8, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 29
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1562319492
-GameObject:
+--- !u!114 &1553913286
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1562319493}
-  m_Layer: 0
-  m_Name: Casa (41)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1562319493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562319492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.87, y: 9.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 41
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1553913284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1131540397}
+  proxima: {fileID: 1422974163}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 3
 --- !u!1 &1580891870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,7 +3866,7 @@ GameObject:
   - component: {fileID: 1580891871}
   - component: {fileID: 1580891872}
   m_Layer: 0
-  m_Name: Casa (8)
+  m_Name: Casa 9
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4050,11 +3880,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580891870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.28, y: 5.42, z: 0}
+  m_LocalPosition: {x: -5.02, y: -4.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 8
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1580891872
 MonoBehaviour:
@@ -4068,11 +3898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 125397003}
+  proxima: {fileID: 699744868}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 1
 --- !u!1 &1624631323
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,42 +3963,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624631323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.34, y: 14.83, z: -10}
+  m_LocalPosition: {x: -10, y: 7.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1198042988}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1640882318
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1640882319}
-  m_Layer: 0
-  m_Name: Casa (43)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1640882319
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640882318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.82, y: 10.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 43
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1654895197
 GameObject:
@@ -4179,8 +3979,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1654895198}
+  - component: {fileID: 1654895199}
   m_Layer: 0
-  m_Name: Casa (28)
+  m_Name: Chegada
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4194,12 +3995,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654895197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: -10.86, z: 0}
+  m_LocalPosition: {x: 10.25, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 28
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654895199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654895197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 1201857498}
+  proxima: {fileID: 0}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 0
 --- !u!1 &1656720880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4211,7 +4029,7 @@ GameObject:
   - component: {fileID: 1656720881}
   - component: {fileID: 1656720882}
   m_Layer: 0
-  m_Name: Casa (13)
+  m_Name: Casa 14
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4225,11 +4043,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656720880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.62, y: -1.74, z: 0}
+  m_LocalPosition: {x: 6.77, y: -11.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 13
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1656720882
 MonoBehaviour:
@@ -4243,11 +4061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 960494054}
+  proxima: {fileID: 1100218745}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 5
 --- !u!1 &1693868099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,37 +4112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1707071191
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1707071192}
-  m_Layer: 0
-  m_Name: Casa (33)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1707071192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707071191}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.59, y: -1.78, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 33
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1799013067
 PrefabInstance:
@@ -4510,7 +4298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852608604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.34, y: 14.83, z: -10}
+  m_LocalPosition: {x: -10, y: 7.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4559,8 +4347,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896341921}
+  - component: {fileID: 1896341922}
   m_Layer: 0
-  m_Name: Casa (20)
+  m_Name: Casa 21
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4574,42 +4363,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896341920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.81, y: -6.73, z: 0}
+  m_LocalPosition: {x: 10.26, y: -0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 20
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1915535038
-GameObject:
+--- !u!114 &1896341922
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1915535039}
-  m_Layer: 0
-  m_Name: Casa (37)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1915535039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915535038}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.96, y: 3.94, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 37
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1896341920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 328150457}
+  proxima: {fileID: 445207103}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 5
 --- !u!1 &1918852948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,8 +4395,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1918852949}
+  - component: {fileID: 1918852950}
   m_Layer: 0
-  m_Name: Casa (23)
+  m_Name: Casa 24
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4634,12 +4411,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918852948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.25, y: -13.54, z: 0}
+  m_LocalPosition: {x: 13.9, y: 3.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 23
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918852950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918852948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 989507045}
+  proxima: {fileID: 1180882094}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 0
 --- !u!1 &1919555848
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,8 +4443,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1919555849}
+  - component: {fileID: 1919555850}
   m_Layer: 0
-  m_Name: Casa (31)
+  m_Name: Atalho 1B
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4664,12 +4459,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919555848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.57, y: -6.34, z: 0}
+  m_LocalPosition: {x: 3.18, y: -7.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 31
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919555850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919555848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anterior: {fileID: 0}
+  proxima: {fileID: 0}
+  bifurcacao: 0
+  atalho: {fileID: 0}
+  tipoDaCasa: 5
 --- !u!1 &1922636647
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,7 +4599,7 @@ RectTransform:
   - {fileID: 2013011210}
   - {fileID: 1235375815}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5017,7 +4829,7 @@ GameObject:
   - component: {fileID: 2021859443}
   - component: {fileID: 2021859444}
   m_Layer: 0
-  m_Name: Casa (15)
+  m_Name: Casa 16
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5031,11 +4843,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021859442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: -2.99, z: 0}
+  m_LocalPosition: {x: 8.66, y: -7.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100062323}
-  m_RootOrder: 15
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2021859444
 MonoBehaviour:
@@ -5049,11 +4861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a07e87c7b4992c4eb3aaa998099589c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anterior: {fileID: 0}
-  proxima: {fileID: 0}
+  anterior: {fileID: 1100218745}
+  proxima: {fileID: 1363763557}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 7
 --- !u!1 &2034883778
 GameObject:
   m_ObjectHideFlags: 3
@@ -5113,7 +4925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2073741696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5301,37 +5113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2101170881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2101170883}
-  m_Layer: 0
-  m_Name: Atalho (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2101170883
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101170881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.31, y: 0.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1100062323}
-  m_RootOrder: 53
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2106121007
 PrefabInstance:
@@ -5448,7 +5230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5790497093281383890, guid: 1db2bd2c7771388408074f7bd5c61a7a, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5790497093281383890, guid: 1db2bd2c7771388408074f7bd5c61a7a, type: 3}
       propertyPath: m_LocalPosition.x
