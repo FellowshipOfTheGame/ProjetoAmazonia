@@ -77,7 +77,7 @@ public class Movimento : MonoBehaviour
             andar = false;
             animator.SetBool("Andar", andar);
             
-            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
+            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3; // Mudar isso
             theCM.GetComponent<CameraMove>().SwitchCamera();
         }
 
@@ -115,6 +115,8 @@ public class Movimento : MonoBehaviour
     }
 
     public void BonusMinigame(){
+
+        andar = true;
 
         if(qtdCasasAndar >= 0){
 
