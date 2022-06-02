@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using System.Text;
+using System.Globalization;
 using Random = UnityEngine.Random;
 
 public class Forca : MonoBehaviour
@@ -14,13 +16,15 @@ public class Forca : MonoBehaviour
     
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
+    private Dado _dado;
     
     private int[] _ordemJogada;
     private char[] _charArray;
     private char[] _palavra;
-    
+
     private const int AlfabetoTamanho = 26;
-    
+
+    private string _palavraComAcento;
     private int _errosMax = 6;
     private int _jogador;
     private int _erros;
@@ -29,10 +33,10 @@ public class Forca : MonoBehaviour
     private void Awake()
     {
         _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
+        _dado = FindObjectOfType<Dado>();
         _letrasButton = new Button[AlfabetoTamanho];
         _resultados = FindObjectOfType<Resultados>(true);
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
-
         int playersCount;
         
         try
@@ -64,7 +68,10 @@ public class Forca : MonoBehaviour
     {
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
         _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
-        _charArray = forcaScriptableObjects[randomNumber].animal.ToCharArray();
+        _palavraComAcento = forcaScriptableObjects[randomNumber].animal;
+        _charArray = RemoveAccents(_palavraComAcento).ToCharArray();
+
+        print(new string(_charArray));
 
         for (int i = 0; i < _palavra.Length; i++)
         {
@@ -76,7 +83,7 @@ public class Forca : MonoBehaviour
             button.interactable = true;
         }
 
-        _jogador = 0;
+        _jogador = _dado.jogador;
         _erros = 0;
         FisherYatesShuffle(_ordemJogada);
         palavraAleatoriaText.text = new string(_palavra);
@@ -103,8 +110,10 @@ public class Forca : MonoBehaviour
         }
         if (_acertou)
         {
+            string palavra = new string(_palavra);
             print("Acertou");
-            palavraAleatoriaText.text = new string(_palavra);
+
+            palavraAleatoriaText.text = Substituir(palavra, _palavraComAcento);
             
             if (!_palavra.Contains('-'))
             {
@@ -148,5 +157,41 @@ public class Forca : MonoBehaviour
 
             (array[r], array[i]) = (array[i], array[r]);
         }
+    }
+    
+    private string RemoverAcentos(string texto)
+    {
+        const string comAcentos = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
+        const string semAcentos = "AAAAAAaaaaaEEEEeeeeIIIIiiiiOOOOOoooooUUUuuuuCc";
+
+        for (int i = 0; i < comAcentos.Length; i++)
+        {
+            texto = texto.Replace(comAcentos[i].ToString(), semAcentos[i].ToString());
+        }
+        return texto;
+    }
+    
+    private string RemoveAccents(string str)
+    {  
+        return new string(str  
+            .Normalize(NormalizationForm.FormD)  
+            .Where(ch => char.GetUnicodeCategory(ch) != UnicodeCategory.NonSpacingMark)  
+            .ToArray());
+    }
+
+    private string Substituir(string old, string nova)
+    {
+        char[] oldChars = old.ToCharArray();
+        char[] novaChars = nova.ToCharArray();
+        
+        for (int i = 0; i < oldChars.Length; i++)
+        {
+            if (oldChars[i] != '-')
+            {
+                oldChars[i] = novaChars[i];
+            }
+        }
+
+        return new string(oldChars);
     }
 }

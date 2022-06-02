@@ -6,20 +6,23 @@ public class SorteReves : MonoBehaviour
     [SerializeField] private TMP_Text textoSorteado;
     
     public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
+    
+    private Dado _dado;
+    
+    private int _player;
 
-    //private Players[] players = new Players[4];
-
-    /*
+    
     private void Awake()
     {
-        //players = FindObjectsOfType<Player>();
+        _dado = FindObjectOfType<Dado>();
     }
-    */
+    
 
     private void OnEnable()
     {
         int numSorteado = Random.Range(0, sorteRevesScriptableObjects.Length);
-        textoSorteado.text = sorteRevesScriptableObjects[numSorteado].texto;
+        _player = _dado.jogador;
+        textoSorteado.text = $"Player {_player + 1} teve {sorteRevesScriptableObjects[numSorteado].texto.ToLower()}";
     }
 
     public void BotaoVoltarClick()

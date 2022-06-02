@@ -13,6 +13,7 @@ public class Adivinhar : MonoBehaviour
     
     private RectTransform _animalPlantaRectTransform;
     private Resultados _resultados;
+    private Dado _dado;
     
     private int[] _ordemJogada;
     
@@ -24,6 +25,7 @@ public class Adivinhar : MonoBehaviour
         _animalPlantaRectTransform = animalPlantaImage.GetComponent<RectTransform>();
         _buttons = GetComponentsInChildren<Button>();
         _resultados = FindObjectOfType<Resultados>(true);
+        _dado = FindObjectOfType<Dado>(true);
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
         
@@ -58,7 +60,7 @@ public class Adivinhar : MonoBehaviour
         _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
-        _player = 0;
+        _player = _dado.jogador;
         Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
         FisherYatesShuffle(_ordemJogada);
 
@@ -90,7 +92,8 @@ public class Adivinhar : MonoBehaviour
     {
         print($"O jogador {_player} acertou");
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {_player} acertou";
+        
+        _resultados.resultadosText.text = $"O jogador {_player} acertou e anda 3 casas";
     }
 
     private void RespostaErrada(Button button)

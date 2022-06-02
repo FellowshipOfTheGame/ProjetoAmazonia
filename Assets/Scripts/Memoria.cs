@@ -16,6 +16,7 @@ public class Memoria : MonoBehaviour
     private Image[] _botoesImage;
     
     private Resultados _resultados;
+    private Dado _dado;
     
     private int[] _pontos;
     private int[] _ordemJogada;
@@ -27,6 +28,7 @@ public class Memoria : MonoBehaviour
     private void Awake()
     {
         _quantidadeCartas = cartasScriptableObjects.Length;
+        _dado = FindObjectOfType<Dado>();
         _cartasGameObjects = new GameObject[_quantidadeCartas];
         _botoesCartas = new Button[_quantidadeCartas];
         _botoesImage = new Image[_quantidadeCartas];
@@ -74,7 +76,7 @@ public class Memoria : MonoBehaviour
         }
         
         FisherYatesShuffle(_cartasGameObjects);
-        _jogador = 0;
+        _jogador = _dado.jogador;
         Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
         Array.Clear(_pontos, 0, _pontos.Length);
         FisherYatesShuffle(_ordemJogada);
