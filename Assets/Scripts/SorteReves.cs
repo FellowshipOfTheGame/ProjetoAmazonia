@@ -22,7 +22,7 @@ public class SorteReves : MonoBehaviour
     {
         int numSorteado = Random.Range(0, sorteRevesScriptableObjects.Length);
         _player = _dado.jogador;
-        textoSorteado.text = $"Player {_player}" + sorteRevesScriptableObjects[numSorteado].texto;
+        textoSorteado.text = $"Player {_player + 1} teve {sorteRevesScriptableObjects[numSorteado].texto.ToLower()}";
     }
 
     public void BotaoVoltarClick()
