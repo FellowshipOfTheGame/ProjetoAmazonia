@@ -10,6 +10,7 @@ public class Adivinhar : MonoBehaviour
     
     private Button[] _buttons;
     private TMP_Text[] _textButtons;
+    private Movimento[] _playersMovimento;
     
     private RectTransform _animalPlantaRectTransform;
     private Resultados _resultados;
@@ -19,6 +20,7 @@ public class Adivinhar : MonoBehaviour
     
     private int _randomNumber;
     private int _player;
+    private int _numeroDeCasasAndar;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class Adivinhar : MonoBehaviour
         _buttons = GetComponentsInChildren<Button>();
         _resultados = FindObjectOfType<Resultados>(true);
         _dado = FindObjectOfType<Dado>(true);
+        _playersMovimento = FindObjectsOfType<Movimento>();
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
         
@@ -57,6 +60,7 @@ public class Adivinhar : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
         _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
@@ -82,6 +86,9 @@ public class Adivinhar : MonoBehaviour
 
     private void OnDisable()
     {
+        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
+        _playersMovimento[_player].BonusMinigame();
+        
         foreach (var button in _buttons)
         {
             button.onClick.RemoveAllListeners();
@@ -90,10 +97,11 @@ public class Adivinhar : MonoBehaviour
 
     private void RespostaCorreta()
     {
-        print($"O jogador {_player} acertou");
+        print($"O jogador {_player.ToString()} acertou");
         _resultados.gameObject.SetActive(true);
-        
-        _resultados.resultadosText.text = $"O jogador {_player} acertou e anda 3 casas";
+        _numeroDeCasasAndar = Random.Range(1, 3);
+        _resultados.resultadosText.text = $"O jogador {_player.ToString()} acertou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas";
     }
 
     private void RespostaErrada(Button button)
@@ -101,7 +109,9 @@ public class Adivinhar : MonoBehaviour
         button.interactable = false;
         print("Resposta errada");
         _animalPlantaRectTransform.sizeDelta /= 2;
-
+        
+        Debug.LogWarning("LEMBRAR DE MOSTRAR A VEZ DO JOGADOR MUDANDO");
+        
         for (int i = 0; i < _ordemJogada.Length; i++)
         {
             if (_ordemJogada[i] != _player) continue;

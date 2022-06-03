@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,6 +14,7 @@ public class Forca : MonoBehaviour
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
 
     private Button[] _letrasButton;
+    private Movimento[] _playersMovimento;
     
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
@@ -25,6 +27,7 @@ public class Forca : MonoBehaviour
     private const int AlfabetoTamanho = 26;
 
     private string _palavraComAcento;
+    private int _numeroDeCasasAndar;
     private int _errosMax = 6;
     private int _jogador;
     private int _erros;
@@ -32,6 +35,7 @@ public class Forca : MonoBehaviour
 
     private void Awake()
     {
+        _playersMovimento = FindObjectsOfType<Movimento>();
         _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
         _dado = FindObjectOfType<Dado>();
         _letrasButton = new Button[AlfabetoTamanho];
@@ -66,6 +70,7 @@ public class Forca : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
         _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
         _palavraComAcento = forcaScriptableObjects[randomNumber].animal;
@@ -87,6 +92,12 @@ public class Forca : MonoBehaviour
         _erros = 0;
         FisherYatesShuffle(_ordemJogada);
         palavraAleatoriaText.text = new string(_palavra);
+    }
+
+    private void OnDisable()
+    {
+        _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
+        _playersMovimento[_jogador].BonusMinigame();
     }
 
     private void OnDestroy()
@@ -119,7 +130,9 @@ public class Forca : MonoBehaviour
             {
                 print($"O jogador {_jogador.ToString()} acertou");
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = $"O jogador {_jogador.ToString()} acertou";
+                _numeroDeCasasAndar = Random.Range(1, 3);
+                _resultados.resultadosText.text = $"O jogador {_jogador.ToString()} acertou e anda " +
+                                                  $"{_numeroDeCasasAndar.ToString()} casas";
             }
         }
         else
