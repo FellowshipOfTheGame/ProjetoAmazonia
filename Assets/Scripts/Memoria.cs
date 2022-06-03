@@ -14,16 +14,17 @@ public class Memoria : MonoBehaviour
     private GameObject[] _cartasGameObjects;
     private Button[] _botoesCartas;
     private Image[] _botoesImage;
+    private Movimento[] _playersMovimento;
     
     private Resultados _resultados;
     private Dado _dado;
     
-    private int[] _pontos;
     private int[] _ordemJogada;
     
     private int _quantidadeCartas;
     private int _indicePrimeiraCartaAberta = -1;
     private int _jogador;
+    private int _numeroDeCasasAndar;
 
     private void Awake()
     {
@@ -49,8 +50,7 @@ public class Memoria : MonoBehaviour
         }
         
         _ordemJogada = new int[playersCount];
-        _pontos = new int[playersCount];
-        
+
         for (int i = 0; i < playersCount; i++)
         {
             _ordemJogada[i] = i;
@@ -69,6 +69,8 @@ public class Memoria : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
+        
         for(int i = 0; i < _quantidadeCartas; i++)
         {
             _botoesCartas[i].interactable = true;
@@ -78,7 +80,6 @@ public class Memoria : MonoBehaviour
         FisherYatesShuffle(_cartasGameObjects);
         _jogador = _dado.jogador;
         Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
-        Array.Clear(_pontos, 0, _pontos.Length);
         FisherYatesShuffle(_ordemJogada);
     }
 
@@ -88,6 +89,12 @@ public class Memoria : MonoBehaviour
         {
             button.onClick.RemoveAllListeners();
         }
+    }
+
+    private void OnDisable()
+    {
+        _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
+        _playersMovimento[_jogador].BonusMinigame();
     }
 
     private void DesvirarCartas(int i, int j)
@@ -116,15 +123,15 @@ public class Memoria : MonoBehaviour
         }
         else if (cartasScriptableObjects[_indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
-            _pontos[_jogador] += 10;
             print("deu bom");
             _indicePrimeiraCartaAberta = -1;
             
             //se acabaram as cartas, mostrar resultados
             if (_botoesCartas.All(botaoCarta => !botaoCarta.interactable)) //copilot lindo
             {
+                _numeroDeCasasAndar = Random.Range(1, 3);
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = $"Jogador {_jogador + 1} ganhou {_pontos[_jogador]} pontos";
+                _resultados.resultadosText.text = $"Jogador {_jogador + 1} avançou {_numeroDeCasasAndar} casas";
             }
 
             for (int i = 0; i < _ordemJogada.Length; i++)

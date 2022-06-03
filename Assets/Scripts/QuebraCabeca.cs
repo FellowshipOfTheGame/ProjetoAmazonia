@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,10 +18,12 @@ public class QuebraCabeca : MonoBehaviour
     private GameObject[] _pecasGameObjects;
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
+    private Movimento[] _playersMovimento;
     
     private Resultados _resultados;
     private Dado _dado;
-    
+
+    private int _numeroDeCasasAndar;
     private int _pecasCorretas;
     private int _player;
     private float _tempoRestante;
@@ -28,6 +31,7 @@ public class QuebraCabeca : MonoBehaviour
 
     void Awake()
     {
+        _playersMovimento = FindObjectsOfType<Movimento>();
         _pecas = FindObjectsOfType<Peca>();
         _dado = FindObjectOfType<Dado>();
         int pecasLength = _pecas.Length;
@@ -53,6 +57,7 @@ public class QuebraCabeca : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
         Ganhou = false;
         _pecasCorretas  = 0;
@@ -83,6 +88,12 @@ public class QuebraCabeca : MonoBehaviour
             _resultados.resultadosText.text = $"Player { _player.ToString() } perdeu!";
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
+        _playersMovimento[_player].BonusMinigame();
     }
 
     private void OnDestroy()
@@ -128,9 +139,11 @@ public class QuebraCabeca : MonoBehaviour
         Ganhou = true;
         
         Debug.Log($"Player { _player.ToString() } ganhou!", this);
+        _numeroDeCasasAndar = Random.Range(1, 3);
         
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"Player { _player.ToString() } ganhou!";
+        _resultados.resultadosText.text = $"Player { _player.ToString() } ganhou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas!";
     }
 
     private void MostrarTempo(float tempoParaMostrar)

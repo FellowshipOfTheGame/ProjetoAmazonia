@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resultados
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8468817683407068938
@@ -294,7 +294,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Voltar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8468817684165125069
@@ -549,7 +549,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Colocar os resultados
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -613,6 +613,6 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
