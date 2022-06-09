@@ -10,15 +10,18 @@ public class Quiz : MonoBehaviour
     public PerguntasScriptableObject[] perguntasScriptableObjects;
     
     private TMP_Text[] _textoBotoes;
+    private Movimento[] _playersMovimento;
     
     private Dado _dado;
     private Resultados _resultados;
 
     private int _player;
+    private int _numeroDeCasasAndar;
 
     private void Awake()
     {
         _textoBotoes = new TMP_Text[botoes.Length];
+        _playersMovimento = FindObjectsOfType<Movimento>();
         
         _resultados = FindObjectOfType<Resultados>(true);
         _dado = FindObjectOfType<Dado>();
@@ -33,6 +36,7 @@ public class Quiz : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
         int perguntaAleatoria = Random.Range(0, perguntasScriptableObjects.Length);
         _player = _dado.jogador;
 
@@ -55,6 +59,9 @@ public class Quiz : MonoBehaviour
 
     private void OnDisable()
     {
+        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
+        _playersMovimento[_player].BonusMinigame();
+        
         foreach (Button button in botoes)
         {
             button.onClick.RemoveAllListeners();
@@ -65,8 +72,10 @@ public class Quiz : MonoBehaviour
     {
         // pessoa x anda y casas
         print("Resposta Correta");
+        _numeroDeCasasAndar = Random.Range(1, 3);
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {_player} acertou";
+        _resultados.resultadosText.text = $"O jogador {_player.ToString()} acertou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas";
     }
 
     private void RespostaErrada()

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ped\xE1gio da On\xE7a"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -425,8 +425,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Voltar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
