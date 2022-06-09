@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     void Update(){
         
         // Checa se chegou no fim do turno do jogador = muda a câmera
-        // Fim do turno = andar + minigame
+        // Fim do turno = andar + minigame 
         
         //canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % thePD.players.Count;
         //theCM.GetComponent<CameraMove>().SwitchCamera();
