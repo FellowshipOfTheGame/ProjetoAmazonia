@@ -10,8 +10,6 @@ public class Movimento : MonoBehaviour
 
     private float speed = 2f;
 
-    public int numeroCasa = 0;
-
     public bool andar = false;
 
     public Casa casaAtual;
@@ -19,11 +17,14 @@ public class Movimento : MonoBehaviour
     public int qtdCasasAndar;
     private GameObject canvas, theCM;
 
+    private EstadoMinigame lastMinigame;
+
     private void Start()
     {
         minigameManager = FindObjectOfType<MinigameManager>();
         canvas = GameObject.Find("Canvas");
         theCM = GameObject.Find("CinemachineManager");
+        lastMinigame = EstadoMinigame.Nenhum;
     }
 
     // Update is called once per frame
@@ -44,24 +45,25 @@ public class Movimento : MonoBehaviour
 
             if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
 
-                switch(casaAtual.tipoDaCasa){
-                    case EstadoMinigame.ParadaObrigatoria:
-                        Debug.Log("Parada Obrigatória!");
-                        minigameManager.ComecarParadaObrigatoria();
-                        casaAtual = casaAtual.proxima;
-                        qtdCasasAndar = -2;
-                        break;
-                    case EstadoMinigame.PedagioOnca:
-                        Debug.Log("Pedágio da onça!");
-                        minigameManager.ComecarPedagioOnca();
-                        casaAtual = casaAtual.proxima;
-                        qtdCasasAndar = -2;
-                        break;
-                    default:
-                        casaAtual = casaAtual.proxima;
-                        numeroCasa += 1;
-                        qtdCasasAndar -= 1;
-                        break;
+                if(casaAtual.tipoDaCasa == EstadoMinigame.ParadaObrigatoria && lastMinigame != EstadoMinigame.ParadaObrigatoria){
+
+                    Debug.Log("Parada Obrigatória!");
+                    minigameManager.ComecarParadaObrigatoria();
+                    lastMinigame = EstadoMinigame.ParadaObrigatoria;
+                    qtdCasasAndar = -2;
+
+                }else if(casaAtual.tipoDaCasa == EstadoMinigame.PedagioOnca && lastMinigame != EstadoMinigame.PedagioOnca){
+
+                    Debug.Log("Pedágio da onça!");
+                    minigameManager.ComecarPedagioOnca();
+                    lastMinigame = EstadoMinigame.PedagioOnca;
+                    qtdCasasAndar = -2;
+
+                }else{
+
+                    casaAtual = casaAtual.proxima;
+                    qtdCasasAndar -= 1;
+
                 }
 
             }
@@ -70,7 +72,6 @@ public class Movimento : MonoBehaviour
 
             if(qtdCasasAndar == -1){
                 casaAtual = casaAtual.anterior;
-                numeroCasa -=1;
                 TipoDaCasa();
             }
 
@@ -88,26 +89,32 @@ public class Movimento : MonoBehaviour
             case EstadoMinigame.Forca:
                 Debug.Log("Forca!");
                 minigameManager.ComecarForcaMinigame();
+                lastMinigame = EstadoMinigame.Forca;
                 break;
             case EstadoMinigame.Memoria:
                 Debug.Log("Memória!");
                 minigameManager.ComecarMemoriaMinigame();
+                lastMinigame = EstadoMinigame.Memoria;
                 break;
             case EstadoMinigame.QualAnimal:
                 Debug.Log("Qual é o animal?!");
                 minigameManager.ComecarQualAnimalMinigame();
+                lastMinigame = EstadoMinigame.QualAnimal;
                 break;
             case EstadoMinigame.QuebraCabeca:
                 Debug.Log("Quebra-cabeça!");
                 minigameManager.ComecarQuebraCabecaMinigame();
+                lastMinigame = EstadoMinigame.QuebraCabeca;
                 break;
             case EstadoMinigame.Quiz:
                 Debug.Log("Quiz!");
                 minigameManager.ComecarQuizMinigame();
+                lastMinigame = EstadoMinigame.Quiz;
                 break;
             case EstadoMinigame.SorteReves:
                 Debug.Log("Sorte ou revés!");
                 minigameManager.ComecarSorteRevesMinigame();
+                lastMinigame = EstadoMinigame.SorteReves;
                 break;
             case EstadoMinigame.Nenhum:
                 break;
@@ -125,7 +132,6 @@ public class Movimento : MonoBehaviour
             if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
 
                 casaAtual = casaAtual.proxima;
-                numeroCasa += 1;
                 qtdCasasAndar -= 1;
                 
             }
@@ -133,7 +139,6 @@ public class Movimento : MonoBehaviour
         }else{
 
             casaAtual = casaAtual.anterior;
-            numeroCasa -=1;
             andar = false;
 
         }
