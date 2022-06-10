@@ -10,7 +10,7 @@ public class Movimento : MonoBehaviour
 
     private float speed = 2f;
 
-    public bool andar = false;
+    public bool andar = false, acabouMinigame = false, bonus = false;
 
     public Casa casaAtual;
     
@@ -32,6 +32,10 @@ public class Movimento : MonoBehaviour
     {
         if(andar)
             Andar();
+        
+        if(bonus)
+            BonusMinigame();
+
     }
 
     private void Andar()
@@ -51,6 +55,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarParadaObrigatoria();
                     lastMinigame = EstadoMinigame.ParadaObrigatoria;
                     qtdCasasAndar = -2;
+                    acabouMinigame = true; // Tirar depois
 
                 }else if(casaAtual.tipoDaCasa == EstadoMinigame.PedagioOnca && lastMinigame != EstadoMinigame.PedagioOnca){
 
@@ -58,6 +63,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarPedagioOnca();
                     lastMinigame = EstadoMinigame.PedagioOnca;
                     qtdCasasAndar = -2;
+                    acabouMinigame = true; // Tirar depois
 
                 }else{
 
@@ -78,8 +84,6 @@ public class Movimento : MonoBehaviour
             andar = false;
             animator.SetBool("Andar", andar);
             
-            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3; // Mudar isso
-            theCM.GetComponent<CameraMove>().SwitchCamera();
         }
 
     }
@@ -117,13 +121,14 @@ public class Movimento : MonoBehaviour
                 lastMinigame = EstadoMinigame.SorteReves;
                 break;
             case EstadoMinigame.Nenhum:
+                acabouMinigame = true;
                 break;
         }
     }
 
     public void BonusMinigame(){
 
-        andar = true;
+        animator.SetBool("Andar", bonus);
 
         if(qtdCasasAndar >= 0){
 
@@ -139,7 +144,9 @@ public class Movimento : MonoBehaviour
         }else{
 
             casaAtual = casaAtual.anterior;
-            andar = false;
+            bonus = false;
+            animator.SetBool("Andar", bonus);
+            acabouMinigame = true;
 
         }
             

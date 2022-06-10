@@ -36,6 +36,7 @@ public class Quiz : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _numeroDeCasasAndar = 0;
         int perguntaAleatoria = Random.Range(0, perguntasScriptableObjects.Length);
         _player = _dado.jogador;
@@ -60,7 +61,8 @@ public class Quiz : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_player].BonusMinigame();
+        //_playersMovimento[_player].BonusMinigame();
+        _playersMovimento[_player].bonus = true;
         
         foreach (Button button in botoes)
         {

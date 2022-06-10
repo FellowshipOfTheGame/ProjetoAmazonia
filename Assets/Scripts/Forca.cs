@@ -70,6 +70,7 @@ public class Forca : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
         _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
@@ -97,7 +98,8 @@ public class Forca : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_jogador].BonusMinigame();
+        //_playersMovimento[_jogador].BonusMinigame();
+        _playersMovimento[_jogador].bonus = true;
     }
 
     private void OnDestroy()

@@ -32,7 +32,8 @@ public class SorteReves : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_player].BonusMinigame();
+        //_playersMovimento[_player].BonusMinigame();
+        _playersMovimento[_player].bonus = true;
     }
 
     public void BotaoVoltarClick()
