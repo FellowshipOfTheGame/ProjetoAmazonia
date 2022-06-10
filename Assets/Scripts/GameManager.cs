@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     private GameObject[] partida;
     private static GameObject player1, player2, player3;
     public GameObject personagem1, personagem2, personagem3;
-    private GameObject prefab;
+    private GameObject prefab, canvas;
 
-    public static int dado = 0;
+    public static int dado = 0, player;
     public static int casaJogador1 = 0;
     public static int casaJogador2 = 0;
     public static int casaJogador3 = 0;
@@ -22,19 +22,63 @@ public class GameManager : MonoBehaviour
         
         thePD = PlayersData.Instance;
         theCM = FindObjectOfType<CameraMove>();
+        canvas = GameObject.Find("Canvas");
         partida = GameObject.FindGameObjectsWithTag("Partida");
         
         DefinirPersonagens();
         
     }
 
+    void Start() {
+
+        player = canvas.GetComponent<Dado>().jogador;
+        
+    }
+
     void Update(){
         
         // Checa se chegou no fim do turno do jogador = muda a câmera
-        // Fim do turno = andar + minigame 
-        
-        //canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % thePD.players.Count;
-        //theCM.GetComponent<CameraMove>().SwitchCamera();
+        // Fim do turno = andar + minigame
+
+        switch(player){
+
+            case 0:
+
+                if(player1.GetComponent<Movimento>().andar == false && player1.GetComponent<Movimento>().acabouMinigame == true){
+
+                    player1.GetComponent<Movimento>().acabouMinigame = false;
+                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
+                    ChangePlayer();
+
+                }
+
+                break;
+
+            case 1:
+
+                if(player2.GetComponent<Movimento>().andar == false && player2.GetComponent<Movimento>().acabouMinigame == true){
+
+                    player2.GetComponent<Movimento>().acabouMinigame = false;
+                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
+                    ChangePlayer();
+
+                }
+            
+                break;
+                
+            case 2:
+
+                if(player3.GetComponent<Movimento>().andar == false && player3.GetComponent<Movimento>().acabouMinigame == true){
+
+                    player3.GetComponent<Movimento>().acabouMinigame = false;
+                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
+                    ChangePlayer();
+
+                }
+
+                break;
+
+        }
 
     }
     
@@ -113,6 +157,14 @@ public class GameManager : MonoBehaviour
 
         }
         
+    }
+
+    private void ChangePlayer(){
+
+        canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+        player = canvas.GetComponent<Dado>().jogador;
+        theCM.SwitchCamera();
+
     }
 
 }

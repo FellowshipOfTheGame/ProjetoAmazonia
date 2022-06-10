@@ -69,6 +69,7 @@ public class Memoria : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _numeroDeCasasAndar = 0;
         
         for(int i = 0; i < _quantidadeCartas; i++)
@@ -94,7 +95,8 @@ public class Memoria : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_jogador].BonusMinigame();
+        //_playersMovimento[_jogador].BonusMinigame();
+        _playersMovimento[_jogador].bonus = true;
     }
 
     private void DesvirarCartas(int i, int j)

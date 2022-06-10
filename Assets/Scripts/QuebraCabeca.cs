@@ -57,6 +57,7 @@ public class QuebraCabeca : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
         Ganhou = false;
@@ -93,7 +94,8 @@ public class QuebraCabeca : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_player].BonusMinigame();
+        //_playersMovimento[_player].BonusMinigame();
+        _playersMovimento[_player].bonus = true;
     }
 
     private void OnDestroy()

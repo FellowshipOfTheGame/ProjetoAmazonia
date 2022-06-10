@@ -60,12 +60,13 @@ public class Adivinhar : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _numeroDeCasasAndar = 0;
         _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
         _player = _dado.jogador;
-        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        Debug.LogWarning("Lembrar de pegar o jogador que comeï¿½a o minigame de outro script");
         FisherYatesShuffle(_ordemJogada);
 
         for (int i = 0; i < _buttons.Length; i++)
@@ -87,7 +88,8 @@ public class Adivinhar : MonoBehaviour
     private void OnDisable()
     {
         _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        _playersMovimento[_player].BonusMinigame();
+        //_playersMovimento[_player].BonusMinigame();
+        _playersMovimento[_player].bonus = true;
         
         foreach (var button in _buttons)
         {

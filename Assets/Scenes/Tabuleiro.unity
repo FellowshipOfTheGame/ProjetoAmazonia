@@ -371,8 +371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  numeroCasa: 0
   andar: 0
+  acabouMinigame: 0
+  bonus: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
 --- !u!212 &176358382
@@ -775,8 +776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  numeroCasa: 0
   andar: 0
+  acabouMinigame: 0
+  bonus: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
 --- !u!212 &507856190
@@ -2664,7 +2666,7 @@ MonoBehaviour:
   proxima: {fileID: 658869214}
   bifurcacao: 1
   atalho: {fileID: 1553913286}
-  tipoDaCasa: 8
+  tipoDaCasa: 5
 --- !u!1 &1180882092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,7 +2714,7 @@ MonoBehaviour:
   proxima: {fileID: 1244765555}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 7
+  tipoDaCasa: 0
 --- !u!1 &1194260469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,8 +2746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  numeroCasa: 0
   andar: 0
+  acabouMinigame: 0
+  bonus: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
 --- !u!212 &1194260471
@@ -4865,7 +4868,7 @@ MonoBehaviour:
   proxima: {fileID: 1363763557}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 7
+  tipoDaCasa: 0
 --- !u!1 &2034883778
 GameObject:
   m_ObjectHideFlags: 3
