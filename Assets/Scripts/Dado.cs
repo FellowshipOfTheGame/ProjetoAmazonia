@@ -15,6 +15,9 @@ public class Dado : MonoBehaviour
         Debug.Log(numeroDado.ToString());
 
         GameManager.dado = numeroDado;
+
+        // Desabilitar botão
+
         switch (jogador)
         {
 
@@ -29,8 +32,6 @@ public class Dado : MonoBehaviour
                 break;
 
         }
-
-        //jogador = (jogador + 1) % 3;
 
     }
 

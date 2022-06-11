@@ -14,10 +14,10 @@ public class Memoria : MonoBehaviour
     private GameObject[] _cartasGameObjects;
     private Button[] _botoesCartas;
     private Image[] _botoesImage;
-    private Movimento[] _playersMovimento;
     
     private Resultados _resultados;
     private Dado _dado;
+    private GameManager _gameManager;
     
     private int[] _ordemJogada;
     
@@ -30,6 +30,7 @@ public class Memoria : MonoBehaviour
     {
         _quantidadeCartas = cartasScriptableObjects.Length;
         _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         _cartasGameObjects = new GameObject[_quantidadeCartas];
         _botoesCartas = new Button[_quantidadeCartas];
         _botoesImage = new Image[_quantidadeCartas];
@@ -94,9 +95,7 @@ public class Memoria : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_jogador].BonusMinigame();
-        _playersMovimento[_jogador].bonus = true;
+        _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
     }
 
     private void DesvirarCartas(int i, int j)

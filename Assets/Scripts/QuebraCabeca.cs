@@ -18,10 +18,10 @@ public class QuebraCabeca : MonoBehaviour
     private GameObject[] _pecasGameObjects;
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
-    private Movimento[] _playersMovimento;
     
     private Resultados _resultados;
     private Dado _dado;
+    private GameManager _gameManager;
 
     private int _numeroDeCasasAndar;
     private int _pecasCorretas;
@@ -31,9 +31,9 @@ public class QuebraCabeca : MonoBehaviour
 
     void Awake()
     {
-        _playersMovimento = FindObjectsOfType<Movimento>();
         _pecas = FindObjectsOfType<Peca>();
         _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         int pecasLength = _pecas.Length;
         _pecasGameObjects = new GameObject[pecasLength];
         _pecasRectTransforms = new RectTransform[pecasLength];
@@ -93,9 +93,7 @@ public class QuebraCabeca : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_player].BonusMinigame();
-        _playersMovimento[_player].bonus = true;
+        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
     }
 
     private void OnDestroy()

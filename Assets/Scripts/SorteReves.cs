@@ -7,9 +7,8 @@ public class SorteReves : MonoBehaviour
     
     public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
 
-    private Movimento[] _playersMovimento;
-    
     private Dado _dado;
+    private GameManager _gameManager;
     
     private int _player;
     private int _numeroDeCasasAndar;
@@ -17,7 +16,7 @@ public class SorteReves : MonoBehaviour
     private void Awake()
     {
         _dado = FindObjectOfType<Dado>();
-        _playersMovimento = FindObjectsOfType<Movimento>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnEnable()
@@ -31,9 +30,7 @@ public class SorteReves : MonoBehaviour
     
     private void OnDisable()
     {
-        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_player].BonusMinigame();
-        _playersMovimento[_player].bonus = true;
+        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
     }
 
     public void BotaoVoltarClick()
