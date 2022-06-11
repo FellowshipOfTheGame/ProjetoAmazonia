@@ -10,11 +10,11 @@ public class Adivinhar : MonoBehaviour
     
     private Button[] _buttons;
     private TMP_Text[] _textButtons;
-    private Movimento[] _playersMovimento;
     
     private RectTransform _animalPlantaRectTransform;
     private Resultados _resultados;
     private Dado _dado;
+    private GameManager _gameManager;
     
     private int[] _ordemJogada;
     
@@ -28,7 +28,7 @@ public class Adivinhar : MonoBehaviour
         _buttons = GetComponentsInChildren<Button>();
         _resultados = FindObjectOfType<Resultados>(true);
         _dado = FindObjectOfType<Dado>(true);
-        _playersMovimento = FindObjectsOfType<Movimento>();
+        _gameManager = FindObjectOfType<GameManager>();
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
         
@@ -87,9 +87,7 @@ public class Adivinhar : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_player].BonusMinigame();
-        _playersMovimento[_player].bonus = true;
+        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
         
         foreach (var button in _buttons)
         {

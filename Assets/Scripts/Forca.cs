@@ -14,11 +14,11 @@ public class Forca : MonoBehaviour
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
 
     private Button[] _letrasButton;
-    private Movimento[] _playersMovimento;
-    
+        
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
     private Dado _dado;
+    private GameManager _gameManager;
     
     private int[] _ordemJogada;
     private char[] _charArray;
@@ -35,9 +35,9 @@ public class Forca : MonoBehaviour
 
     private void Awake()
     {
-        _playersMovimento = FindObjectsOfType<Movimento>();
         _gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>();
         _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         _letrasButton = new Button[AlfabetoTamanho];
         _resultados = FindObjectOfType<Resultados>(true);
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
@@ -97,9 +97,7 @@ public class Forca : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersMovimento[_jogador].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_jogador].BonusMinigame();
-        _playersMovimento[_jogador].bonus = true;
+        _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
     }
 
     private void OnDestroy()

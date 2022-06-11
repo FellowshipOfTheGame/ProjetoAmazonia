@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public static int casaJogador1 = 0;
     public static int casaJogador2 = 0;
     public static int casaJogador3 = 0;
+    
+    //private Movimento[] _playersMovimento;
+    //_playersMovimento = FindObjectsOfType<Movimento>();
 
     // Start is called before the first frame update
     void Awake(){
@@ -35,53 +38,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void Update(){
-        
-        // Checa se chegou no fim do turno do jogador = muda a câmera
-        // Fim do turno = andar + minigame
-
-        switch(player){
-
-            case 0:
-
-                if(player1.GetComponent<Movimento>().andar == false && player1.GetComponent<Movimento>().acabouMinigame == true){
-
-                    player1.GetComponent<Movimento>().acabouMinigame = false;
-                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
-                    ChangePlayer();
-
-                }
-
-                break;
-
-            case 1:
-
-                if(player2.GetComponent<Movimento>().andar == false && player2.GetComponent<Movimento>().acabouMinigame == true){
-
-                    player2.GetComponent<Movimento>().acabouMinigame = false;
-                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
-                    ChangePlayer();
-
-                }
-            
-                break;
-                
-            case 2:
-
-                if(player3.GetComponent<Movimento>().andar == false && player3.GetComponent<Movimento>().acabouMinigame == true){
-
-                    player3.GetComponent<Movimento>().acabouMinigame = false;
-                    // Talvez fazer uma pausa para exibir mensagem antes de mudar o player
-                    ChangePlayer();
-
-                }
-
-                break;
-
-        }
-
-    }
-    
+   
     private void DefinirPersonagens(){
         
         int qtdPlayers = thePD.players.Count;
@@ -159,12 +116,41 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void ChangePlayer(){
+    public void ChangePlayer(){
 
         canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
         player = canvas.GetComponent<Dado>().jogador;
-        theCM.SwitchCamera();
+        theCM.SwitchCamera(player);
+        
+        // Reabilitar botão do dado
 
+    }
+
+    public void BonusMinigame(int jogador, int numCasasAndar){
+        
+        switch (jogador)
+        {
+
+            case 0:
+                theCM.SwitchCamera(jogador);
+                player1.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player1.GetComponent<Movimento>().bonus = true;
+                break;
+            
+            case 1:
+                theCM.SwitchCamera(jogador);
+                player2.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player2.GetComponent<Movimento>().bonus = true;
+                break;
+
+            case 2:
+                theCM.SwitchCamera(jogador);
+                player3.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player3.GetComponent<Movimento>().bonus = true;
+                break;
+
+        }
+        
     }
 
 }

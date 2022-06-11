@@ -1215,7 +1215,7 @@ MonoBehaviour:
   proxima: {fileID: 205278765}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 2
 --- !u!1 &622672935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   proxima: {fileID: 934709532}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 3
+  tipoDaCasa: 2
 --- !u!1 &658869212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   proxima: {fileID: 622672937}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 0
+  tipoDaCasa: 2
 --- !u!1 &769113686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +1981,7 @@ MonoBehaviour:
   proxima: {fileID: 1131540397}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 5
+  tipoDaCasa: 2
 --- !u!1 &945650715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   proxima: {fileID: 658869214}
   bifurcacao: 1
   atalho: {fileID: 1553913286}
-  tipoDaCasa: 5
+  tipoDaCasa: 2
 --- !u!1 &1180882092
 GameObject:
   m_ObjectHideFlags: 0

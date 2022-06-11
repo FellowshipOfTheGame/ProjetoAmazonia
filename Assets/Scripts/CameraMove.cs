@@ -29,17 +29,15 @@ public class CameraMove : MonoBehaviour
         visualizarMapa = false;
     }
 
-    public void SwitchCamera()
+    public void SwitchCamera(int jogador)
     {
-
-        jogadorDaVez = canvas.GetComponent<Dado>().jogador;
 
         if (!visualizarMapa)
         {
 
             mapCam.Priority = 0;
 
-            switch (jogadorDaVez)
+            switch (jogador)
             {
                 case 0:
                     p1Cam.Priority = 3;
@@ -68,7 +66,7 @@ public class CameraMove : MonoBehaviour
     public void ControlMapCamera()
     {
         visualizarMapa = !visualizarMapa;
-        SwitchCamera();
+        SwitchCamera(canvas.GetComponent<Dado>().jogador);
     }
 
 }

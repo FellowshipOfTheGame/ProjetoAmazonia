@@ -10,9 +10,9 @@ public class Quiz : MonoBehaviour
     public PerguntasScriptableObject[] perguntasScriptableObjects;
     
     private TMP_Text[] _textoBotoes;
-    private Movimento[] _playersMovimento;
     
     private Dado _dado;
+    private GameManager _gameManager;
     private Resultados _resultados;
 
     private int _player;
@@ -21,10 +21,10 @@ public class Quiz : MonoBehaviour
     private void Awake()
     {
         _textoBotoes = new TMP_Text[botoes.Length];
-        _playersMovimento = FindObjectsOfType<Movimento>();
         
         _resultados = FindObjectOfType<Resultados>(true);
         _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
 
@@ -60,9 +60,7 @@ public class Quiz : MonoBehaviour
 
     private void OnDisable()
     {
-        _playersMovimento[_player].qtdCasasAndar = _numeroDeCasasAndar;
-        //_playersMovimento[_player].BonusMinigame();
-        _playersMovimento[_player].bonus = true;
+        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
         
         foreach (Button button in botoes)
         {

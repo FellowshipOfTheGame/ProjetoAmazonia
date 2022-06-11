@@ -19,11 +19,14 @@ public class Movimento : MonoBehaviour
 
     private EstadoMinigame lastMinigame;
 
+    private GameManager theGM;
+
     private void Start()
     {
         minigameManager = FindObjectOfType<MinigameManager>();
         canvas = GameObject.Find("Canvas");
         theCM = GameObject.Find("CinemachineManager");
+        theGM = FindObjectOfType<GameManager>();
         lastMinigame = EstadoMinigame.Nenhum;
     }
 
@@ -34,7 +37,7 @@ public class Movimento : MonoBehaviour
             Andar();
         
         if(bonus)
-            BonusMinigame();
+            AndarMinigame();
 
     }
 
@@ -55,7 +58,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarParadaObrigatoria();
                     lastMinigame = EstadoMinigame.ParadaObrigatoria;
                     qtdCasasAndar = -2;
-                    acabouMinigame = true; // Tirar depois
+                    theGM.ChangePlayer();
 
                 }else if(casaAtual.tipoDaCasa == EstadoMinigame.PedagioOnca && lastMinigame != EstadoMinigame.PedagioOnca){
 
@@ -63,7 +66,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarPedagioOnca();
                     lastMinigame = EstadoMinigame.PedagioOnca;
                     qtdCasasAndar = -2;
-                    acabouMinigame = true; // Tirar depois
+                    theGM.ChangePlayer();
 
                 }else{
 
@@ -121,12 +124,12 @@ public class Movimento : MonoBehaviour
                 lastMinigame = EstadoMinigame.SorteReves;
                 break;
             case EstadoMinigame.Nenhum:
-                acabouMinigame = true;
+                theGM.ChangePlayer();
                 break;
         }
     }
 
-    public void BonusMinigame(){
+    public void AndarMinigame(){
 
         animator.SetBool("Andar", bonus);
 
@@ -146,7 +149,7 @@ public class Movimento : MonoBehaviour
             casaAtual = casaAtual.anterior;
             bonus = false;
             animator.SetBool("Andar", bonus);
-            acabouMinigame = true;
+            theGM.ChangePlayer();
 
         }
             
