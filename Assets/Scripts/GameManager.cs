@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +10,12 @@ public class GameManager : MonoBehaviour
     private static GameObject player1, player2, player3;
     public GameObject personagem1, personagem2, personagem3;
     private GameObject prefab, canvas;
+    
+    [SerializeField]
+    private Button dice;
+
+    [SerializeField]
+    private Button map;
 
     public static int dado = 0, player;
     public static int casaJogador1 = 0;
@@ -123,6 +128,8 @@ public class GameManager : MonoBehaviour
         theCM.SwitchCamera(player);
         
         // Reabilitar botão do dado
+        dice.interactable = true;
+        map.interactable = true;
 
     }
 

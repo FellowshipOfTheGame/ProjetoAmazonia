@@ -1215,7 +1215,7 @@ MonoBehaviour:
   proxima: {fileID: 205278765}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 2
+  tipoDaCasa: 0
 --- !u!1 &622672935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   proxima: {fileID: 934709532}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 2
+  tipoDaCasa: 3
 --- !u!1 &658869212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   proxima: {fileID: 622672937}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 2
+  tipoDaCasa: 0
 --- !u!1 &769113686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +1981,7 @@ MonoBehaviour:
   proxima: {fileID: 1131540397}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 2
+  tipoDaCasa: 5
 --- !u!1 &945650715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   proxima: {fileID: 658869214}
   bifurcacao: 1
   atalho: {fileID: 1553913286}
-  tipoDaCasa: 2
+  tipoDaCasa: 0
 --- !u!1 &1180882092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4103,6 +4103,8 @@ MonoBehaviour:
   personagem1: {fileID: 4799991684951833145, guid: 42836ac9834003a438897feab1d7aa03, type: 3}
   personagem2: {fileID: 2765127593566496841, guid: 124eae1296550c646a6f058bf0ecd039, type: 3}
   personagem3: {fileID: 6161740451146454567, guid: 11500be4fb32d4741a7b828d03454f10, type: 3}
+  dice: {fileID: 2013011211}
+  map: {fileID: 1235375816}
 --- !u!4 &1693868101
 Transform:
   m_ObjectHideFlags: 0
@@ -4517,6 +4519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888f750af13f88b48852f5ea5573fc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dice: {fileID: 2013011211}
+  map: {fileID: 1235375816}
   jogador: 0
 --- !u!114 &1922636649
 MonoBehaviour:
@@ -4746,7 +4750,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
