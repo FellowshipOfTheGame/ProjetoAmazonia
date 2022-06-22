@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,6 +10,7 @@ public class Forca : MonoBehaviour
 {
     [SerializeField] private GameObject letraPrefab;
     [SerializeField] private TMP_Text palavraAleatoriaText;
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
 
     private Button[] _letrasButton;
@@ -89,7 +89,9 @@ public class Forca : MonoBehaviour
             button.interactable = true;
         }
 
-        _jogador = _dado.jogador;
+        _jogador = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         _erros = 0;
         FisherYatesShuffle(_ordemJogada);
         palavraAleatoriaText.text = new string(_palavra);
@@ -97,7 +99,10 @@ public class Forca : MonoBehaviour
 
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
+        }
     }
 
     private void OnDestroy()
@@ -131,8 +136,9 @@ public class Forca : MonoBehaviour
                 print($"O jogador {_jogador.ToString()} acertou");
                 _resultados.gameObject.SetActive(true);
                 _numeroDeCasasAndar = Random.Range(1, 3);
-                _resultados.resultadosText.text = $"O jogador {_jogador.ToString()} acertou e anda " +
-                                                  $"{_numeroDeCasasAndar.ToString()} casas";
+                _resultados.resultadosText.text = $"O jogador {(_jogador + 1).ToString()} acertou e anda " +
+                                                  $"{_numeroDeCasasAndar.ToString()} " +
+                                                  $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
             }
         }
         else
@@ -153,8 +159,11 @@ public class Forca : MonoBehaviour
             for (int i = 0; i < _ordemJogada.Length; i++)
             {
                 if (_ordemJogada[i] != _jogador) continue;
-                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length]; 
+                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
+                break;
             }
+        
+            playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         }
 
         _letrasButton[indice].interactable = false;

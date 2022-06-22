@@ -22,15 +22,19 @@ public class SorteReves : MonoBehaviour
     private void OnEnable()
     {
         int numSorteado = Random.Range(0, sorteRevesScriptableObjects.Length);
-        _player = _dado.jogador;
+        _player = _dado ? _dado.jogador : 0;
         _numeroDeCasasAndar = sorteRevesScriptableObjects[numSorteado].casasAndadas;
-        textoSorteado.text = $"Player {_player + 1} teve {sorteRevesScriptableObjects[numSorteado].texto.ToLower()}" +
+        textoSorteado.text = $"Player {(_player + 1).ToString()} teve " +
+                             $"{sorteRevesScriptableObjects[numSorteado].texto.ToLower()}" +
                              $" e anda {_numeroDeCasasAndar.ToString()}";
     }
     
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        }
     }
 
     public void BotaoVoltarClick()
