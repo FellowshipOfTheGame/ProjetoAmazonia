@@ -5,6 +5,7 @@ using TMPro;
 public class Quiz : MonoBehaviour
 {
     [SerializeField] private TMP_Text perguntaText;
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private Button[] botoes;
     
     public PerguntasScriptableObject[] perguntasScriptableObjects;
@@ -36,10 +37,12 @@ public class Quiz : MonoBehaviour
 
     private void OnEnable()
     {
-        
         _numeroDeCasasAndar = 0;
         int perguntaAleatoria = Random.Range(0, perguntasScriptableObjects.Length);
-        _player = _dado.jogador;
+
+        _player = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
 
         perguntaText.text = perguntasScriptableObjects[perguntaAleatoria].pergunta;
 
@@ -60,8 +63,11 @@ public class Quiz : MonoBehaviour
 
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
-        
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        }
+
         foreach (Button button in botoes)
         {
             button.onClick.RemoveAllListeners();
@@ -74,7 +80,7 @@ public class Quiz : MonoBehaviour
         print("Resposta Correta");
         _numeroDeCasasAndar = Random.Range(1, 3);
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {_player.ToString()} acertou e anda " +
+        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} acertou e anda " +
                                           $"{_numeroDeCasasAndar.ToString()} casas";
     }
 
@@ -83,6 +89,6 @@ public class Quiz : MonoBehaviour
         // pessoa x nao anda
         print("Resposta Errada");
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {_player} errou";
+        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} errou";
     }
 }

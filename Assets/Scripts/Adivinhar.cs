@@ -89,7 +89,7 @@ public class Adivinhar : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_gameManager != null)
+        if (_gameManager)
         {
             _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
         }

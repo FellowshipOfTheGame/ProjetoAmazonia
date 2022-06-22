@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -90,7 +89,8 @@ public class Forca : MonoBehaviour
             button.interactable = true;
         }
 
-        _jogador = _dado.jogador;
+        _jogador = _dado ? _dado.jogador : 0;
+        
         playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         _erros = 0;
         FisherYatesShuffle(_ordemJogada);
@@ -99,7 +99,7 @@ public class Forca : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_gameManager != null)
+        if (_gameManager)
         {
             _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
         }

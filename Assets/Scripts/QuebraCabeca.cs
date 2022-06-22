@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +8,7 @@ using Random = UnityEngine.Random;
 public class QuebraCabeca : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
@@ -62,7 +62,10 @@ public class QuebraCabeca : MonoBehaviour
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
         Ganhou = false;
         _pecasCorretas  = 0;
-        _player = _dado.jogador;
+        
+        _player = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {
@@ -86,14 +89,17 @@ public class QuebraCabeca : MonoBehaviour
         {
             Debug.Log("Player perdeu", this);
             _resultados.gameObject.SetActive(true);
-            _resultados.resultadosText.text = $"Player { _player.ToString() } perdeu!";
+            _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } perdeu!";
             gameObject.SetActive(false);
         }
     }
 
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        }
     }
 
     private void OnDestroy()
@@ -142,7 +148,7 @@ public class QuebraCabeca : MonoBehaviour
         _numeroDeCasasAndar = Random.Range(1, 3);
         
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"Player { _player.ToString() } ganhou e anda " +
+        _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } ganhou e anda " +
                                           $"{_numeroDeCasasAndar.ToString()} casas!";
     }
 
