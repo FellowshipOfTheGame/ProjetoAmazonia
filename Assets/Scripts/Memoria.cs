@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 public class Memoria : MonoBehaviour
 {
@@ -13,11 +14,15 @@ public class Memoria : MonoBehaviour
     private GameObject[] _cartasGameObjects;
     private Button[] _botoesCartas;
     private Image[] _botoesImage;
+    
+    private Resultados _resultados;
+    
+    private int[] _pontos;
+    private int[] _ordemJogada;
+    
     private int _quantidadeCartas;
     private int _indicePrimeiraCartaAberta = -1;
     private int _jogador;
-    private int[] _pontos = new int[4];
-    private readonly int[] _ordemJogada = { 0, 1, 2, 3 };
 
     private void Awake()
     {
@@ -25,6 +30,29 @@ public class Memoria : MonoBehaviour
         _cartasGameObjects = new GameObject[_quantidadeCartas];
         _botoesCartas = new Button[_quantidadeCartas];
         _botoesImage = new Image[_quantidadeCartas];
+        
+        _resultados = FindObjectOfType<Resultados>(true);
+        
+        _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
+        
+        int playersCount;
+        
+        try
+        {
+            playersCount = PlayersData.Instance.players.Count;
+        }
+        catch (System.NullReferenceException)
+        {
+            playersCount = 1;
+        }
+        
+        _ordemJogada = new int[playersCount];
+        _pontos = new int[playersCount];
+        
+        for (int i = 0; i < playersCount; i++)
+        {
+            _ordemJogada[i] = i;
+        }
 
         for (int i = 0; i < _quantidadeCartas; i++)
         {
@@ -89,6 +117,13 @@ public class Memoria : MonoBehaviour
             _pontos[_jogador] += 10;
             print("deu bom");
             _indicePrimeiraCartaAberta = -1;
+            
+            //se acabaram as cartas, mostrar resultados
+            if (_botoesCartas.All(botaoCarta => !botaoCarta.interactable)) //copilot lindo
+            {
+                _resultados.gameObject.SetActive(true);
+                _resultados.resultadosText.text = $"Jogador {_jogador + 1} ganhou {_pontos[_jogador]} pontos";
+            }
 
             for (int i = 0; i < _ordemJogada.Length; i++)
             {

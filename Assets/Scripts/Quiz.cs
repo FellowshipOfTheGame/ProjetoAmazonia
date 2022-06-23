@@ -10,10 +10,18 @@ public class Quiz : MonoBehaviour
     public PerguntasScriptableObject[] perguntasScriptableObjects;
     
     private TMP_Text[] _textoBotoes;
+    
+    private Resultados _resultados;
+
+    private int _player;
 
     private void Awake()
     {
         _textoBotoes = new TMP_Text[botoes.Length];
+        
+        _resultados = FindObjectOfType<Resultados>(true);
+        
+        _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
 
         for (int i = 0; i < botoes.Length; i++)
         {
@@ -54,13 +62,15 @@ public class Quiz : MonoBehaviour
     {
         // pessoa x anda y casas
         print("Resposta Correta");
-        //gameObject.SetActive(false);
+        _resultados.gameObject.SetActive(true);
+        _resultados.resultadosText.text = $"O jogador {_player} acertou";
     }
 
     private void RespostaErrada()
     {
         // pessoa x nao anda
         print("Resposta Errada");
-        //gameObject.SetActive(false);
+        _resultados.gameObject.SetActive(true);
+        _resultados.resultadosText.text = $"O jogador {_player} errou";
     }
 }

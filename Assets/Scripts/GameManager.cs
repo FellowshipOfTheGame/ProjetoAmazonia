@@ -5,7 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private static GameObject player1, player2, player3, canvas, theCM;
+    public PlayersData thePD;
+    public CameraMove theCM;
+    private GameObject[] partida;
+    private static GameObject player1, player2, player3;
+    public GameObject personagem1, personagem2, personagem3;
+    private GameObject prefab;
 
     public static int dado = 0;
     public static int casaJogador1 = 0;
@@ -13,49 +18,67 @@ public class GameManager : MonoBehaviour
     public static int casaJogador3 = 0;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        player1 = GameObject.Find("Player 1");
-        player2 = GameObject.Find("Player 2");
-        player3 = GameObject.Find("Player 3");
-        canvas = GameObject.Find("Canvas");
-        theCM = GameObject.Find("CinemachineManager");
+    void Awake(){
+        
+        thePD = PlayersData.Instance;
+        theCM = FindObjectOfType<CameraMove>();
+        partida = GameObject.FindGameObjectsWithTag("Partida");
+        
+        DefinirPersonagens();
+        
+    }
+    
+    private void DefinirPersonagens(){
+        
+        int qtdPlayers = thePD.players.Count;
 
-        player1.GetComponent<Movimento>().andar = false;
-        player2.GetComponent<Movimento>().andar = false;
-        player3.GetComponent<Movimento>().andar = false;
+        for(int i = 0; i < qtdPlayers; i++){
+
+            Debug.Log(thePD.players[i].character);
+
+            switch(thePD.players[i].character){
+
+                case 0:
+                    prefab = Instantiate(personagem1, partida[i].transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    prefab = Instantiate(personagem2, partida[i].transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    prefab = Instantiate(personagem3, partida[i].transform.position, Quaternion.identity);
+                    break;
+
+            }
+
+            switch(i){
+
+                case 0:
+                    player1 = prefab;
+                    player1.name = "Player 1";
+                    player1.GetComponent<Movimento>().casaAtual = partida[i].GetComponent<Casa>();
+                    player1.GetComponent<Movimento>().andar = false;
+                    theCM.p1Cam.Follow = player1.transform;
+                    break;
+                case 1:
+                    player2 = prefab;
+                    player2.name = "Player 2";
+                    player2.GetComponent<Movimento>().casaAtual = partida[i].GetComponent<Casa>();
+                    player2.GetComponent<Movimento>().andar = false;
+                    theCM.p2Cam.Follow = player2.transform;
+                    break;
+                case 2:
+                    player3 = prefab;
+                    player3.name = "Player 3";
+                    player3.GetComponent<Movimento>().casaAtual = partida[i].GetComponent<Casa>();
+                    player3.GetComponent<Movimento>().andar = false;
+                    theCM.p3Cam.Follow = player3.transform;
+                    break;
+
+            }
+
+        }
 
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        
-        if(player1.GetComponent<Movimento>().numeroCasa == casaJogador1 + dado)
-        {
-            TipoDaCasa(player1.GetComponent<Movimento>().casaAtual);
-
-            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
-            theCM.GetComponent<CameraMove>().SwitchCamera();
-        }
-
-        if (player2.GetComponent<Movimento>().numeroCasa == casaJogador2 + dado)
-        {
-            TipoDaCasa(player2.GetComponent<Movimento>().casaAtual);
-
-            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
-            theCM.GetComponent<CameraMove>().SwitchCamera();
-        }
-
-        if (player3.GetComponent<Movimento>().numeroCasa == casaJogador3 + dado)
-        {
-            TipoDaCasa(player3.GetComponent<Movimento>().casaAtual);
-
-            canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
-            theCM.GetComponent<CameraMove>().SwitchCamera();
-        }
-
-    }*/
 
     public static void MoverJogador(int jogador)
     {

@@ -6,8 +6,7 @@ public class Movimento : MonoBehaviour
 {
 
     private MinigameManager minigameManager;
-
-    public Transform[] casas;
+    public Animator animator;
 
     private float speed = 2f;
 
@@ -15,18 +14,14 @@ public class Movimento : MonoBehaviour
 
     public bool andar = false;
 
-    // Movimento alternativo
     public Casa casaAtual;
-    public Casa casa;
+    
     public int qtdCasasAndar;
     private GameObject canvas, theCM;
-    //********************//
 
     private void Start()
     {
         minigameManager = FindObjectOfType<MinigameManager>();
-        transform.position = casas[numeroCasa].transform.position;
-        casaAtual = casa.GetComponent<Casa>();
         canvas = GameObject.Find("Canvas");
         theCM = GameObject.Find("CinemachineManager");
     }
@@ -35,25 +30,13 @@ public class Movimento : MonoBehaviour
     void Update()
     {
         if(andar)
-            Andar2();
+            Andar();
     }
 
     private void Andar()
     {
-        if(numeroCasa <= casas.Length - 1)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, casas[numeroCasa].transform.position, speed * Time.deltaTime);
 
-            if(transform.position == casas[numeroCasa].transform.position)
-            {
-                numeroCasa += 1;
-            }
-
-        }
-    }
-
-    private void Andar2()
-    {
+        animator.SetBool("Andar", andar);
 
         if(qtdCasasAndar >= 0){
 
@@ -92,6 +75,7 @@ public class Movimento : MonoBehaviour
             }
 
             andar = false;
+            animator.SetBool("Andar", andar);
             
             canvas.GetComponent<Dado>().jogador = (canvas.GetComponent<Dado>().jogador + 1) % 3;
             theCM.GetComponent<CameraMove>().SwitchCamera();
@@ -128,6 +112,30 @@ public class Movimento : MonoBehaviour
             case EstadoMinigame.Nenhum:
                 break;
         }
+    }
+
+    public void BonusMinigame(){
+
+        if(qtdCasasAndar >= 0){
+
+            transform.position = Vector2.MoveTowards(transform.position, casaAtual.transform.position, speed * Time.deltaTime);
+
+            if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
+
+                casaAtual = casaAtual.proxima;
+                numeroCasa += 1;
+                qtdCasasAndar -= 1;
+                
+            }
+
+        }else{
+
+            casaAtual = casaAtual.anterior;
+            numeroCasa -=1;
+            andar = false;
+
+        }
+            
     }
 
 }

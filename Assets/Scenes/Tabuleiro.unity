@@ -378,7 +378,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163670086}
-  - component: {fileID: 163670085}
   m_Layer: 0
   m_Name: Atalho
   m_TagString: Untagged
@@ -386,18 +385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &163670085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163670084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c7b9bc9cfa044ab9cd22c17fc9d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &163670086
 Transform:
   m_ObjectHideFlags: 0
@@ -429,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &176358381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,61 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19bde9c4b701f04e93b0fd0c164a04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  casas:
-  - {fileID: 1279175275}
-  - {fileID: 767327121}
-  - {fileID: 622672936}
-  - {fileID: 934709531}
-  - {fileID: 1131540396}
-  - {fileID: 658869213}
-  - {fileID: 546340520}
-  - {fileID: 205278764}
-  - {fileID: 125397002}
-  - {fileID: 1580891871}
-  - {fileID: 699744867}
-  - {fileID: 1093926129}
-  - {fileID: 1370717038}
-  - {fileID: 960494053}
-  - {fileID: 1656720881}
-  - {fileID: 1100218744}
-  - {fileID: 2021859443}
-  - {fileID: 1363763556}
-  - {fileID: 945650716}
-  - {fileID: 769113687}
-  - {fileID: 328150456}
-  - {fileID: 1896341921}
-  - {fileID: 445207102}
-  - {fileID: 989507044}
-  - {fileID: 1918852949}
-  - {fileID: 1180882093}
-  - {fileID: 1244765554}
-  - {fileID: 907259543}
-  - {fileID: 1201857497}
-  - {fileID: 1654895198}
-  - {fileID: 1553913285}
-  - {fileID: 1422974162}
-  - {fileID: 1919555849}
-  - {fileID: 967593832}
-  - {fileID: 1707071192}
-  - {fileID: 102564675}
-  - {fileID: 667775036}
-  - {fileID: 548479688}
-  - {fileID: 1915535039}
-  - {fileID: 548284985}
-  - {fileID: 380836748}
-  - {fileID: 584789686}
-  - {fileID: 1562319493}
-  - {fileID: 596732238}
-  - {fileID: 1640882319}
-  - {fileID: 778772908}
-  - {fileID: 1158516673}
-  - {fileID: 444222561}
-  - {fileID: 1375212627}
-  - {fileID: 1551242567}
+  animator: {fileID: 0}
   numeroCasa: 0
   andar: 0
   casaAtual: {fileID: 0}
-  casa: {fileID: 1279175276}
   qtdCasasAndar: 0
 --- !u!212 &176358382
 SpriteRenderer:
@@ -908,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &507856189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,61 +857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19bde9c4b701f04e93b0fd0c164a04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  casas:
-  - {fileID: 974457467}
-  - {fileID: 767327121}
-  - {fileID: 622672936}
-  - {fileID: 934709531}
-  - {fileID: 1131540396}
-  - {fileID: 658869213}
-  - {fileID: 546340520}
-  - {fileID: 205278764}
-  - {fileID: 125397002}
-  - {fileID: 1580891871}
-  - {fileID: 699744867}
-  - {fileID: 1093926129}
-  - {fileID: 1370717038}
-  - {fileID: 960494053}
-  - {fileID: 1656720881}
-  - {fileID: 1100218744}
-  - {fileID: 2021859443}
-  - {fileID: 1363763556}
-  - {fileID: 945650716}
-  - {fileID: 769113687}
-  - {fileID: 328150456}
-  - {fileID: 1896341921}
-  - {fileID: 445207102}
-  - {fileID: 989507044}
-  - {fileID: 1918852949}
-  - {fileID: 1180882093}
-  - {fileID: 1244765554}
-  - {fileID: 907259543}
-  - {fileID: 1201857497}
-  - {fileID: 1654895198}
-  - {fileID: 1553913285}
-  - {fileID: 1422974162}
-  - {fileID: 1919555849}
-  - {fileID: 967593832}
-  - {fileID: 1707071192}
-  - {fileID: 102564675}
-  - {fileID: 667775036}
-  - {fileID: 548479688}
-  - {fileID: 1915535039}
-  - {fileID: 548284985}
-  - {fileID: 380836748}
-  - {fileID: 584789686}
-  - {fileID: 1562319493}
-  - {fileID: 596732238}
-  - {fileID: 1640882319}
-  - {fileID: 778772908}
-  - {fileID: 1158516673}
-  - {fileID: 444222561}
-  - {fileID: 1375212627}
-  - {fileID: 1551242567}
+  animator: {fileID: 0}
   numeroCasa: 0
   andar: 0
   casaAtual: {fileID: 0}
-  casa: {fileID: 974457468}
   qtdCasasAndar: 0
 --- !u!212 &507856190
 SpriteRenderer:
@@ -1541,7 +1426,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 608098046}
-  - component: {fileID: 608098047}
   m_Layer: 0
   m_Name: Atalho (2)
   m_TagString: Untagged
@@ -1563,18 +1447,6 @@ Transform:
   m_Father: {fileID: 1100062323}
   m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &608098047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608098045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c7b9bc9cfa044ab9cd22c17fc9d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &622672935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1609,7 @@ MonoBehaviour:
   m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1194260472}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -2230,6 +2102,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &901093884
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 831121724717370439, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_Name
+      value: PlayersData
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395331545369533593, guid: 3909a4b9135de804690121438edbbf26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3909a4b9135de804690121438edbbf26, type: 3}
 --- !u!1 &907259542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2357,7 @@ GameObject:
   - component: {fileID: 974457468}
   m_Layer: 0
   m_Name: Casa (51)
-  m_TagString: Untagged
+  m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,6 +2480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321fa87ae3c1e38439b078e0e2313080, type: 3}
+--- !u!224 &1027107711 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+  m_PrefabInstance: {fileID: 1250753043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1030115202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2874,7 +2808,7 @@ MonoBehaviour:
   m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 507856191}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -3030,7 +2964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1194260470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3043,61 +2977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19bde9c4b701f04e93b0fd0c164a04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  casas:
-  - {fileID: 1246099918}
-  - {fileID: 767327121}
-  - {fileID: 622672936}
-  - {fileID: 934709531}
-  - {fileID: 1131540396}
-  - {fileID: 658869213}
-  - {fileID: 546340520}
-  - {fileID: 205278764}
-  - {fileID: 125397002}
-  - {fileID: 1580891871}
-  - {fileID: 699744867}
-  - {fileID: 1093926129}
-  - {fileID: 1370717038}
-  - {fileID: 960494053}
-  - {fileID: 1656720881}
-  - {fileID: 1100218744}
-  - {fileID: 2021859443}
-  - {fileID: 1363763556}
-  - {fileID: 945650716}
-  - {fileID: 769113687}
-  - {fileID: 328150456}
-  - {fileID: 1896341921}
-  - {fileID: 445207102}
-  - {fileID: 989507044}
-  - {fileID: 1918852949}
-  - {fileID: 1180882093}
-  - {fileID: 1244765554}
-  - {fileID: 907259543}
-  - {fileID: 1201857497}
-  - {fileID: 1654895198}
-  - {fileID: 1553913285}
-  - {fileID: 1422974162}
-  - {fileID: 1919555849}
-  - {fileID: 967593832}
-  - {fileID: 1707071192}
-  - {fileID: 102564675}
-  - {fileID: 667775036}
-  - {fileID: 548479688}
-  - {fileID: 1915535039}
-  - {fileID: 548284985}
-  - {fileID: 380836748}
-  - {fileID: 584789686}
-  - {fileID: 1562319493}
-  - {fileID: 596732238}
-  - {fileID: 1640882319}
-  - {fileID: 778772908}
-  - {fileID: 1158516673}
-  - {fileID: 444222561}
-  - {fileID: 1375212627}
-  - {fileID: 1551242567}
+  animator: {fileID: 0}
   numeroCasa: 0
   andar: 0
   casaAtual: {fileID: 0}
-  casa: {fileID: 1246099919}
   qtdCasasAndar: 0
 --- !u!212 &1194260471
 SpriteRenderer:
@@ -3320,7 +3203,7 @@ RectTransform:
   m_Children:
   - {fileID: 1973692597}
   m_Father: {fileID: 1922636652}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3463,7 +3346,7 @@ GameObject:
   - component: {fileID: 1246099919}
   m_Layer: 0
   m_Name: Casa (50)
-  m_TagString: Untagged
+  m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3499,6 +3382,103 @@ MonoBehaviour:
   bifurcacao: 0
   atalho: {fileID: 0}
   tipoDaCasa: 0
+--- !u!1001 &1250753043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1922636652}
+    m_Modifications:
+    - target: {fileID: 8468817683407068938, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_Name
+      value: Tela de Resultados
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468817683407068939, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9599fefc7d1a64d4ab9256da6367a45c, type: 3}
 --- !u!1 &1279175274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,7 +3491,7 @@ GameObject:
   - component: {fileID: 1279175276}
   m_Layer: 0
   m_Name: Casa (49)
-  m_TagString: Untagged
+  m_TagString: Partida
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4129,7 +4109,7 @@ MonoBehaviour:
   m_Priority: 2
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 176358383}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -4297,6 +4277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4b88e0b1f48034c98508cd797caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thePD: {fileID: 0}
+  theCM: {fileID: 0}
+  personagem1: {fileID: 4799991684951833145, guid: 42836ac9834003a438897feab1d7aa03, type: 3}
+  personagem2: {fileID: 2765127593566496841, guid: 124eae1296550c646a6f058bf0ecd039, type: 3}
+  personagem3: {fileID: 6161740451146454567, guid: 11500be4fb32d4741a7b828d03454f10, type: 3}
 --- !u!4 &1693868101
 Transform:
   m_ObjectHideFlags: 0
@@ -4798,6 +4783,7 @@ RectTransform:
   - {fileID: 515655128}
   - {fileID: 2106121008}
   - {fileID: 703585967}
+  - {fileID: 1027107711}
   - {fileID: 2013011210}
   - {fileID: 1235375815}
   m_Father: {fileID: 0}
@@ -4919,7 +4905,7 @@ RectTransform:
   m_Children:
   - {fileID: 1427126986}
   m_Father: {fileID: 1922636652}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5326,7 +5312,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101170883}
-  - component: {fileID: 2101170882}
   m_Layer: 0
   m_Name: Atalho (1)
   m_TagString: Untagged
@@ -5334,18 +5319,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2101170882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101170881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c7b9bc9cfa044ab9cd22c17fc9d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2101170883
 Transform:
   m_ObjectHideFlags: 0

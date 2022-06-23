@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersData: MonoBehaviour
 {
-    public static PlayersData Instance;
-    public struct Player
+    public class Player
     {
-        public int index;
         public int character;
         
-        public Player(int index, int character)
+        public Player(int character)
         {
-            this.index = index;
             this.character = character;
         }
     }
+    
+    public static PlayersData Instance;
+    public List<Player> players;
 
     private void Awake()
     {
@@ -31,6 +32,4 @@ public class PlayersData: MonoBehaviour
         
         #endregion
     }
-
-    public Player[] players;
 }

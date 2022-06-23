@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -61,11 +62,12 @@ public class MenuManager : MonoBehaviour
     {
         if (_playerNumber == _playersQuantity)
         {
+            _playersData.players.Add(new PlayersData.Player(playerCharacter));
             _sceneTransition.LoadScene("Tabuleiro");
         }
         else
         {
-            _playersData.players[_playerNumber - 1] = new PlayersData.Player(_playerNumber - 1, playerCharacter);
+            _playersData.players.Add(new PlayersData.Player(playerCharacter));
             _playerNumber++;
             playersQuantityText.text = $"Player {_playerNumber} selecione seu personagem";
         }
@@ -76,7 +78,7 @@ public class MenuManager : MonoBehaviour
         //GameManager.Instance.SetPlayersCount(count);
         PlayerPrefsController.SetPlayersCount(playersQuantity);
         _playersQuantity = playersQuantity;
-        _playersData.players = new PlayersData.Player[_playersQuantity];
+        _playersData.players = new List<PlayersData.Player>();
         playersSelectionMenu.SetActive(true);
         playersQuantityMenu.SetActive(false);
     }

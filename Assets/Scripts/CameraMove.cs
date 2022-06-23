@@ -5,11 +5,11 @@ public class CameraMove : MonoBehaviour
 {
 
     [SerializeField]
-    private CinemachineVirtualCamera p1Cam;
+    public CinemachineVirtualCamera p1Cam;
     [SerializeField]
-    private CinemachineVirtualCamera p2Cam;
+    public CinemachineVirtualCamera p2Cam;
     [SerializeField]
-    private CinemachineVirtualCamera p3Cam;
+    public CinemachineVirtualCamera p3Cam;
     [SerializeField]
     private CinemachineVirtualCamera mapCam;
 
