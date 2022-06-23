@@ -228,6 +228,9 @@ MonoBehaviour:
   adivinharAnimalPlantaScriptableObjects:
   - {fileID: 11400000, guid: 0342afc1f3664614aa5400035d30e31e, type: 2}
   animalPlantaImage: {fileID: 308277955378800885}
+  somRespostaCorreta: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somRespostaErrada: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeSomResposta: 1
 --- !u!1 &308277954268714591
 GameObject:
   m_ObjectHideFlags: 0

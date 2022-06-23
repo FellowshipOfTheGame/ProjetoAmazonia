@@ -19,6 +19,11 @@ public class Adivinhar : MonoBehaviour
     private int _randomNumber;
     private int _player;
 
+    [SerializeField] private AudioClip somRespostaCorreta;
+    [SerializeField] private AudioClip somRespostaErrada;
+    [SerializeField] private float volumeSomResposta = 1.0f;
+
+
     private void Awake()
     {
         _animalPlantaRectTransform = animalPlantaImage.GetComponent<RectTransform>();
@@ -59,7 +64,7 @@ public class Adivinhar : MonoBehaviour
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
         _player = 0;
-        Debug.LogWarning("Lembrar de pegar o jogador que começa o minigame de outro script");
+        Debug.LogWarning("Lembrar de pegar o jogador que comeï¿½a o minigame de outro script");
         FisherYatesShuffle(_ordemJogada);
 
         for (int i = 0; i < _buttons.Length; i++)
@@ -88,15 +93,17 @@ public class Adivinhar : MonoBehaviour
 
     private void RespostaCorreta()
     {
-        print($"O jogador {_player} acertou");
+        Debug.Log($"O jogador {_player} acertou");
         _resultados.gameObject.SetActive(true);
         _resultados.resultadosText.text = $"O jogador {_player} acertou";
+
+        AudioManager.Instance.PlaySoundEffect(somRespostaCorreta, volumeSomResposta);
     }
 
     private void RespostaErrada(Button button)
     {
         button.interactable = false;
-        print("Resposta errada");
+        Debug.Log("Resposta errada");
         _animalPlantaRectTransform.sizeDelta /= 2;
 
         for (int i = 0; i < _ordemJogada.Length; i++)
@@ -104,6 +111,8 @@ public class Adivinhar : MonoBehaviour
             if (_ordemJogada[i] != _player) continue;
             _player = _ordemJogada[(i + 1) % _ordemJogada.Length];
         }
+
+        AudioManager.Instance.PlaySoundEffect(somRespostaErrada, volumeSomResposta);
     }
 
     private void FisherYatesShuffle(int[] array)

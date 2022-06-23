@@ -19,6 +19,9 @@ public class Movimento : MonoBehaviour
     public int qtdCasasAndar;
     private GameObject canvas, theCM;
 
+    public AudioClip somDeAndar;
+    public float volumeSomDeAndar = 1.0f;
+
     private void Start()
     {
         minigameManager = FindObjectOfType<MinigameManager>();
@@ -43,6 +46,8 @@ public class Movimento : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, casaAtual.transform.position, speed * Time.deltaTime);
 
             if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
+
+                AudioManager.Instance.PlaySoundEffect(somDeAndar, volumeSomDeAndar);
 
                 switch(casaAtual.tipoDaCasa){
                     case EstadoMinigame.ParadaObrigatoria:

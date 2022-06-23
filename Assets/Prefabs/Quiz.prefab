@@ -905,6 +905,9 @@ MonoBehaviour:
   perguntasScriptableObjects:
   - {fileID: 11400000, guid: 397cd13a013843548940fd68fda4adf1, type: 2}
   - {fileID: 11400000, guid: 987488875634a044ca83125dae507e77, type: 2}
+  somRespostaCorreta: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somRespostaErrada: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeSomResposta: 1
 --- !u!222 &7639135557050460272
 CanvasRenderer:
   m_ObjectHideFlags: 0

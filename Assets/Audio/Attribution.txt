@@ -1,0 +1,3 @@
+move_sound: https://freesound.org/people/zachrau/sounds/556387/ [556387__zachrau__moving-piece-on-a-boardgame.wav] (edited)
+correct: https://freesound.org/people/unadamlar/sounds/476177/ [511484__mlaudio__success-bell.wav]
+wrong: https://freesound.org/people/unadamlar/sounds/476177/ [476177__unadamlar__wrong-choice.wav]

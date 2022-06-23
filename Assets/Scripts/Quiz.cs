@@ -15,6 +15,10 @@ public class Quiz : MonoBehaviour
 
     private int _player;
 
+    [SerializeField] private AudioClip somRespostaCorreta;
+    [SerializeField] private AudioClip somRespostaErrada;
+    [SerializeField] private float volumeSomResposta = 1.0f;
+
     private void Awake()
     {
         _textoBotoes = new TMP_Text[botoes.Length];
@@ -61,16 +65,20 @@ public class Quiz : MonoBehaviour
     private void RespostaCorreta()
     {
         // pessoa x anda y casas
-        print("Resposta Correta");
+        Debug.Log("Resposta Correta");
         _resultados.gameObject.SetActive(true);
         _resultados.resultadosText.text = $"O jogador {_player} acertou";
+
+        AudioManager.Instance.PlaySoundEffect(somRespostaCorreta, volumeSomResposta);
     }
 
     private void RespostaErrada()
     {
         // pessoa x nao anda
-        print("Resposta Errada");
+        Debug.Log("Resposta Errada");
         _resultados.gameObject.SetActive(true);
         _resultados.resultadosText.text = $"O jogador {_player} errou";
+
+        AudioManager.Instance.PlaySoundEffect(somRespostaErrada, volumeSomResposta);
     }
 }

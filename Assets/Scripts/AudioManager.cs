@@ -93,19 +93,24 @@ public class AudioManager : MonoBehaviour
         return _backgroundMusic;
     }
 
-    public void PlaySoundEffect(AudioClip clip)
+    public void PlaySoundEffect(AudioClip clip, float volume = 1.0f, float pitch = 1.0f)
     {
+        if(clip == null)
+            return;
+            
         if(_soundEffectsSources[_currentSoundEffectSource].isPlaying)
         {
             _soundEffectsSources[_currentSoundEffectSource].Stop();
             Debug.LogWarning($"{this.GetType().Name}: Out of AudioSources! The oldest one will be overwritten! If you "
-            + "experience audio cliping please increase _soundEffectSourceCount.");
+            + "experience audio clipping please increase _soundEffectSourceCount.");
 
             // Note that there's a chance we have free AudioSources (if a newer Source had a shorter clip and has
             // already finished) but we can't detect that without using a more complex system =(
         }
 
         _soundEffectsSources[_currentSoundEffectSource].clip = clip;
+        _soundEffectsSources[_currentSoundEffectSource].volume = volume;
+        _soundEffectsSources[_currentSoundEffectSource].pitch = pitch;
         _soundEffectsSources[_currentSoundEffectSource].Play();
 
         _currentSoundEffectSource = (_currentSoundEffectSource + 1) % _soundEffectsSources.Length;
@@ -126,7 +131,7 @@ public class AudioManager : MonoBehaviour
         _soundEffectsSources = new AudioSource[_soundEffectSourceCount];
 
         for(int i = 0; i < _soundEffectSourceCount; i++)
-            CreateAudioSource($"SoundEffectSource_{i}", false, _soundEffectsVolume);
+            _soundEffectsSources[i] = CreateAudioSource($"SoundEffectSource_{i}", false, _soundEffectsVolume);
 
         _currentSoundEffectSource = 0;
     }
