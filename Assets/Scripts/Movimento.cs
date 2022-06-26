@@ -8,7 +8,7 @@ public class Movimento : MonoBehaviour
 
     private float speed = 2f;
 
-    public bool andar = false, acabouMinigame = false, bonus = false;
+    public bool andar = false, bonus = false, terminou = false;
 
     public Casa casaAtual;
     
@@ -31,6 +31,7 @@ public class Movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(andar)
             Andar();
         
@@ -68,8 +69,12 @@ public class Movimento : MonoBehaviour
 
                 }else{
 
-                    casaAtual = casaAtual.proxima;
-                    qtdCasasAndar -= 1;
+                    if(casaAtual.proxima != null){
+                        casaAtual = casaAtual.proxima;
+                        qtdCasasAndar -= 1;
+                    }else{
+                        qtdCasasAndar = -3;
+                    }
 
                 }
 
@@ -80,10 +85,17 @@ public class Movimento : MonoBehaviour
             if(qtdCasasAndar == -1){
                 casaAtual = casaAtual.anterior;
                 TipoDaCasa();
+            }else if(qtdCasasAndar == -3){
+                terminou = true;
+                theGM.Chegada(); // Salvar posição que chegou no vetor do GameManager
             }
 
             andar = false;
             animator.SetBool("Andar", andar);
+            
+            if(terminou == true){
+                theGM.ChangePlayer();
+            }
             
         }
 
@@ -144,7 +156,14 @@ public class Movimento : MonoBehaviour
 
         }else{
 
-            casaAtual = casaAtual.anterior;
+            if(qtdCasasAndar == -1){
+                casaAtual = casaAtual.anterior;
+            }else if(qtdCasasAndar == -3){
+                terminou = true;
+                theGM.Chegada(); // Salvar posição que chegou no vetor do GameManager
+            }
+
+            //casaAtual = casaAtual.anterior;
             bonus = false;
             animator.SetBool("Andar", bonus);
             theGM.ChangePlayer();

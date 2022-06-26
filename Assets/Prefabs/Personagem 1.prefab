@@ -1044,8 +1044,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6536605360777523725}
-  numeroCasa: 0
   andar: 0
+  bonus: 0
+  terminou: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
 --- !u!1 &4917444349943686001
