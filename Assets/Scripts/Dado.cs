@@ -21,7 +21,7 @@ public class Dado : MonoBehaviour
 
         GameManager.dado = numeroDado;
 
-        // Desabilitar botão
+        // Desabilitar botões
         dice.interactable = false;
         map.interactable = false;
 
