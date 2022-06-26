@@ -1,11 +1,12 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using System.Linq;
+using TMPro;
 
 public class Memoria : MonoBehaviour
 {
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private GameObject cartaPrefab;
     [SerializeField] private GameObject gridLayoutGroup;
     
@@ -70,7 +71,6 @@ public class Memoria : MonoBehaviour
 
     private void OnEnable()
     {
-        
         _numeroDeCasasAndar = 0;
         
         for(int i = 0; i < _quantidadeCartas; i++)
@@ -80,8 +80,10 @@ public class Memoria : MonoBehaviour
         }
         
         FisherYatesShuffle(_cartasGameObjects);
-        _jogador = _dado.jogador;
-        Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
+        
+        _jogador = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         FisherYatesShuffle(_ordemJogada);
     }
 
@@ -95,7 +97,10 @@ public class Memoria : MonoBehaviour
 
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
+        }
     }
 
     private void DesvirarCartas(int i, int j)
@@ -132,20 +137,23 @@ public class Memoria : MonoBehaviour
             {
                 _numeroDeCasasAndar = Random.Range(1, 3);
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = $"Jogador {_jogador + 1} avançou {_numeroDeCasasAndar} casas";
-            }
-
-            for (int i = 0; i < _ordemJogada.Length; i++)
-            {
-                if (_ordemJogada[i] != _jogador) continue;
-                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
+                _resultados.resultadosText.text = $"Jogador {(_jogador + 1).ToString()} avançou " +
+                                                  $"{_numeroDeCasasAndar.ToString()} casas";
             }
         }
         else
         {
             DesvirarCartas(_indicePrimeiraCartaAberta, indice);
             print("desvirando cartas");
-            _jogador = _ordemJogada[(_jogador + 1) % _ordemJogada.Length];
+            
+            for (int i = 0; i < _ordemJogada.Length; i++)
+            {
+                if (_ordemJogada[i] != _jogador) continue;
+                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
+                break;
+            }
+            
+            playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         }
     }
 
