@@ -8,6 +8,7 @@ public class Adivinhar : MonoBehaviour
 {
     [SerializeField] private AdivinharAnimalPlantaScriptableObject[] adivinharAnimalPlantaScriptableObjects;
     [SerializeField] private Image animalPlantaImage;
+    [SerializeField] private TMP_Text playerTurnText;
     
     private Button[] _buttons;
     private TMP_Text[] _textButtons;
@@ -44,7 +45,7 @@ public class Adivinhar : MonoBehaviour
     private void Start()
     {
         int playersCount;
-        
+            
         try
         {
             playersCount = PlayersData.instance.players.Count;
@@ -66,13 +67,12 @@ public class Adivinhar : MonoBehaviour
 
     private void OnEnable()
     {
-        
         _numeroDeCasasAndar = 0;
         _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
         animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
-        _player = _dado.jogador;
-        Debug.LogWarning("Lembrar de pegar o jogador que come�a o minigame de outro script");
+        _player = _dado ? _dado.jogador : 0;
+        playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
         FisherYatesShuffle(_ordemJogada);
 
         for (int i = 0; i < _buttons.Length; i++)
@@ -93,8 +93,11 @@ public class Adivinhar : MonoBehaviour
 
     private void OnDisable()
     {
-        _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
-        
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        }
+
         foreach (var button in _buttons)
         {
             button.onClick.RemoveAllListeners();
@@ -106,8 +109,8 @@ public class Adivinhar : MonoBehaviour
         print($"O jogador {_player.ToString()} acertou");
         _resultados.gameObject.SetActive(true);
         _numeroDeCasasAndar = Random.Range(1, 3);
-        _resultados.resultadosText.text = $"O jogador {_player.ToString()} acertou e anda " +
-                                          $"{_numeroDeCasasAndar.ToString()} casas";
+        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} acertou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} {(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
     }
 
     private void RespostaErrada(Button button)
@@ -116,13 +119,14 @@ public class Adivinhar : MonoBehaviour
         print("Resposta errada");
         _animalPlantaRectTransform.sizeDelta /= 2;
         
-        Debug.LogWarning("LEMBRAR DE MOSTRAR A VEZ DO JOGADOR MUDANDO");
-        
         for (int i = 0; i < _ordemJogada.Length; i++)
         {
             if (_ordemJogada[i] != _player) continue;
             _player = _ordemJogada[(i + 1) % _ordemJogada.Length];
+            break;
         }
+        
+        playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
     }
 
     private void FisherYatesShuffle(int[] array)

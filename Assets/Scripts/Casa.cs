@@ -3,7 +3,7 @@ using UnityEngine;
 public class Casa : MonoBehaviour
 {
 
-    [Header("Caminho padrão")]
+    [Header("Caminho padrÃ£o")]
     public Casa anterior;
     public Casa proxima;
 
@@ -15,7 +15,7 @@ public class Casa : MonoBehaviour
 
     [Space(5)]
 
-    [Header("Função da casa")]
+    [Header("FunÃ§Ã£o da casa")]
     public EstadoMinigame tipoDaCasa;
 
 }

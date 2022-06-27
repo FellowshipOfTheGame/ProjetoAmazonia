@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 
 public class CameraMove : MonoBehaviour
@@ -12,6 +13,8 @@ public class CameraMove : MonoBehaviour
     public CinemachineVirtualCamera p3Cam;
     [SerializeField]
     private CinemachineVirtualCamera mapCam;
+    [SerializeField]
+    private Button dice;
 
     private static GameObject canvas;
     private int jogadorDaVez = 0;
@@ -66,6 +69,7 @@ public class CameraMove : MonoBehaviour
     public void ControlMapCamera()
     {
         visualizarMapa = !visualizarMapa;
+        dice.interactable = !dice.interactable;
         SwitchCamera(canvas.GetComponent<Dado>().jogador);
     }
 
