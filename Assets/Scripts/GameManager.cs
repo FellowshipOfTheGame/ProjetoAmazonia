@@ -30,14 +30,13 @@ public class GameManager : MonoBehaviour
         theCM = FindObjectOfType<CameraMove>();
         canvas = GameObject.Find("Canvas");
         partida = GameObject.FindGameObjectsWithTag("Partida");
-        
-        DefinirPersonagens();
-        
+
     }
 
     void Start() {
         
         thePD = PlayersData.instance;
+        DefinirPersonagens();
         player = canvas.GetComponent<Dado>().jogador;
         dado = 0;
         rank = 0;

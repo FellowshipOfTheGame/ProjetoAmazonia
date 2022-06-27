@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -51,27 +52,6 @@ public class Memoria : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        int playersCount;
-        
-        try
-        {
-            playersCount = PlayersData.instance.players.Count;
-        }
-        catch (NullReferenceException)
-        {
-            playersCount = 1;
-        }
-        
-        _ordemJogada = new int[playersCount];
-
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
-    }
-
     private void OnEnable()
     {
         _numeroDeCasasAndar = 0;
@@ -80,6 +60,27 @@ public class Memoria : MonoBehaviour
         {
             _botoesCartas[i].interactable = true;
             _botoesImage[i].sprite = cartasScriptableObjects[i].verso;
+        }
+        
+        if (_ordemJogada == null)
+        {
+            int playersCount;
+            
+            try
+            {
+                playersCount = PlayersData.instance.players.Count;
+            }
+            catch (NullReferenceException)
+            {
+                playersCount = 1;
+            }
+            
+            _ordemJogada = new int[playersCount];
+        
+            for (int i = 0; i < playersCount; i++)
+            {
+                _ordemJogada[i] = i;
+            }
         }
         
         FisherYatesShuffle(_cartasGameObjects);

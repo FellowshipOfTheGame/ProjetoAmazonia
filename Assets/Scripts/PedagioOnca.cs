@@ -19,7 +19,7 @@ public class PedagioOnca : MonoBehaviour
     private void OnEnable()
     {
         //PEGAR UMA FRASE ALEATORIA
-        _jogador = _dado.jogador;
+        _jogador = _dado? _dado.jogador : 1;
     }
 
     private void BackButtonClick()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -52,27 +53,6 @@ public class Forca : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        int playersCount;
-        
-        try
-        {
-            playersCount = PlayersData.instance.players.Count;
-        }
-        catch (NullReferenceException)
-        {
-            playersCount = 1;
-        }
-        
-        _ordemJogada = new int[playersCount];
-        
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
-    }
-
     private void OnEnable()
     {
         
@@ -98,6 +78,28 @@ public class Forca : MonoBehaviour
         
         playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         _erros = 0;
+        
+        if (_ordemJogada == null)
+        {
+            int playersCount;
+            
+            try
+            {
+                playersCount = PlayersData.instance.players.Count;
+            }
+            catch (NullReferenceException)
+            {
+                playersCount = 1;
+            }
+            
+            _ordemJogada = new int[playersCount];
+        
+            for (int i = 0; i < playersCount; i++)
+            {
+                _ordemJogada[i] = i;
+            }
+        }
+        
         FisherYatesShuffle(_ordemJogada);
         palavraAleatoriaText.text = new string(_palavra);
     }
