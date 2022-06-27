@@ -39,24 +39,6 @@ public class Memoria : MonoBehaviour
         _resultados = FindObjectOfType<Resultados>(true);
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
-        
-        int playersCount;
-        
-        try
-        {
-            playersCount = PlayersData.Instance.players.Count;
-        }
-        catch (System.NullReferenceException)
-        {
-            playersCount = 1;
-        }
-        
-        _ordemJogada = new int[playersCount];
-
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
 
         for (int i = 0; i < _quantidadeCartas; i++)
         {
@@ -66,6 +48,27 @@ public class Memoria : MonoBehaviour
 
             int wtf = i;
             _botoesCartas[i].onClick.AddListener(delegate { ClickCarta(wtf); }); // ?????????????
+        }
+    }
+
+    private void Start()
+    {
+        int playersCount;
+        
+        try
+        {
+            playersCount = PlayersData.instance.players.Count;
+        }
+        catch (NullReferenceException)
+        {
+            playersCount = 1;
+        }
+        
+        _ordemJogada = new int[playersCount];
+
+        for (int i = 0; i < playersCount; i++)
+        {
+            _ordemJogada[i] = i;
         }
     }
 

@@ -17,10 +17,10 @@ public class MenuManager : MonoBehaviour
     private int _playersQuantity;
     private int _playerNumber = 1;
 
-    private void Awake()
+    private void Start()
     {
-        _sceneTransition = SceneTransition.Instance;
-        _playersData = PlayersData.Instance;
+        _sceneTransition = SceneTransition.instance;
+        _playersData = PlayersData.instance;
     }
     
     public void ExitGame()
@@ -69,7 +69,7 @@ public class MenuManager : MonoBehaviour
         {
             _playersData.players.Add(new PlayersData.Player(playerCharacter));
             _playerNumber++;
-            playersQuantityText.text = $"Player {_playerNumber} selecione seu personagem";
+            playersQuantityText.text = $"Player {_playerNumber.ToString()} selecione seu personagem";
         }
     }
     

@@ -5,7 +5,7 @@ public class PlayersData: MonoBehaviour
 {
     public class Player
     {
-        public int character;
+        public readonly int character;
         
         public Player(int character)
         {
@@ -13,19 +13,19 @@ public class PlayersData: MonoBehaviour
         }
     }
     
-    public static PlayersData Instance;
+    public static PlayersData instance;
     public List<Player> players;
 
     private void Awake()
     {
         #region Singleton
         
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }

@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     void Awake(){
         
-        thePD = PlayersData.Instance;
         theCM = FindObjectOfType<CameraMove>();
         canvas = GameObject.Find("Canvas");
         partida = GameObject.FindGameObjectsWithTag("Partida");
@@ -37,7 +36,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Start() {
-
+        
+        thePD = PlayersData.instance;
         player = canvas.GetComponent<Dado>().jogador;
         dado = 0;
         rank = 0;
