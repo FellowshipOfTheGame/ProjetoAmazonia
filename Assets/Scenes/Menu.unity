@@ -717,7 +717,7 @@ MonoBehaviour:
   m_text: "Quantos ir\xE3o participar?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2851,7 +2851,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551687711
 GameObject:
@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
-  m_sharedMaterial: {fileID: -6074744185726695089, guid: e732d532fd7a17b48b66b1416e6f78c5, type: 2}
+  m_sharedMaterial: {fileID: -8506692868060091269, guid: 291f32ceb9bdc4d458a698c23eab4baa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3057,7 +3057,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1440632022}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3085,7 +3085,7 @@ RectTransform:
   - {fileID: 2126038741}
   - {fileID: 1063793816}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

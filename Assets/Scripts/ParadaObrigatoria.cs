@@ -20,7 +20,7 @@ public class ParadaObrigatoria : MonoBehaviour
     
     private void OnEnable()
     {
-        _jogador = _dado.jogador;
+        _jogador = _dado? _dado.jogador : 1;
     }
 
     private void OnDestroy()

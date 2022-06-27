@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -35,26 +36,6 @@ public class Adivinhar : MonoBehaviour
         
         _textButtons = new TMP_Text[_buttons.Length];
 
-        int playersCount;
-            
-        try
-        {
-            playersCount = PlayersData.Instance.players.Count;
-        }
-        catch (System.NullReferenceException)
-        {
-            playersCount = 1;
-        }
-        
-        _ordemJogada = new int[playersCount];
-        
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
-        
-        FisherYatesShuffle(_ordemJogada);
-
         for (int i = 0; i < _buttons.Length; i++)
         {
             _textButtons[i] = _buttons[i].GetComponentInChildren<TMP_Text>();
@@ -69,6 +50,28 @@ public class Adivinhar : MonoBehaviour
         _animalPlantaRectTransform.sizeDelta *= 128;
         _player = _dado ? _dado.jogador : 0;
         playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
+
+        if (_ordemJogada == null)
+        {
+            int playersCount;
+            
+            try
+            {
+                playersCount = PlayersData.instance.players.Count;
+            }
+            catch (NullReferenceException)
+            {
+                playersCount = 1;
+            }
+            
+            _ordemJogada = new int[playersCount];
+        
+            for (int i = 0; i < playersCount; i++)
+            {
+                _ordemJogada[i] = i;
+            }
+        }
+        
         FisherYatesShuffle(_ordemJogada);
 
         for (int i = 0; i < _buttons.Length; i++)
@@ -97,6 +100,7 @@ public class Adivinhar : MonoBehaviour
         foreach (var button in _buttons)
         {
             button.onClick.RemoveAllListeners();
+            button.interactable = true;
         }
     }
 

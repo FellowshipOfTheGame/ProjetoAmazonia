@@ -10,9 +10,9 @@ public class PainelResultado : MonoBehaviour
     public Image p1img, p2img, p3img;
     private SceneTransition backMenu;
 
-    private void Awake()
+    private void Start()
     {
-        backMenu = SceneTransition.Instance;
+        backMenu = SceneTransition.instance;
     }
 
     public void UpdateResultados(int[] ordemChegada, int[] personagensEscolhidos, int qtdPlayers){
