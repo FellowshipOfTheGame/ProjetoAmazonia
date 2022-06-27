@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -34,28 +35,33 @@ public class Adivinhar : MonoBehaviour
         
         _textButtons = new TMP_Text[_buttons.Length];
 
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            _textButtons[i] = _buttons[i].GetComponentInChildren<TMP_Text>();
+        }
+    }
+
+    private void Start()
+    {
         int playersCount;
         
         try
         {
-            playersCount = PlayersData.Instance.players.Count;
+            playersCount = PlayersData.instance.players.Count;
         }
-        catch (System.NullReferenceException)
+        catch (NullReferenceException)
         {
             playersCount = 1;
         }
-        
+
         _ordemJogada = new int[playersCount];
         
         for (int i = 0; i < playersCount; i++)
         {
             _ordemJogada[i] = i;
         }
-
-        for (int i = 0; i < _buttons.Length; i++)
-        {
-            _textButtons[i] = _buttons[i].GetComponentInChildren<TMP_Text>();
-        }
+        
+        FisherYatesShuffle(_ordemJogada);
     }
 
     private void OnEnable()

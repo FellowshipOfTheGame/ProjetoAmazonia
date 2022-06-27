@@ -9,11 +9,15 @@ public class Options : MonoBehaviour
     
     private void Awake()
     {
-        _audioManager = AudioManager.Instance;
         _musicSlider = GameObject.FindWithTag("MusicSlider").GetComponent<Slider>();
         _soundEffectsSlider = GameObject.FindWithTag("SoundEffectsSlider").GetComponent<Slider>();
         _musicSlider.value = _audioManager.GetMusicVolume();
         _soundEffectsSlider.value = _audioManager.GetSoundEffectsVolume();
+    }
+
+    private void Start()
+    {
+        _audioManager = AudioManager.instance;
     }
 
     public void OnMusicSlideChange(float value)

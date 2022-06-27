@@ -41,22 +41,6 @@ public class Forca : MonoBehaviour
         _letrasButton = new Button[AlfabetoTamanho];
         _resultados = FindObjectOfType<Resultados>(true);
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
-        int playersCount;
-        
-        try
-        {
-            playersCount = PlayersData.Instance.players.Count;
-        }
-        catch (System.NullReferenceException)
-        {
-            playersCount = 1;
-        }        
-        _ordemJogada = new int[playersCount];
-        
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
 
         for (int i = 'A'; i < AlfabetoTamanho + 'A'; i++)
         {
@@ -65,6 +49,27 @@ public class Forca : MonoBehaviour
             _letrasButton[indice] = letraGameObject.GetComponent<Button>();
             letraGameObject.GetComponentInChildren<TMP_Text>().text = char.ConvertFromUtf32(i);
             _letrasButton[indice].onClick.AddListener(delegate { LetraClick(indice); });
+        }
+    }
+
+    private void Start()
+    {
+        int playersCount;
+        
+        try
+        {
+            playersCount = PlayersData.instance.players.Count;
+        }
+        catch (NullReferenceException)
+        {
+            playersCount = 1;
+        }
+        
+        _ordemJogada = new int[playersCount];
+        
+        for (int i = 0; i < playersCount; i++)
+        {
+            _ordemJogada[i] = i;
         }
     }
 

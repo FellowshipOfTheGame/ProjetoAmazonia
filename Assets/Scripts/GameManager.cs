@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake(){
         
-        thePD = PlayersData.Instance;
         theCM = FindObjectOfType<CameraMove>();
         canvas = GameObject.Find("Canvas");
         partida = GameObject.FindGameObjectsWithTag("Partida");
@@ -33,7 +32,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Start() {
-
+        
+        thePD = PlayersData.instance;
         player = canvas.GetComponent<Dado>().jogador;
         
     }
