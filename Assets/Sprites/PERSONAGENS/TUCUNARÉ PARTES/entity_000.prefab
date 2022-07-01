@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2204338078815993134}
   - component: {fileID: 2879997322665809928}
-  - component: {fileID: 9128448718956349832}
+  - component: {fileID: 3865606418287579057}
   m_Layer: 0
   m_Name: OLHO1
   m_TagString: Untagged
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9128448718956349832
+--- !u!114 &3865606418287579057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6209151914860063942}
   - component: {fileID: 6738939999357571825}
-  - component: {fileID: 1508963500872018315}
+  - component: {fileID: 1412518979333093482}
   m_Layer: 0
   m_Name: OLHO2
   m_TagString: Untagged
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1508963500872018315
+--- !u!114 &1412518979333093482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
