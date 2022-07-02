@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public Movimento[] jogadores;
 
+    public TMP_Text mensagemTurno;
+
     void Awake(){
         
         theCM = FindObjectOfType<CameraMove>();
@@ -41,6 +45,8 @@ public class GameManager : MonoBehaviour
         dado = 0;
         rank = 0;
         
+        StartCoroutine(MensagemTurno("Você começa,\nJogador 1"));
+
     }
 
    
@@ -128,6 +134,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    IEnumerator MensagemTurno(string mensagem){
+
+        mensagemTurno.text = mensagem;
+        mensagemTurno.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        mensagemTurno.gameObject.SetActive(false);
+
+    }
+
     public void ChangePlayer(){
 
         /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
@@ -143,11 +158,19 @@ public class GameManager : MonoBehaviour
             canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
             player = canvas.GetComponent<Dado>().jogador;
 
+            if(jogadores[player].perdeTurno > 0){
+                canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                player = canvas.GetComponent<Dado>().jogador;
+            }
+
             while(jogadores[player].terminou == true){
 
                 canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
                 player = canvas.GetComponent<Dado>().jogador;
+
             }
+
+            StartCoroutine(MensagemTurno($"Sua vez,\nJogador {(player+1).ToString()}"));
 
             theCM.SwitchCamera(player);
 
@@ -160,25 +183,28 @@ public class GameManager : MonoBehaviour
     }
 
     public void BonusMinigame(int jogador, int numCasasAndar){
-        
+
         switch (jogador)
         {
 
             case 0:
                 theCM.SwitchCamera(jogador);
-                player1.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player1.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
+                player1.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
                 player1.GetComponent<Movimento>().bonus = true;
                 break;
             
             case 1:
                 theCM.SwitchCamera(jogador);
-                player2.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player2.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
+                player2.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
                 player2.GetComponent<Movimento>().bonus = true;
                 break;
 
             case 2:
                 theCM.SwitchCamera(jogador);
-                player3.GetComponent<Movimento>().qtdCasasAndar = numCasasAndar;
+                player3.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
+                player3.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
                 player3.GetComponent<Movimento>().bonus = true;
                 break;
 

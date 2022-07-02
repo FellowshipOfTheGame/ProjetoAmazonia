@@ -8,7 +8,8 @@ public class Movimento : MonoBehaviour
 
     private float speed = 2f;
 
-    public bool andar = false, bonus = false, terminou = false;
+    public bool andar = false, bonus = false, paraFrente = true, terminou = false;
+    public int perdeTurno = 0;
 
     public Casa casaAtual;
     
@@ -57,7 +58,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarParadaObrigatoria();
                     lastMinigame = EstadoMinigame.ParadaObrigatoria;
                     qtdCasasAndar = -2;
-                    theGM.ChangePlayer();
+                    theGM.ChangePlayer(); // Tirar depois que pronto
 
                 }else if(casaAtual.tipoDaCasa == EstadoMinigame.PedagioOnca && lastMinigame != EstadoMinigame.PedagioOnca){
 
@@ -65,7 +66,7 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarPedagioOnca();
                     lastMinigame = EstadoMinigame.PedagioOnca;
                     qtdCasasAndar = -2;
-                    theGM.ChangePlayer();
+                    theGM.ChangePlayer(); // Tirar depois que pronto
 
                 }else{
 
@@ -133,6 +134,13 @@ public class Movimento : MonoBehaviour
                 minigameManager.ComecarSorteRevesMinigame();
                 lastMinigame = EstadoMinigame.SorteReves;
                 break;
+            case EstadoMinigame.PerdaTurno:
+                Debug.Log("Perda de turno");
+                // Só deve funcionar para jogos com mais de um player
+                // Deve desativar quando só restar um player jogando
+                minigameManager.ComecarPerdaTurno();
+                lastMinigame = EstadoMinigame.PerdaTurno;
+                break;
             case EstadoMinigame.Nenhum:
                 theGM.ChangePlayer();
                 break;
@@ -149,19 +157,28 @@ public class Movimento : MonoBehaviour
 
             if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
 
-                casaAtual = casaAtual.proxima;
+                if(paraFrente == true){
+                    casaAtual = casaAtual.proxima;
+                }else{
+                    casaAtual = casaAtual.anterior;
+                }
                 qtdCasasAndar -= 1;
                 
             }
 
         }else{
 
-            if(qtdCasasAndar == -1){
-                casaAtual = casaAtual.anterior;
-            }else if(qtdCasasAndar == -3){
-                terminou = true;
-                theGM.Chegada(); // Salvar posição que chegou no vetor do GameManager
+            if(paraFrente == true){
+                if(qtdCasasAndar == -1){
+                    casaAtual = casaAtual.anterior;
+                }else if(qtdCasasAndar == -3){
+                    terminou = true;
+                    theGM.Chegada(); // Salvar posição que chegou no vetor do GameManager
+                }
+            }else{
+                casaAtual = casaAtual.proxima;
             }
+            
 
             //casaAtual = casaAtual.anterior;
             bonus = false;
