@@ -66,7 +66,12 @@ public class Forca : MonoBehaviour
 
         for (int i = 0; i < _palavra.Length; i++)
         {
-            _palavra[i] = '-';
+            _palavra[i] = _palavraComAcento[i] switch
+            {
+                '-' => '-',
+                ' ' => ' ',
+                _ => '_'
+            };
         }
 
         foreach (Button button in _letrasButton)
@@ -138,12 +143,13 @@ public class Forca : MonoBehaviour
 
             palavraAleatoriaText.text = Substituir(palavra, _palavraComAcento);
             
-            if (!_palavra.Contains('-'))
+            if (!_palavra.Contains('_'))
             {
                 print($"O jogador {_jogador.ToString()} acertou");
                 _resultados.gameObject.SetActive(true);
                 _numeroDeCasasAndar = Random.Range(1, 3);
-                _resultados.resultadosText.text = $"O jogador {(_jogador + 1).ToString()} acertou e anda " +
+                _resultados.resultadosText.text = $"A palavra era {_palavraComAcento.ToLower()} e o " +
+                                                  $"jogador {(_jogador + 1).ToString()} acertou e anda " +
                                                   $"{_numeroDeCasasAndar.ToString()} " +
                                                   $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
             }
@@ -215,7 +221,7 @@ public class Forca : MonoBehaviour
         
         for (int i = 0; i < oldChars.Length; i++)
         {
-            if (oldChars[i] != '-')
+            if (oldChars[i] != '_' && oldChars[i] != ' ')
             {
                 oldChars[i] = novaChars[i];
             }
