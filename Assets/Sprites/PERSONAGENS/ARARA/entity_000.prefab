@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9019556236313873921}
   - component: {fileID: 3959338622416481105}
-  - component: {fileID: 4909862746744540516}
+  - component: {fileID: 6088269997224346445}
   m_Layer: 0
   m_Name: ASA1
   m_TagString: Untagged
@@ -258,7 +258,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4909862746744540516
+--- !u!114 &6088269997224346445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6224256590449857314}
   - component: {fileID: 6590296548956429642}
-  - component: {fileID: 268972080313236280}
+  - component: {fileID: 2768529504676549109}
   m_Layer: 0
   m_Name: ASA1_000
   m_TagString: Untagged
@@ -785,7 +785,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &268972080313236280
+--- !u!114 &2768529504676549109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056245601427972466}
   - component: {fileID: 8075603360596232086}
-  - component: {fileID: 4180067372569604707}
+  - component: {fileID: 3973272902429538469}
   m_Layer: 0
   m_Name: "CABE\xC7A1"
   m_TagString: Untagged
@@ -998,7 +998,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4180067372569604707
+--- !u!114 &3973272902429538469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

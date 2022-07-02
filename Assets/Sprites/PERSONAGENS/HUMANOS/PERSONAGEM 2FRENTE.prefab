@@ -634,7 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086369714100030311}
   - component: {fileID: 4237619070137813576}
-  - component: {fileID: 7606787087784031548}
+  - component: {fileID: 5587980530806338001}
   m_Layer: 0
   m_Name: CABECA1
   m_TagString: Untagged
@@ -707,7 +707,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7606787087784031548
+--- !u!114 &5587980530806338001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

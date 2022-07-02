@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0">
+        <file id="0" name="CABEÇA1.png" width="436" height="800" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="CABEÇA2.png" width="436" height="800" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="CORPO.png" width="695" height="484" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="PATA FRENTE.png" width="451" height="419" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="PATA FRENTE2.png" width="451" height="419" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="PATA TRAS1.png" width="291" height="390" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="TRONCO.png" width="1933" height="980" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="PATA TRAS2.png" width="164" height="365" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="RABO.png" width="289" height="657" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="7" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="6" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="5" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="1" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="4" key="0" z_index="5"/>
+                    <object_ref id="6" timeline="2" key="0" z_index="6"/>
+                    <object_ref id="7" timeline="0" key="0" z_index="7"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="CABEÇA2">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-215.798611" y="798.4375"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="CORPO">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-616.666667" y="675"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="PATA FRENTE">
+                <key id="0" spin="0">
+                    <object folder="0" file="3" x="-263.986014" y="452.505828"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="PATA FRENTE2">
+                <key id="0" spin="0">
+                    <object folder="0" file="4" x="-116.514078" y="439.684548"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="PATA TRAS1">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="-634.615385" y="700"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="TRONCO">
+                <key id="0" spin="0">
+                    <object folder="0" file="6" x="-1048.661388" y="754.647436"/>
+                </key>
+            </timeline>
+            <timeline id="6" name="PATA TRAS2">
+                <key id="0" spin="0">
+                    <object folder="0" file="7" x="-535.294118" y="329.411765"/>
+                </key>
+            </timeline>
+            <timeline id="7" name="RABO">
+                <key id="0" spin="0">
+                    <object folder="0" file="8" x="-731.372549" y="525.490196"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
