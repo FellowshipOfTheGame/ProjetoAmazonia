@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,11 @@ public class PedagioOnca : MonoBehaviour
     {
         //PEGAR UMA FRASE ALEATORIA
         _jogador = _dado? _dado.jogador : 1;
+    }
+
+    private void OnDestroy()
+    {
+        backButton.onClick.RemoveAllListeners();
     }
 
     private void BackButtonClick()
