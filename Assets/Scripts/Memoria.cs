@@ -141,8 +141,8 @@ public class Memoria : MonoBehaviour
             {
                 _numeroDeCasasAndar = Random.Range(1, 3);
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = $"Jogador {(_jogador + 1).ToString()} avançou " +
-                                                  $"{_numeroDeCasasAndar.ToString()} casas";
+                _resultados.SetText($"Jogador {(_jogador + 1).ToString()} avançou " +
+                                                  $"{_numeroDeCasasAndar.ToString()} casas");
             }
         }
         else

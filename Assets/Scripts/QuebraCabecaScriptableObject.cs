@@ -4,4 +4,5 @@ using UnityEngine;
 public class QuebraCabecaScriptableObject : ScriptableObject
 {
     public Sprite[] sprites;
+    public Sprite spriteFull;
 }

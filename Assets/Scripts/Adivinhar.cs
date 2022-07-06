@@ -13,6 +13,7 @@ public class Adivinhar : MonoBehaviour
     private Button[] _buttons;
     private TMP_Text[] _textButtons;
     
+    private AdivinharAnimalPlantaScriptableObject _adivinharAnimalPlantaSorteadoScriptableObject;
     private RectTransform _animalPlantaRectTransform;
     private Resultados _resultados;
     private Dado _dado;
@@ -46,7 +47,8 @@ public class Adivinhar : MonoBehaviour
     {
         _numeroDeCasasAndar = 0;
         _randomNumber = Random.Range(0, adivinharAnimalPlantaScriptableObjects.Length);
-        animalPlantaImage.sprite = adivinharAnimalPlantaScriptableObjects[_randomNumber].spriteAnimalPlanta;
+        _adivinharAnimalPlantaSorteadoScriptableObject = adivinharAnimalPlantaScriptableObjects[_randomNumber];
+        animalPlantaImage.sprite = _adivinharAnimalPlantaSorteadoScriptableObject.spriteAnimalPlanta;
         _animalPlantaRectTransform.sizeDelta *= 128;
         _player = _dado ? _dado.jogador : 0;
         playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
@@ -109,8 +111,9 @@ public class Adivinhar : MonoBehaviour
         print($"O jogador {_player.ToString()} acertou");
         _resultados.gameObject.SetActive(true);
         _numeroDeCasasAndar = Random.Range(1, 3);
-        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} acertou e anda " +
-                                          $"{_numeroDeCasasAndar.ToString()} {(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
+        _resultados.SetText($"O jogador {(_player + 1).ToString()} acertou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} {(_numeroDeCasasAndar == 1 ? "casa" : "casas")}", true);
+        _resultados.SetImage(_adivinharAnimalPlantaSorteadoScriptableObject.spriteAnimalPlanta);
     }
 
     private void RespostaErrada(Button button)
