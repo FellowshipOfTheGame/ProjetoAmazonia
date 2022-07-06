@@ -19,6 +19,7 @@ public class QuebraCabeca : MonoBehaviour
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
     
+    private QuebraCabecaScriptableObject _quebraCabecaSorteadoScriptableObject;
     private Resultados _resultados;
     private Dado _dado;
     private GameManager _gameManager;
@@ -60,6 +61,7 @@ public class QuebraCabeca : MonoBehaviour
         
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
+        _quebraCabecaSorteadoScriptableObject = quebraCabecaScriptableObjects[randomNumber];
         Ganhou = false;
         _pecasCorretas  = 0;
         
@@ -69,7 +71,7 @@ public class QuebraCabeca : MonoBehaviour
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {
-            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[_pecas.Length - i - 1];
+            _pecasImages[i].sprite = _quebraCabecaSorteadoScriptableObject.sprites[_pecas.Length - i - 1];
         }
         
         _tempoRestante = tempoEmSegundosParaCronometro;
@@ -89,7 +91,8 @@ public class QuebraCabeca : MonoBehaviour
         {
             Debug.Log("Player perdeu", this);
             _resultados.gameObject.SetActive(true);
-            _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } perdeu!";
+            _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!", true);
+            _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
         }
     }
@@ -148,8 +151,9 @@ public class QuebraCabeca : MonoBehaviour
         _numeroDeCasasAndar = Random.Range(1, 3);
         
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } ganhou e anda " +
-                                          $"{_numeroDeCasasAndar.ToString()} casas!";
+        _resultados.SetText($"Player { (_player + 1).ToString() } ganhou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas!", true);
+        _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
     }
 
     private void MostrarTempo(float tempoParaMostrar)

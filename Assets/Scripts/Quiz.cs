@@ -80,8 +80,8 @@ public class Quiz : MonoBehaviour
         print("Resposta Correta");
         _numeroDeCasasAndar = Random.Range(1, 3);
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} acertou e anda " +
-                                          $"{_numeroDeCasasAndar.ToString()} casas";
+        _resultados.SetText($"O jogador {(_player + 1).ToString()} acertou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas");
     }
 
     private void RespostaErrada()
@@ -89,6 +89,6 @@ public class Quiz : MonoBehaviour
         // pessoa x nao anda
         print("Resposta Errada");
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"O jogador {(_player + 1).ToString()} errou";
+        _resultados.SetText($"O jogador {(_player + 1).ToString()} errou");
     }
 }

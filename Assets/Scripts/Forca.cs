@@ -15,7 +15,8 @@ public class Forca : MonoBehaviour
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
 
     private Button[] _letrasButton;
-        
+    
+    private ForcaScriptableObject _forcaSorteadoScriptableObject;
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
     private Dado _dado;
@@ -58,8 +59,9 @@ public class Forca : MonoBehaviour
         
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
-        _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
-        _palavraComAcento = forcaScriptableObjects[randomNumber].animal;
+        _forcaSorteadoScriptableObject = forcaScriptableObjects[randomNumber];
+        _palavra = new char[_forcaSorteadoScriptableObject.animal.Length];
+        _palavraComAcento = _forcaSorteadoScriptableObject.animal;
         _charArray = RemoveAccents(_palavraComAcento).ToCharArray();
 
         print(new string(_charArray));
@@ -148,10 +150,11 @@ public class Forca : MonoBehaviour
                 print($"O jogador {_jogador.ToString()} acertou");
                 _resultados.gameObject.SetActive(true);
                 _numeroDeCasasAndar = Random.Range(1, 3);
-                _resultados.resultadosText.text = $"A palavra era {_palavraComAcento.ToLower()} e o " +
+                _resultados.SetText($"A palavra era {_palavraComAcento.ToLower()} e o " +
                                                   $"jogador {(_jogador + 1).ToString()} acertou e anda " +
                                                   $"{_numeroDeCasasAndar.ToString()} " +
-                                                  $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
+                                                  $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}", true);
+                _resultados.SetImage(_forcaSorteadoScriptableObject.animalSprite);
             }
         }
         else
@@ -164,7 +167,8 @@ public class Forca : MonoBehaviour
             {
                 print("Todos perdem");
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = "Todos perdem";
+                _resultados.SetText("Todos perdem", true);
+                _resultados.SetImage(_forcaSorteadoScriptableObject.animalSprite);
 
                 return;
             }
