@@ -4,4 +4,5 @@ using UnityEngine;
 public class ForcaScriptableObject : ScriptableObject
 {
     public string animal;
+    public Sprite animalSprite;
 }

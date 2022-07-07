@@ -3,9 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using System.Linq;
+using TMPro;
 
 public class Memoria : MonoBehaviour
 {
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private GameObject cartaPrefab;
     [SerializeField] private GameObject gridLayoutGroup;
     
@@ -16,17 +18,21 @@ public class Memoria : MonoBehaviour
     private Image[] _botoesImage;
     
     private Resultados _resultados;
+    private Dado _dado;
+    private GameManager _gameManager;
     
-    private int[] _pontos;
     private int[] _ordemJogada;
     
     private int _quantidadeCartas;
     private int _indicePrimeiraCartaAberta = -1;
     private int _jogador;
+    private int _numeroDeCasasAndar;
 
     private void Awake()
     {
         _quantidadeCartas = cartasScriptableObjects.Length;
+        _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         _cartasGameObjects = new GameObject[_quantidadeCartas];
         _botoesCartas = new Button[_quantidadeCartas];
         _botoesImage = new Image[_quantidadeCartas];
@@ -34,25 +40,6 @@ public class Memoria : MonoBehaviour
         _resultados = FindObjectOfType<Resultados>(true);
         
         _resultados.backButton.onClick.AddListener(delegate { gameObject.SetActive(false); });
-        
-        int playersCount;
-        
-        try
-        {
-            playersCount = PlayersData.Instance.players.Count;
-        }
-        catch (System.NullReferenceException)
-        {
-            playersCount = 1;
-        }
-        
-        _ordemJogada = new int[playersCount];
-        _pontos = new int[playersCount];
-        
-        for (int i = 0; i < playersCount; i++)
-        {
-            _ordemJogada[i] = i;
-        }
 
         for (int i = 0; i < _quantidadeCartas; i++)
         {
@@ -67,16 +54,40 @@ public class Memoria : MonoBehaviour
 
     private void OnEnable()
     {
+        _numeroDeCasasAndar = 0;
+        
         for(int i = 0; i < _quantidadeCartas; i++)
         {
             _botoesCartas[i].interactable = true;
             _botoesImage[i].sprite = cartasScriptableObjects[i].verso;
         }
         
+        if (_ordemJogada == null)
+        {
+            int playersCount;
+            
+            try
+            {
+                playersCount = PlayersData.instance.players.Count;
+            }
+            catch (NullReferenceException)
+            {
+                playersCount = 1;
+            }
+            
+            _ordemJogada = new int[playersCount];
+        
+            for (int i = 0; i < playersCount; i++)
+            {
+                _ordemJogada[i] = i;
+            }
+        }
+        
         FisherYatesShuffle(_cartasGameObjects);
-        _jogador = 0;
-        Debug.LogWarning("Lembrar de pegar o jogador que comeca o minigame de outro script");
-        Array.Clear(_pontos, 0, _pontos.Length);
+        
+        _jogador = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         FisherYatesShuffle(_ordemJogada);
     }
 
@@ -85,6 +96,14 @@ public class Memoria : MonoBehaviour
         foreach (Button button in _botoesCartas) 
         {
             button.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_jogador, _numeroDeCasasAndar);
         }
     }
 
@@ -114,28 +133,31 @@ public class Memoria : MonoBehaviour
         }
         else if (cartasScriptableObjects[_indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
-            _pontos[_jogador] += 10;
             print("deu bom");
             _indicePrimeiraCartaAberta = -1;
             
             //se acabaram as cartas, mostrar resultados
             if (_botoesCartas.All(botaoCarta => !botaoCarta.interactable)) //copilot lindo
             {
+                _numeroDeCasasAndar = Random.Range(1, 3);
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = $"Jogador {_jogador + 1} ganhou {_pontos[_jogador]} pontos";
-            }
-
-            for (int i = 0; i < _ordemJogada.Length; i++)
-            {
-                if (_ordemJogada[i] != _jogador) continue;
-                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
+                _resultados.SetText($"Jogador {(_jogador + 1).ToString()} avançou " +
+                                                  $"{_numeroDeCasasAndar.ToString()} casas");
             }
         }
         else
         {
             DesvirarCartas(_indicePrimeiraCartaAberta, indice);
             print("desvirando cartas");
-            _jogador = _ordemJogada[(_jogador + 1) % _ordemJogada.Length];
+            
+            for (int i = 0; i < _ordemJogada.Length; i++)
+            {
+                if (_ordemJogada[i] != _jogador) continue;
+                _jogador = _ordemJogada[(i + 1) % _ordemJogada.Length];
+                break;
+            }
+            
+            playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
         }
     }
 

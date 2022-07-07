@@ -1,9 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dado : MonoBehaviour
 {
+
+    [SerializeField]
+    private Button dice;
+
+    [SerializeField]
+    private Button map;
 
     public int jogador = 0;
     private int numeroDado = 0;
@@ -15,6 +20,11 @@ public class Dado : MonoBehaviour
         Debug.Log(numeroDado.ToString());
 
         GameManager.dado = numeroDado;
+
+        // Desabilitar botões
+        dice.interactable = false;
+        map.interactable = false;
+
         switch (jogador)
         {
 
@@ -29,8 +39,6 @@ public class Dado : MonoBehaviour
                 break;
 
         }
-
-        //jogador = (jogador + 1) % 3;
 
     }
 

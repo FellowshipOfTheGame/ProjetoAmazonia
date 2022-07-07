@@ -992,7 +992,7 @@ Transform:
   m_GameObject: {fileID: 4799991684951833145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 6594556073741050987}
   m_Father: {fileID: 0}
@@ -1044,8 +1044,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6536605360777523725}
-  numeroCasa: 0
   andar: 0
+  bonus: 0
+  terminou: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
   somDeAndar: {fileID: 8300000, guid: f897a5278e2be8d4088dafbe85e5b9ff, type: 3}

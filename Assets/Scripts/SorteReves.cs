@@ -7,19 +7,34 @@ public class SorteReves : MonoBehaviour
     
     public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
 
-    //private Players[] players = new Players[4];
+    private Dado _dado;
+    private GameManager _gameManager;
+    
+    private int _player;
+    private int _numeroDeCasasAndar;
 
-    /*
     private void Awake()
     {
-        //players = FindObjectsOfType<Player>();
+        _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
-    */
 
     private void OnEnable()
     {
         int numSorteado = Random.Range(0, sorteRevesScriptableObjects.Length);
-        textoSorteado.text = sorteRevesScriptableObjects[numSorteado].texto;
+        _player = _dado ? _dado.jogador : 0;
+        _numeroDeCasasAndar = sorteRevesScriptableObjects[numSorteado].casasAndadas;
+        textoSorteado.text = $"Player {(_player + 1).ToString()} teve " +
+                             $"{sorteRevesScriptableObjects[numSorteado].texto.ToLower()}" +
+                             $" e anda {_numeroDeCasasAndar.ToString()}";
+    }
+    
+    private void OnDisable()
+    {
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
+        }
     }
 
     public void BotaoVoltarClick()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EstadoMinigame
 {
-    Nenhum = 0, QuebraCabeca = 1, Forca = 2, Quiz = 3, Memoria = 4, QualAnimal = 5, SorteReves = 6, ParadaObrigatoria = 7, PedagioOnca = 8
+    Nenhum = 0, QuebraCabeca = 1, Forca = 2, Quiz = 3, Memoria = 4, QualAnimal = 5, SorteReves = 6, ParadaObrigatoria = 7, PedagioOnca = 8, PerdaTurno = 9
 }
 
 public class MinigameManager : MonoBehaviour
@@ -16,6 +16,7 @@ public class MinigameManager : MonoBehaviour
     private Adivinhar _adivinharAnimalPlanta;
     private ParadaObrigatoria _paradaObrigatoria;
     private PedagioOnca _pedagioOnca;
+    private PerdaTurno _perdaTurno;
     private int[] _posicaoPlayers = new int[4];
 
     private void Awake()
@@ -28,6 +29,7 @@ public class MinigameManager : MonoBehaviour
         _adivinharAnimalPlanta = FindObjectOfType<Adivinhar>(true);
         _paradaObrigatoria = FindObjectOfType<ParadaObrigatoria>(true);
         _pedagioOnca = FindObjectOfType<PedagioOnca>(true);
+        _perdaTurno = FindObjectOfType<PerdaTurno>(true);
     }
 
     public void ComecarQuizMinigame()
@@ -78,4 +80,10 @@ public class MinigameManager : MonoBehaviour
         _estadoMinigame = EstadoMinigame.PedagioOnca;
         _pedagioOnca.gameObject.SetActive(true);
     }
+
+    public void ComecarPerdaTurno(){
+        _estadoMinigame = EstadoMinigame.PerdaTurno;
+        _perdaTurno.gameObject.SetActive(true);
+    }
+
 }

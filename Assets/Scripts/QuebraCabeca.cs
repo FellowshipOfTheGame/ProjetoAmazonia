@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class QuebraCabeca : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
@@ -18,8 +19,12 @@ public class QuebraCabeca : MonoBehaviour
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
     
+    private QuebraCabecaScriptableObject _quebraCabecaSorteadoScriptableObject;
     private Resultados _resultados;
-    
+    private Dado _dado;
+    private GameManager _gameManager;
+
+    private int _numeroDeCasasAndar;
     private int _pecasCorretas;
     private int _player;
     private float _tempoRestante;
@@ -28,6 +33,8 @@ public class QuebraCabeca : MonoBehaviour
     void Awake()
     {
         _pecas = FindObjectsOfType<Peca>();
+        _dado = FindObjectOfType<Dado>();
+        _gameManager = FindObjectOfType<GameManager>();
         int pecasLength = _pecas.Length;
         _pecasGameObjects = new GameObject[pecasLength];
         _pecasRectTransforms = new RectTransform[pecasLength];
@@ -51,13 +58,20 @@ public class QuebraCabeca : MonoBehaviour
 
     private void OnEnable()
     {
+        
+        _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
+        _quebraCabecaSorteadoScriptableObject = quebraCabecaScriptableObjects[randomNumber];
         Ganhou = false;
         _pecasCorretas  = 0;
+        
+        _player = _dado ? _dado.jogador : 0;
+        
+        playerTurnText.text = $"Vez do jogador {(_player + 1).ToString()}";
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {
-            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[_pecas.Length - i - 1];
+            _pecasImages[i].sprite = _quebraCabecaSorteadoScriptableObject.sprites[_pecas.Length - i - 1];
         }
         
         _tempoRestante = tempoEmSegundosParaCronometro;
@@ -77,8 +91,17 @@ public class QuebraCabeca : MonoBehaviour
         {
             Debug.Log("Player perdeu", this);
             _resultados.gameObject.SetActive(true);
-            _resultados.resultadosText.text = $"Player { _player.ToString() } perdeu!";
+            _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!", true);
+            _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_gameManager)
+        {
+            _gameManager.BonusMinigame(_player, _numeroDeCasasAndar);
         }
     }
 
@@ -125,9 +148,12 @@ public class QuebraCabeca : MonoBehaviour
         Ganhou = true;
         
         Debug.Log($"Player { _player.ToString() } ganhou!", this);
+        _numeroDeCasasAndar = Random.Range(1, 3);
         
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"Player { _player.ToString() } ganhou!";
+        _resultados.SetText($"Player { (_player + 1).ToString() } ganhou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas!", true);
+        _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
     }
 
     private void MostrarTempo(float tempoParaMostrar)
