@@ -3175,6 +3175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5a1b53c9bfba245be739526fb35156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  somPederTurno: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeSomResposta: 1
 --- !u!1 &1093926128
 GameObject:
   m_ObjectHideFlags: 0

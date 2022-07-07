@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PerdaTurno : MonoBehaviour
 {   
@@ -7,6 +6,9 @@ public class PerdaTurno : MonoBehaviour
     private Dado dado;
     private GameManager theGM;
     int player;
+
+    [SerializeField] private AudioClip somPederTurno;
+    [SerializeField] private float volumeSomResposta = 1.0f;
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class PerdaTurno : MonoBehaviour
 
     private void OnEnable(){
         player = dado ? dado.jogador : 0;
+        AudioManager.Instance.PlaySoundEffect(somPederTurno, volumeSomResposta);
     }
 
     public void FecharMensagem(){
