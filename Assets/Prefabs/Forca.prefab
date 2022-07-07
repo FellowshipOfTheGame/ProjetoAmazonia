@@ -97,6 +97,9 @@ MonoBehaviour:
   playerTurnText: {fileID: 4727145694313270478}
   forcaScriptableObjects:
   - {fileID: 11400000, guid: bbc8e48c64770014fa8724e26250a10a, type: 2}
+  somRespostaCorreta: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somRespostaErrada: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeSomResposta: 1
 --- !u!1 &2964674057698845121
 GameObject:
   m_ObjectHideFlags: 0
