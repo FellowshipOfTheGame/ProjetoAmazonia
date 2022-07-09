@@ -7,8 +7,8 @@ public class PerdaTurno : MonoBehaviour
     private GameManager theGM;
     int player;
 
-    [SerializeField] private AudioClip somPederTurno;
-    [SerializeField] private float volumeSomResposta = 1.0f;
+    [SerializeField] private AudioClip somPerdaTurno;
+    [SerializeField] private float volumePerdaTurno = 1.0f;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class PerdaTurno : MonoBehaviour
 
     private void OnEnable(){
         player = dado ? dado.jogador : 0;
-        AudioManager.Instance.PlaySoundEffect(somPederTurno, volumeSomResposta);
+        AudioManager.Instance.PlaySoundEffect(somPerdaTurno, volumePerdaTurno);
     }
 
     public void FecharMensagem(){

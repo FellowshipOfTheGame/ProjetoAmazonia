@@ -12,7 +12,14 @@ public class Memoria : MonoBehaviour
     [SerializeField] private GameObject gridLayoutGroup;
     
     public CartasScriptableObject[] cartasScriptableObjects;
+
+    [SerializeField] private AudioClip somVirarCarta;
+    [SerializeField] private float volumeVirarCarta = 1.0f;
     
+    [SerializeField] private AudioClip somCartaCorreta;
+    [SerializeField] private AudioClip somCartaErrada;
+    [SerializeField] private float volumeCartaFinal = 1.0f;
+
     private GameObject[] _cartasGameObjects;
     private Button[] _botoesCartas;
     private Image[] _botoesImage;
@@ -130,6 +137,8 @@ public class Memoria : MonoBehaviour
         {
             print($"setando indice primeira carta {indice.ToString()}");
             _indicePrimeiraCartaAberta = indice;
+
+            AudioManager.Instance.PlaySoundEffect(somVirarCarta, volumeCartaFinal);
         }
         else if (cartasScriptableObjects[_indicePrimeiraCartaAberta].indice == cartasScriptableObjects[indice].indice)
         {
@@ -144,6 +153,8 @@ public class Memoria : MonoBehaviour
                 _resultados.SetText($"Jogador {(_jogador + 1).ToString()} avançou " +
                                                   $"{_numeroDeCasasAndar.ToString()} casas");
             }
+
+            AudioManager.Instance.PlaySoundEffect(somCartaCorreta, volumeCartaFinal);
         }
         else
         {
@@ -158,6 +169,8 @@ public class Memoria : MonoBehaviour
             }
             
             playerTurnText.text = $"Vez do jogador {(_jogador + 1).ToString()}";
+
+            AudioManager.Instance.PlaySoundEffect(somCartaErrada, volumeCartaFinal);
         }
     }
 

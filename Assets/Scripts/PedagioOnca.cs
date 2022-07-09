@@ -10,6 +10,9 @@ public class PedagioOnca : MonoBehaviour
 
     private int _jogador;
 
+    [SerializeField] private AudioClip somPedagioOnca;
+    [SerializeField] private float volumePedagioOnca = 1.0f;
+
     void Awake()
     {
         backButton.onClick.AddListener(BackButtonClick);
@@ -21,6 +24,7 @@ public class PedagioOnca : MonoBehaviour
     {
         //PEGAR UMA FRASE ALEATORIA
         _jogador = _dado? _dado.jogador : 1;
+        AudioManager.Instance.PlaySoundEffect(somPedagioOnca, volumePedagioOnca);
     }
 
     private void OnDestroy()

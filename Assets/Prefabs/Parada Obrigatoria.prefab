@@ -360,6 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 3494058971269723310}
+  somParadaObrigatoria: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeParadaObrigatoria: 1
 --- !u!1 &3494058971269723308
 GameObject:
   m_ObjectHideFlags: 0

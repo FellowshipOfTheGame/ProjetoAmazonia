@@ -7,6 +7,10 @@ public class SorteReves : MonoBehaviour
     
     public SorteRevesScriptableObject[] sorteRevesScriptableObjects;
 
+    [SerializeField] private AudioClip somSorte;
+    [SerializeField] private AudioClip somReves;
+    [SerializeField] private float volumeSom = 1.0f;
+
     private Dado _dado;
     private GameManager _gameManager;
     
@@ -27,6 +31,7 @@ public class SorteReves : MonoBehaviour
         textoSorteado.text = $"Player {(_player + 1).ToString()} teve " +
                              $"{sorteRevesScriptableObjects[numSorteado].texto.ToLower()}" +
                              $" e anda {_numeroDeCasasAndar.ToString()}";
+        AudioManager.Instance.PlaySoundEffect(_numeroDeCasasAndar > 0 ? somSorte : somReves, volumeSom);
     }
     
     private void OnDisable()

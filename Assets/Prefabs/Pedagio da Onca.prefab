@@ -358,6 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 7331977406798709138}
+  somPedagioOnca: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumePedagioOnca: 1
 --- !u!1 &7331977406878513215
 GameObject:
   m_ObjectHideFlags: 0

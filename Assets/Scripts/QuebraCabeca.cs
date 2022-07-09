@@ -12,6 +12,14 @@ public class QuebraCabeca : MonoBehaviour
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
+    [SerializeField] private AudioClip somMoverPeca;
+    [SerializeField] private float volumeMoverPeca = 1.0f;
+
+    [SerializeField] private AudioClip somQuebraCabecaCorreto;
+    [SerializeField] private AudioClip somQuebraCabecaErrado;
+    [SerializeField] private float volumeQuebraCabecaFinal = 1.0f;
+
+
     public static bool Ganhou;
     
     private Peca[] _pecas;
@@ -78,13 +86,13 @@ public class QuebraCabeca : MonoBehaviour
         FisherYatesShuffle(_pecasGameObjects);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_tempoRestante > 0)
         {
             if (_pararTempo) return;
             
-            _tempoRestante -= Time.deltaTime;
+            _tempoRestante -= Time.fixedDeltaTime;
             MostrarTempo(_tempoRestante);
         }
         else
@@ -94,6 +102,7 @@ public class QuebraCabeca : MonoBehaviour
             _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!", true);
             _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
+            AudioManager.Instance.PlaySoundEffect(somQuebraCabecaErrado, volumeQuebraCabecaFinal);
         }
     }
 
@@ -154,6 +163,8 @@ public class QuebraCabeca : MonoBehaviour
         _resultados.SetText($"Player { (_player + 1).ToString() } ganhou e anda " +
                                           $"{_numeroDeCasasAndar.ToString()} casas!", true);
         _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
+
+         AudioManager.Instance.PlaySoundEffect(somQuebraCabecaCorreto, volumeQuebraCabecaFinal);
     }
 
     private void MostrarTempo(float tempoParaMostrar)
@@ -210,6 +221,8 @@ public class QuebraCabeca : MonoBehaviour
         
         VerificarAcerto(pecaA);
         VerificarAcerto(pecaB);
+
+        AudioManager.Instance.PlaySoundEffect(somMoverPeca, volumeMoverPeca);
     }
 
     private int VerifyPieceOverMouseDrag(Vector3 pecaPosition)

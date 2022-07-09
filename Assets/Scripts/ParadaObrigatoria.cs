@@ -10,6 +10,9 @@ public class ParadaObrigatoria : MonoBehaviour
     private Dado _dado;
     private int _jogador;
 
+    [SerializeField] private AudioClip somParadaObrigatoria;
+    [SerializeField] private float volumeParadaObrigatoria = 1.0f;
+
     private void Awake()
     {
         _videoPlayer = GetComponentInChildren<VideoPlayer>();
@@ -21,6 +24,7 @@ public class ParadaObrigatoria : MonoBehaviour
     private void OnEnable()
     {
         _jogador = _dado? _dado.jogador : 1;
+        AudioManager.Instance.PlaySoundEffect(somParadaObrigatoria, volumeParadaObrigatoria);
     }
 
     private void OnDestroy()
