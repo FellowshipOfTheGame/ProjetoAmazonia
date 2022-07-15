@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Ariranha
   m_EditorClassIdentifier: 
   animal: ARIRANHA
+  animalSprite: {fileID: 21300000, guid: 20281377faad5e341bafbcf598d02f2d, type: 3}

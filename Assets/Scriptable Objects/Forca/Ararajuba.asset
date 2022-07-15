@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Ararajuba
   m_EditorClassIdentifier: 
   animal: ARARAJUBA
+  animalSprite: {fileID: 21300000, guid: 0099eb9e19be3074b87953b14670a29d, type: 3}

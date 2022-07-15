@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AraraVermelha
   m_EditorClassIdentifier: 
   animal: ARARA VERMELHA
+  animalSprite: {fileID: 21300000, guid: 9ef86aee4e334b246991e6de460cbbc3, type: 3}

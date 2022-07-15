@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Tartaruga
   m_EditorClassIdentifier: 
   animal: TARTARUGA
+  animalSprite: {fileID: 21300000, guid: b58863b0a7cb6dc4cb2d957e0d097a3a, type: 3}

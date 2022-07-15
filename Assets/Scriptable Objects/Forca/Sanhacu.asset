@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Sanhacu
   m_EditorClassIdentifier: 
   animal: "SANHA\xC7U"
+  animalSprite: {fileID: 21300000, guid: 92b65602792714246b01b90ecd660456, type: 3}

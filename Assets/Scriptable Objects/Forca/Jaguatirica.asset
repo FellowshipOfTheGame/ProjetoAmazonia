@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Jaguatirica
   m_EditorClassIdentifier: 
   animal: JAGUATIRICA
+  animalSprite: {fileID: 21300000, guid: a26fc7ac616c4d24aabcc2b0c31c5251, type: 3}

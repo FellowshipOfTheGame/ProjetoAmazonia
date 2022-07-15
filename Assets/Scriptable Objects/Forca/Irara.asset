@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Irara
   m_EditorClassIdentifier: 
   animal: IRARA
+  animalSprite: {fileID: 21300000, guid: ee81e2633bce28341a9cd385d9c5acea, type: 3}

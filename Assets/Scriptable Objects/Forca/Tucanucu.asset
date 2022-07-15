@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Tucanucu
   m_EditorClassIdentifier: 
   animal: "TUCANU\xC7U"
+  animalSprite: {fileID: 21300000, guid: a16e597a2c0795943aa85acaf702eee5, type: 3}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MacacoPregoDaCaraBranca
   m_EditorClassIdentifier: 
   animal: MACACO PREGO DA CARA BRANCA
+  animalSprite: {fileID: 21300000, guid: 8151a539479e8144ca5f8b9def458bf4, type: 3}

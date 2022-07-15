@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Tamanduai
   m_EditorClassIdentifier: 
   animal: "TAMANDUA\xCD"
+  animalSprite: {fileID: 21300000, guid: cedde9babd92f3049bdee0679fa0a915, type: 3}
