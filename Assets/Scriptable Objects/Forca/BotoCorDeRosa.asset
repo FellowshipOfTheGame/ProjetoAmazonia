@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BotoCorDeRosa
   m_EditorClassIdentifier: 
   animal: BOTO-COR-DE-ROSA
+  animalSprite: {fileID: 21300000, guid: fecba7229c9e12a4d9ab6c6542ba6493, type: 3}

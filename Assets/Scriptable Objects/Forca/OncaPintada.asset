@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: OncaPintada
   m_EditorClassIdentifier: 
   animal: "ON\xC7A PINTADA"
+  animalSprite: {fileID: 21300000, guid: 83bedcd29cb48324db33b017ee3f408e, type: 3}

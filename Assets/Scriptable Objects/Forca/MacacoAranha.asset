@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MacacoAranha
   m_EditorClassIdentifier: 
   animal: MACACO ARANHA
+  animalSprite: {fileID: 21300000, guid: cb5882f443d025247b99ece5fa2f11b2, type: 3}

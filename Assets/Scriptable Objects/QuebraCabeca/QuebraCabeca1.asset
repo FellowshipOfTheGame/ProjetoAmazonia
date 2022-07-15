@@ -22,4 +22,5 @@ MonoBehaviour:
   - {fileID: -6373571496263104676, guid: 4593df815f8f24c42abd4f4b4f25b45f, type: 3}
   - {fileID: -5940756552861533841, guid: 4593df815f8f24c42abd4f4b4f25b45f, type: 3}
   - {fileID: 468680197273812724, guid: 4593df815f8f24c42abd4f4b4f25b45f, type: 3}
-  spriteFull: {fileID: 605162050437240712, guid: 4593df815f8f24c42abd4f4b4f25b45f, type: 3}
+  spriteFull: {fileID: 21300000, guid: 542183b2fc319074694019c9656b795f, type: 3}
+  animal: 

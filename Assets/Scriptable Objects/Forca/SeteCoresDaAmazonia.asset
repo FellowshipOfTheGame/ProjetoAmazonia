@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SeteCoresDaAmazonia
   m_EditorClassIdentifier: 
   animal: "SETE-CORES-DA-AMAZ\xD4NIA"
+  animalSprite: {fileID: 21300000, guid: 34c12a9eadd27c047aa35956ab146d4b, type: 3}

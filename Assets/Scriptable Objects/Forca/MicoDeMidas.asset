@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MicoDeMidas
   m_EditorClassIdentifier: 
   animal: MICO DE MIDAS
+  animalSprite: {fileID: 21300000, guid: bd458dd1f8933ef4fb67a8a8f664065a, type: 3}

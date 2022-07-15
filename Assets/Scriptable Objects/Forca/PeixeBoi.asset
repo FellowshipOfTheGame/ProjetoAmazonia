@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PeixeBoi
   m_EditorClassIdentifier: 
   animal: PEIXE BOI
+  animalSprite: {fileID: 21300000, guid: 0db43d0393eff574db72b24a524c08fc, type: 3}

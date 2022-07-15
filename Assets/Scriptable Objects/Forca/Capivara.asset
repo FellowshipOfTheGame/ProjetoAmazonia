@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Capivara
   m_EditorClassIdentifier: 
   animal: CAPIVARA
+  animalSprite: {fileID: 21300000, guid: 3f29167dbdfc51b43bf611cd89356258, type: 3}

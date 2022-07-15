@@ -99,7 +99,8 @@ public class QuebraCabeca : MonoBehaviour
         {
             Debug.Log("Player perdeu", this);
             _resultados.gameObject.SetActive(true);
-            _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!", true);
+            _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!\nE o animal era " +
+                                $"{_quebraCabecaSorteadoScriptableObject.animal}", true);
             _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
             AudioManager.Instance.PlaySoundEffect(somQuebraCabecaErrado, volumeQuebraCabecaFinal);

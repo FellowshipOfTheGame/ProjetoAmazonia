@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Tucunare
   m_EditorClassIdentifier: 
   animal: "TUCUNAR\xC9"
+  animalSprite: {fileID: 21300000, guid: b9f8bf4aed19e8b43b5b4f8db0ef82a9, type: 3}

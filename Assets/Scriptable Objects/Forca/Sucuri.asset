@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Sucuri
   m_EditorClassIdentifier: 
   animal: SUCURI
+  animalSprite: {fileID: 21300000, guid: 1ef2b8f9c1cfc304f84dcacc263c0fc6, type: 3}
