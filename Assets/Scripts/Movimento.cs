@@ -10,6 +10,7 @@ public class Movimento : MonoBehaviour
 
     public bool andar = false, bonus = false, paraFrente = true, terminou = false;
     public int perdeTurno = 0;
+    public int remainingSteps = 0;
 
     public Casa casaAtual;
     
@@ -21,6 +22,7 @@ public class Movimento : MonoBehaviour
     private EstadoMinigame lastMinigame;
 
     private GameManager theGM;
+    public bool useShortcut;
 
     private void Start()
     {
@@ -34,7 +36,6 @@ public class Movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(andar)
             Andar();
         
@@ -49,6 +50,8 @@ public class Movimento : MonoBehaviour
         animator.SetBool("Andar", andar);
 
         if(qtdCasasAndar >= 0){
+            remainingSteps = qtdCasasAndar;
+            print($"Remaining {remainingSteps}");
 
             transform.position = Vector2.MoveTowards(transform.position, casaAtual.transform.position, speed * Time.deltaTime);
 
@@ -62,7 +65,6 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarParadaObrigatoria();
                     lastMinigame = EstadoMinigame.ParadaObrigatoria;
                     qtdCasasAndar = -2;
-                    theGM.ChangePlayer(); // Tirar depois que pronto
 
                 }else if(casaAtual.tipoDaCasa == EstadoMinigame.PedagioOnca && lastMinigame != EstadoMinigame.PedagioOnca){
 
@@ -70,12 +72,20 @@ public class Movimento : MonoBehaviour
                     minigameManager.ComecarPedagioOnca();
                     lastMinigame = EstadoMinigame.PedagioOnca;
                     qtdCasasAndar = -2;
-                    theGM.ChangePlayer(); // Tirar depois que pronto
 
                 }else{
 
                     if(casaAtual.proxima != null){
-                        casaAtual = casaAtual.proxima;
+                        if (useShortcut && casaAtual.bifurcacao && casaAtual.atalho != null)
+                        {
+                            useShortcut = false;
+                            casaAtual = casaAtual.atalho;
+                        }
+                        else
+                        {
+                            casaAtual = casaAtual.proxima;
+                        }
+
                         qtdCasasAndar -= 1;
                     }else{
                         qtdCasasAndar = -3;
@@ -130,8 +140,13 @@ public class Movimento : MonoBehaviour
                 break;
             case EstadoMinigame.Quiz:
                 Debug.Log("Quiz!");
-                minigameManager.ComecarQuizMinigame();
+                minigameManager.ComecarQuizMinigame(false);
                 lastMinigame = EstadoMinigame.Quiz;
+                break;
+            case EstadoMinigame.QuizVF:
+                Debug.Log("QuizVF!");
+                minigameManager.ComecarQuizMinigame(true);
+                lastMinigame = EstadoMinigame.QuizVF;
                 break;
             case EstadoMinigame.SorteReves:
                 Debug.Log("Sorte ou revés!");
@@ -161,12 +176,33 @@ public class Movimento : MonoBehaviour
 
             if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
 
+                AudioManager.Instance.PlaySoundEffect(somDeAndar, volumeSomDeAndar);
+
                 if(paraFrente == true){
-                    casaAtual = casaAtual.proxima;
-                }else{
-                    casaAtual = casaAtual.anterior;
+                    if(casaAtual.proxima != null){
+                        if (useShortcut && casaAtual.bifurcacao && casaAtual.atalho != null)
+                        {
+                            useShortcut = false;
+                            casaAtual = casaAtual.atalho;
+                        }
+                        else
+                        {
+                            casaAtual = casaAtual.proxima;
+                        }
+                        qtdCasasAndar -= 1;
+                    }
+                    else
+                        qtdCasasAndar = -3;
+                }else{ 
+                    if (casaAtual.anterior != null)
+                    {
+                        casaAtual = casaAtual.anterior;
+                        qtdCasasAndar -= 1;
+                    }
+                    else
+                        qtdCasasAndar = -1;
+                    
                 }
-                qtdCasasAndar -= 1;
                 
             }
 
