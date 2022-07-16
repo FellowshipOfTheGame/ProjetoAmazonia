@@ -79,6 +79,10 @@ public class MenuManager : MonoBehaviour
         PlayerPrefsController.SetPlayersCount(playersQuantity);
         _playersQuantity = playersQuantity;
         _playersData.players = new List<PlayersData.Player>();
+
+        _playerNumber = 1;
+        playersQuantityText.text = $"Player {_playerNumber.ToString()} selecione seu personagem";
+
         playersSelectionMenu.SetActive(true);
         playersQuantityMenu.SetActive(false);
     }
