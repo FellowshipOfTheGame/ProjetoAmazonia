@@ -428,6 +428,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c574e4a0692898e4e9ff8617df908ba2, type: 2}
   - {fileID: 11400000, guid: 016ee234226714140b0bad9ef9783935, type: 2}
   - {fileID: 11400000, guid: 016ee234226714140b0bad9ef9783935, type: 2}
+  somVirarCarta: {fileID: 8300000, guid: 27de544fc659e7e4d951338df76e43c6, type: 3}
+  volumeVirarCarta: 1
+  somCartaCorreta: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somCartaErrada: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeCartaFinal: 1
 --- !u!222 &1499298156
 CanvasRenderer:
   m_ObjectHideFlags: 0

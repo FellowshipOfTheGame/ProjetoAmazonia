@@ -14,8 +14,13 @@ public class Forca : MonoBehaviour
     [SerializeField] private TMP_Text playerTurnText;
     [SerializeField] private ForcaScriptableObject[] forcaScriptableObjects;
 
+    [SerializeField] private AudioClip somRespostaCorreta;
+    [SerializeField] private AudioClip somRespostaErrada;
+    [SerializeField] private float volumeSomResposta = 1.0f;
+
     private Button[] _letrasButton;
-        
+    
+    private ForcaScriptableObject _forcaSorteadoScriptableObject;
     private GridLayoutGroup _gridLayoutGroup;
     private Resultados _resultados;
     private Dado _dado;
@@ -58,11 +63,12 @@ public class Forca : MonoBehaviour
         
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, forcaScriptableObjects.Length);
-        _palavra = new char[forcaScriptableObjects[randomNumber].animal.Length];
-        _palavraComAcento = forcaScriptableObjects[randomNumber].animal;
+        _forcaSorteadoScriptableObject = forcaScriptableObjects[randomNumber];
+        _palavra = new char[_forcaSorteadoScriptableObject.animal.Length];
+        _palavraComAcento = _forcaSorteadoScriptableObject.animal;
         _charArray = RemoveAccents(_palavraComAcento).ToCharArray();
 
-        print(new string(_charArray));
+        Debug.Log(new string(_charArray));
 
         for (int i = 0; i < _palavra.Length; i++)
         {
@@ -139,32 +145,36 @@ public class Forca : MonoBehaviour
         if (_acertou)
         {
             string palavra = new string(_palavra);
-            print("Acertou");
+            Debug.Log("Acertou");
+            AudioManager.Instance.PlaySoundEffect(somRespostaCorreta, volumeSomResposta);
 
             palavraAleatoriaText.text = Substituir(palavra, _palavraComAcento);
             
             if (!_palavra.Contains('_'))
             {
-                print($"O jogador {_jogador.ToString()} acertou");
+                Debug.Log($"O jogador {_jogador.ToString()} acertou");
                 _resultados.gameObject.SetActive(true);
                 _numeroDeCasasAndar = Random.Range(1, 3);
-                _resultados.resultadosText.text = $"A palavra era {_palavraComAcento.ToLower()} e o " +
+                _resultados.SetText($"A palavra era {_palavraComAcento.ToLower()} e o " +
                                                   $"jogador {(_jogador + 1).ToString()} acertou e anda " +
                                                   $"{_numeroDeCasasAndar.ToString()} " +
-                                                  $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}";
+                                                  $"{(_numeroDeCasasAndar == 1 ? "casa" : "casas")}", true);
+                _resultados.SetImage(_forcaSorteadoScriptableObject.animalSprite);
             }
         }
         else
         {
-            print("Errou");
+            Debug.Log("Errou");
+            AudioManager.Instance.PlaySoundEffect(somRespostaErrada, volumeSomResposta);
             _erros++;
             // trocar a imagem da forca
 
             if (_erros >= _errosMax)
             {
-                print("Todos perdem");
+                Debug.Log("Todos perdem");
                 _resultados.gameObject.SetActive(true);
-                _resultados.resultadosText.text = "Todos perdem";
+                _resultados.SetText("Todos perdem", true);
+                _resultados.SetImage(_forcaSorteadoScriptableObject.animalSprite);
 
                 return;
             }

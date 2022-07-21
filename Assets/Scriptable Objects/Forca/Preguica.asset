@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Preguica
   m_EditorClassIdentifier: 
   animal: "PREGUI\xC7A"
+  animalSprite: {fileID: 21300000, guid: 3197f1bff4308dd499c5c39d6e807417, type: 3}

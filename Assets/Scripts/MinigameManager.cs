@@ -2,13 +2,13 @@ using UnityEngine;
 
 public enum EstadoMinigame
 {
-    Nenhum = 0, QuebraCabeca = 1, Forca = 2, Quiz = 3, Memoria = 4, QualAnimal = 5, SorteReves = 6, ParadaObrigatoria = 7, PedagioOnca = 8, PerdaTurno = 9
+    Nenhum = 0, QuebraCabeca = 1, Forca = 2, Quiz = 3, Memoria = 4, QualAnimal = 5, SorteReves = 6, ParadaObrigatoria = 7, PedagioOnca = 8, PerdaTurno = 9, QuizVF = 10
 }
 
 public class MinigameManager : MonoBehaviour
 {
-    private EstadoMinigame _estadoMinigame = EstadoMinigame.Nenhum;
-    private Quiz _quiz;
+    public EstadoMinigame _estadoMinigame = EstadoMinigame.Nenhum;
+    [SerializeField] Quiz _quiz;
     private Memoria _memoria;
     private SorteReves _sorteReves;
     private QuebraCabeca _quebraCabeca;
@@ -21,7 +21,7 @@ public class MinigameManager : MonoBehaviour
 
     private void Awake()
     {
-        _quiz = FindObjectOfType<Quiz>(true);
+        // _quiz = FindObjectOfType<Quiz>(true); // Passado no inspector
         _memoria = FindObjectOfType<Memoria>(true);
         _sorteReves = FindObjectOfType<SorteReves>(true);
         _quebraCabeca = FindObjectOfType<QuebraCabeca>(true);
@@ -32,9 +32,10 @@ public class MinigameManager : MonoBehaviour
         _perdaTurno = FindObjectOfType<PerdaTurno>(true);
     }
 
-    public void ComecarQuizMinigame()
+    public void ComecarQuizMinigame(bool VF)
     {
-        _estadoMinigame = EstadoMinigame.Quiz;
+        _quiz.isVF = VF;
+        _estadoMinigame = VF ? EstadoMinigame.Quiz : EstadoMinigame.QuizVF;
         _quiz.gameObject.SetActive(true);
     }
 

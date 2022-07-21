@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    private AudioManager _audioManager;
     private Slider _musicSlider;
     private Slider _soundEffectsSlider;
     
@@ -11,22 +10,22 @@ public class Options : MonoBehaviour
     {
         _musicSlider = GameObject.FindWithTag("MusicSlider").GetComponent<Slider>();
         _soundEffectsSlider = GameObject.FindWithTag("SoundEffectsSlider").GetComponent<Slider>();
-        _musicSlider.value = _audioManager.GetMusicVolume();
-        _soundEffectsSlider.value = _audioManager.GetSoundEffectsVolume();
-    }
-
-    private void Start()
-    {
-        _audioManager = AudioManager.instance;
+        _musicSlider.value = AudioManager.Instance.GetMusicVolume();
+        _soundEffectsSlider.value = AudioManager.Instance.GetSoundEffectsVolume();
     }
 
     public void OnMusicSlideChange(float value)
     {
-        _audioManager.SetMusicVolume(value);
+        AudioManager.Instance.SetMusicVolume(value);
     }
     
     public void OnSoundEffectsChange(float value)
     {
-        _audioManager.SetSoundEffectsVolume(value);
+        AudioManager.Instance.SetSoundEffectsVolume(value);
+    }
+    
+    public void CloseOptions()
+    {
+        gameObject.SetActive(false);
     }
 }

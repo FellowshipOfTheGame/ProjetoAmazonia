@@ -403,6 +403,11 @@ MonoBehaviour:
   quebraCabecaScriptableObjects:
   - {fileID: 11400000, guid: 51beca9e5145b0a48b930fc3e1b5de89, type: 2}
   tempoEmSegundosParaCronometro: 10
+  somMoverPeca: {fileID: 8300000, guid: 81157a8b01b1a514b8f4e84dfb52f529, type: 3}
+  volumeMoverPeca: 0.2
+  somQuebraCabecaCorreto: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somQuebraCabecaErrado: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeQuebraCabecaFinal: 1
 --- !u!1 &2526173803888416446
 GameObject:
   m_ObjectHideFlags: 0

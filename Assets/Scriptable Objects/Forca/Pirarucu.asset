@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Pirarucu
   m_EditorClassIdentifier: 
   animal: PIRARUCU
+  animalSprite: {fileID: 21300000, guid: d4e2a67e29cfcd14880f8d137153374f, type: 3}

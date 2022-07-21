@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Piranha
   m_EditorClassIdentifier: 
   animal: PIRANHA
+  animalSprite: {fileID: 21300000, guid: 3b208e28ce4884d488d0297ffe47e7d7, type: 3}

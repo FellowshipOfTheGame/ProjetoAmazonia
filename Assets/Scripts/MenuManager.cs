@@ -33,12 +33,12 @@ public class MenuManager : MonoBehaviour
         optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
-    
+    /*
     public void CloseOptions()
     {
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
-    }
+    }*/
     
     public void OpenCredits()
     {
@@ -79,6 +79,10 @@ public class MenuManager : MonoBehaviour
         PlayerPrefsController.SetPlayersCount(playersQuantity);
         _playersQuantity = playersQuantity;
         _playersData.players = new List<PlayersData.Player>();
+
+        _playerNumber = 1;
+        playersQuantityText.text = $"Player {_playerNumber.ToString()} selecione seu personagem";
+
         playersSelectionMenu.SetActive(true);
         playersQuantityMenu.SetActive(false);
     }

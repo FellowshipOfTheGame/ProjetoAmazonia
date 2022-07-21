@@ -364,6 +364,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d22adc985c99c24fb2619f0f7258bb7, type: 2}
   - {fileID: 11400000, guid: 042d29d646b5793469581411e172ee7c, type: 2}
   - {fileID: 11400000, guid: a53a4d38d5a5ca14798760a15597aa2d, type: 2}
+  somSorte: {fileID: 8300000, guid: 674353fc8f2becc4e8a7ab60b3a03865, type: 3}
+  somReves: {fileID: 8300000, guid: 186c65beb995cea4abee192e85d4069c, type: 3}
+  volumeSom: 1
 --- !u!1 &6367744318554743019
 GameObject:
   m_ObjectHideFlags: 0

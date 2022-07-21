@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void BonusMinigame(int jogador, int numCasasAndar){
+    public void BonusMinigame(int jogador, int numCasasAndar, bool useShortcut = false, bool useRemainingSteps = true){
 
         switch (jogador)
         {
@@ -190,22 +190,26 @@ public class GameManager : MonoBehaviour
             case 0:
                 theCM.SwitchCamera(jogador);
                 player1.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
-                player1.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
+                print("Qtd a andar: " + player1.GetComponent<Movimento>().qtdCasasAndar );
                 player1.GetComponent<Movimento>().bonus = true;
+                player1.GetComponent<Movimento>().useShortcut = useShortcut;
+                player1.GetComponent<Movimento>().qtdCasasAndar = (useRemainingSteps ? player1.GetComponent<Movimento>().remainingSteps : 0) + Mathf.Abs(numCasasAndar);
                 break;
             
             case 1:
                 theCM.SwitchCamera(jogador);
                 player2.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
-                player2.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
                 player2.GetComponent<Movimento>().bonus = true;
+                player2.GetComponent<Movimento>().useShortcut = useShortcut;
+                player2.GetComponent<Movimento>().qtdCasasAndar = (useRemainingSteps ? player2.GetComponent<Movimento>().remainingSteps : 0) +Mathf.Abs(numCasasAndar);
                 break;
 
             case 2:
                 theCM.SwitchCamera(jogador);
                 player3.GetComponent<Movimento>().paraFrente = numCasasAndar >= 0 ? true : false;
-                player3.GetComponent<Movimento>().qtdCasasAndar = Mathf.Abs(numCasasAndar);
                 player3.GetComponent<Movimento>().bonus = true;
+                player3.GetComponent<Movimento>().useShortcut = useShortcut;
+                player3.GetComponent<Movimento>().qtdCasasAndar = (useRemainingSteps ? player3.GetComponent<Movimento>().remainingSteps : 0) +  Mathf.Abs(numCasasAndar);
                 break;
 
         }

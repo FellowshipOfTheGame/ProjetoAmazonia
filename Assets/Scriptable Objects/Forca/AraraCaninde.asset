@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AraraCaninde
   m_EditorClassIdentifier: 
   animal: "ARARA CANIND\xC9"
+  animalSprite: {fileID: 21300000, guid: 334486d948fb3e14495deccedab9123d, type: 3}

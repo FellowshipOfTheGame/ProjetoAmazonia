@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AbelhaUrucu
   m_EditorClassIdentifier: 
   animal: "ABELHA URU\xC7U"
+  animalSprite: {fileID: 21300000, guid: 58110cb93068e9e44bce59a917caa302, type: 3}

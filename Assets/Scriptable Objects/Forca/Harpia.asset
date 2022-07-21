@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Harpia
   m_EditorClassIdentifier: 
   animal: HARPIA
+  animalSprite: {fileID: 21300000, guid: 26909752f21622d4285c63356911f84f, type: 3}

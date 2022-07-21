@@ -1046,9 +1046,13 @@ MonoBehaviour:
   animator: {fileID: 6536605360777523725}
   andar: 0
   bonus: 0
+  paraFrente: 1
   terminou: 0
+  perdeTurno: 0
   casaAtual: {fileID: 0}
   qtdCasasAndar: 0
+  somDeAndar: {fileID: 8300000, guid: f897a5278e2be8d4088dafbe85e5b9ff, type: 3}
+  volumeSomDeAndar: 1
 --- !u!1 &4917444349943686001
 GameObject:
   m_ObjectHideFlags: 0

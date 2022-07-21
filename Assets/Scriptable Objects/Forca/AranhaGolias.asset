@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AranhaGolias
   m_EditorClassIdentifier: 
   animal: ARANHA GOLIAS
+  animalSprite: {fileID: 21300000, guid: 8687399a809771e4daf95a6de624caad, type: 3}

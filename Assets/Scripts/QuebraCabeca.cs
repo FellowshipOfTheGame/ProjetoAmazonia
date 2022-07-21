@@ -12,6 +12,14 @@ public class QuebraCabeca : MonoBehaviour
     [SerializeField] private QuebraCabecaScriptableObject[] quebraCabecaScriptableObjects;
     [SerializeField] private float tempoEmSegundosParaCronometro = 10;
     
+    [SerializeField] private AudioClip somMoverPeca;
+    [SerializeField] private float volumeMoverPeca = 1.0f;
+
+    [SerializeField] private AudioClip somQuebraCabecaCorreto;
+    [SerializeField] private AudioClip somQuebraCabecaErrado;
+    [SerializeField] private float volumeQuebraCabecaFinal = 1.0f;
+
+
     public static bool Ganhou;
     
     private Peca[] _pecas;
@@ -19,6 +27,7 @@ public class QuebraCabeca : MonoBehaviour
     private Image[] _pecasImages;
     private RectTransform[] _pecasRectTransforms;
     
+    private QuebraCabecaScriptableObject _quebraCabecaSorteadoScriptableObject;
     private Resultados _resultados;
     private Dado _dado;
     private GameManager _gameManager;
@@ -60,6 +69,7 @@ public class QuebraCabeca : MonoBehaviour
         
         _numeroDeCasasAndar = 0;
         int randomNumber = Random.Range(0, quebraCabecaScriptableObjects.Length);
+        _quebraCabecaSorteadoScriptableObject = quebraCabecaScriptableObjects[randomNumber];
         Ganhou = false;
         _pecasCorretas  = 0;
         
@@ -69,28 +79,31 @@ public class QuebraCabeca : MonoBehaviour
 
         for (int i = 0 ; i < _pecas.Length; i++)
         {
-            _pecasImages[i].sprite = quebraCabecaScriptableObjects[randomNumber].sprites[_pecas.Length - i - 1];
+            _pecasImages[i].sprite = _quebraCabecaSorteadoScriptableObject.sprites[_pecas.Length - i - 1];
         }
         
         _tempoRestante = tempoEmSegundosParaCronometro;
         FisherYatesShuffle(_pecasGameObjects);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_tempoRestante > 0)
         {
             if (_pararTempo) return;
             
-            _tempoRestante -= Time.deltaTime;
+            _tempoRestante -= Time.fixedDeltaTime;
             MostrarTempo(_tempoRestante);
         }
         else
         {
             Debug.Log("Player perdeu", this);
             _resultados.gameObject.SetActive(true);
-            _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } perdeu!";
+            _resultados.SetText($"Player { (_player + 1).ToString() } perdeu!\nE o animal era " +
+                                $"{_quebraCabecaSorteadoScriptableObject.animal}", true);
+            _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
+            AudioManager.Instance.PlaySoundEffect(somQuebraCabecaErrado, volumeQuebraCabecaFinal);
         }
     }
 
@@ -148,8 +161,11 @@ public class QuebraCabeca : MonoBehaviour
         _numeroDeCasasAndar = Random.Range(1, 3);
         
         _resultados.gameObject.SetActive(true);
-        _resultados.resultadosText.text = $"Player { (_player + 1).ToString() } ganhou e anda " +
-                                          $"{_numeroDeCasasAndar.ToString()} casas!";
+        _resultados.SetText($"Player { (_player + 1).ToString() } ganhou e anda " +
+                                          $"{_numeroDeCasasAndar.ToString()} casas!", true);
+        _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
+
+         AudioManager.Instance.PlaySoundEffect(somQuebraCabecaCorreto, volumeQuebraCabecaFinal);
     }
 
     private void MostrarTempo(float tempoParaMostrar)
@@ -206,6 +222,8 @@ public class QuebraCabeca : MonoBehaviour
         
         VerificarAcerto(pecaA);
         VerificarAcerto(pecaB);
+
+        AudioManager.Instance.PlaySoundEffect(somMoverPeca, volumeMoverPeca);
     }
 
     private int VerifyPieceOverMouseDrag(Vector3 pecaPosition)
