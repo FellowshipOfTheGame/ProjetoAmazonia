@@ -23,4 +23,9 @@ public class Options : MonoBehaviour
     {
         AudioManager.Instance.SetSoundEffectsVolume(value);
     }
+    
+    public void CloseOptions()
+    {
+        gameObject.SetActive(false);
+    }
 }
