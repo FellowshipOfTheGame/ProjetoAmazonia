@@ -1,5 +1,11 @@
+SFX:
 move_sound: https://freesound.org/people/zachrau/sounds/556387/ [556387__zachrau__moving-piece-on-a-boardgame.wav] (edited)
 correct: https://freesound.org/people/unadamlar/sounds/476177/ [511484__mlaudio__success-bell.wav]
 wrong: https://freesound.org/people/unadamlar/sounds/476177/ [476177__unadamlar__wrong-choice.wav]
 piece_sound: https://freesound.org/people/ChaosEntertainment/sounds/396705/ [396705__chaosentertainment__dragslide1] (edited)
-card_sound: (author)
+card_sound: Luís Eduardo Rozante
+
+Music and Ambience:
+prototipo_amazonico_musica Jayro Boy
+prototipo_amazonico_2 Jayro Boy
+jungle_ambience: https://freesound.org/people/kajoo/sounds/628939/ [628939__kajoo__sound-of-jungle] (edited)
