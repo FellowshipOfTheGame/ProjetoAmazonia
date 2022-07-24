@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private AudioClip _backgroundMusic;
+    [SerializeField] private BGMData _backgroundMusic;
     private AudioSource _backgroundMusicSource;
 
     [Range(1, 256)]
@@ -14,6 +15,8 @@ public class AudioManager : MonoBehaviour
 
     private float _backgroundMusicVolume = 1f;
     private float _soundEffectsVolume = 1f;
+
+    private Coroutine _backgroundMusicHandler = null;
 
     private void Awake()
     {
@@ -69,7 +72,7 @@ public class AudioManager : MonoBehaviour
         return PlayerPrefsController.GetMusicVolume();
     }
 
-    public void SetBackgroundMusic(AudioClip backgroundMusic) 
+    public void SetBackgroundMusic(BGMData backgroundMusic) 
     {
         _backgroundMusic = backgroundMusic;
 
@@ -81,14 +84,14 @@ public class AudioManager : MonoBehaviour
         }
 
         _backgroundMusicSource.Stop();
+        StopCoroutine(_backgroundMusicHandler);
 
-        if(backgroundMusic == null)
-            return;
-        _backgroundMusicSource.clip = backgroundMusic;
-        _backgroundMusicSource.Play();
+        if(_backgroundMusic != null) {
+            _backgroundMusicHandler = StartCoroutine(HandleBackgroundMusic());
+        }
     }
 
-    public AudioClip GetBackgroundMusic()
+    public BGMData GetBackgroundMusic()
     {
         return _backgroundMusic;
     }
@@ -118,11 +121,10 @@ public class AudioManager : MonoBehaviour
 
     private void InitializeMusicSource()
     {
-        _backgroundMusicSource = CreateAudioSource("BackgroundMusicSource", true, _backgroundMusicVolume);
+        _backgroundMusicSource = CreateAudioSource("BackgroundMusicSource", false, _backgroundMusicVolume);
 
         if(_backgroundMusic != null) {
-            _backgroundMusicSource.clip = _backgroundMusic;
-            _backgroundMusicSource.Play();
+            _backgroundMusicHandler = StartCoroutine(HandleBackgroundMusic());
         }
     }
 
@@ -150,5 +152,22 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = _soundEffectsVolume;
 
         return audioSource;
+    }
+
+    private IEnumerator HandleBackgroundMusic() {
+        
+        do {
+
+            if(!_backgroundMusicSource.isPlaying) {
+                _backgroundMusicSource.clip = _backgroundMusic.clip;
+                _backgroundMusicSource.Play();
+                _backgroundMusic = _backgroundMusic.nextBGM;
+            }
+
+            yield return null;
+
+        } while(_backgroundMusic != null);
+
+        _backgroundMusicHandler = null;
     }
 }
