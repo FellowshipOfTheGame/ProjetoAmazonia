@@ -33,12 +33,11 @@ public class MenuManager : MonoBehaviour
         optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
-    /*
-    public void CloseOptions()
+    
+    public void ActivateMenu()
     {
-        optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
-    }*/
+    }
     
     public void OpenCredits()
     {
