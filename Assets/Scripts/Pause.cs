@@ -40,6 +40,7 @@ public class Pause : MonoBehaviour
 
     public void OptionsButton()
     {
+        pauseCanvas.SetActive(false);
         optionsCanvas.SetActive(true);
     }
 }

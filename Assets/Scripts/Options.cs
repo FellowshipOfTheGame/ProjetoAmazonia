@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseCanvas;
     private Slider _musicSlider;
     private Slider _soundEffectsSlider;
     
@@ -27,5 +28,6 @@ public class Options : MonoBehaviour
     public void CloseOptions()
     {
         gameObject.SetActive(false);
+        pauseCanvas.SetActive(true);
     }
 }

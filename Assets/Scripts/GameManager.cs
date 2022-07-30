@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text mensagemTurno;
 
+    [SerializeField] private GameObject dadoNovo;
+
     void Awake(){
         
         theCM = FindObjectOfType<CameraMove>();
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         rank = 0;
         
         StartCoroutine(MensagemTurno("Você começa,\nJogador 1"));
+        dadoNovo.SetActive(true);
 
     }
 
