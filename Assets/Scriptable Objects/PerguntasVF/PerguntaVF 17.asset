@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 595a4a3de6d6bb74381091a329d39905, type: 3}
-  m_Name: PerguntaVF1
+  m_Name: PerguntaVF 17
   m_EditorClassIdentifier: 
-  pergunta: "A amaz\xF4nia est\xE1 na regi\xE3o norte?"
-  respostaCorreta: 1
+  pergunta: "O cacau corre risco de extin\xE7\xE3o."
+  respostaCorreta: 0

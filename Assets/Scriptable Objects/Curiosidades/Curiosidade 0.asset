@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f3a7fc673678643915c3c191997173, type: 3}
+  m_Name: Curiosidade 0
+  m_EditorClassIdentifier: 
+  curiosidade: "Voc\xEA sabia que durante o s\xE9culo XVI as ararajubas eram usadas
+    como moeda de troca pelos jesu\xEDtas? Pois \xE9! Isso, somado \xE0 destrui\xE7\xE3o
+    de seu habitat e ao tr\xE1fico, justifica sua popula\xE7\xE3o extremamente reduzida."

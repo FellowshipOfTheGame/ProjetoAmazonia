@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f3a7fc673678643915c3c191997173, type: 3}
+  m_Name: Curiosidade 30
+  m_EditorClassIdentifier: 
+  curiosidade: "O cupua\xE7u \xE9 muito utilizado na produ\xE7\xE3o de doces, sorvetes,
+    vitaminas e sucos. Voc\xEA j\xE1 provou alguma coisa de cupua\xE7u?"

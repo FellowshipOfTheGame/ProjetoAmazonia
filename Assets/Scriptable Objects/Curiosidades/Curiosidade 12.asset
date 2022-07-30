@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595a4a3de6d6bb74381091a329d39905, type: 3}
-  m_Name: PerguntaVF1 1
+  m_Script: {fileID: 11500000, guid: c5f3a7fc673678643915c3c191997173, type: 3}
+  m_Name: Curiosidade 12
   m_EditorClassIdentifier: 
-  pergunta: "O jabuti do Paraguai \xE9 da regi\xE3o amaz\xF4nica?"
-  respostaCorreta: 0
+  curiosidade: "A f\xEAmea de quati pode parecer pequena, mas mesmo assim consegue
+    gerar 7 filhotes de uma vez!"
