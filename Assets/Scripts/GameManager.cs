@@ -43,11 +43,12 @@ public class GameManager : MonoBehaviour
         
         thePD = PlayersData.instance;
         DefinirPersonagens();
-        player = canvas.GetComponent<Dado>().jogador;
+        //player = canvas.GetComponent<Dado>().jogador;
+        player = dadoNovo.GetComponent<Dado>().jogador;
         dado = 0;
         rank = 0;
         
-        StartCoroutine(MensagemTurno("Você começa,\nJogador 1"));
+        StartCoroutine(MensagemTurno("Vamos lá, Jogador 1!"));
         dadoNovo.SetActive(true);
 
     }
@@ -158,24 +159,33 @@ public class GameManager : MonoBehaviour
 
         if(rank != thePD.players.Count){
             
-            canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-            player = canvas.GetComponent<Dado>().jogador;
+            /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+            player = canvas.GetComponent<Dado>().jogador;*/
+
+            dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+            player = dadoNovo.GetComponent<Dado>().jogador;
 
             if(jogadores[player].perdeTurno > 0){
-                canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = canvas.GetComponent<Dado>().jogador;
+                /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                player = canvas.GetComponent<Dado>().jogador;*/
+                dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                player = dadoNovo.GetComponent<Dado>().jogador;
             }
 
             while(jogadores[player].terminou == true){
 
-                canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = canvas.GetComponent<Dado>().jogador;
+                /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                player = canvas.GetComponent<Dado>().jogador;*/
+                dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                player = dadoNovo.GetComponent<Dado>().jogador;
 
             }
 
-            StartCoroutine(MensagemTurno($"Sua vez,\nJogador {(player+1).ToString()}"));
+            StartCoroutine(MensagemTurno($"Sua vez, Jogador {(player+1).ToString()}!"));
 
             theCM.SwitchCamera(player);
+
+            dadoNovo.SetActive(true);
 
             // Reabilitar botões
             dice.interactable = true;
