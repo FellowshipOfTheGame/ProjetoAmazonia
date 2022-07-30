@@ -12,9 +12,8 @@ public class GameManager : MonoBehaviour
     private static GameObject player1, player2, player3;
     public GameObject personagem1, personagem2, personagem3;
     private GameObject prefab, canvas;
-    
-    [SerializeField]
-    private Button dice;
+
+    public GameObject telaJogadorVez;
 
     [SerializeField]
     private Button map;
@@ -43,12 +42,12 @@ public class GameManager : MonoBehaviour
         
         thePD = PlayersData.instance;
         DefinirPersonagens();
-        //player = canvas.GetComponent<Dado>().jogador;
         player = dadoNovo.GetComponent<Dado>().jogador;
         dado = 0;
         rank = 0;
         
-        StartCoroutine(MensagemTurno("Vamos lá, Jogador 1!"));
+        mensagemTurno.text = "Vamos lá, Jogador 1!";
+        telaJogadorVez.SetActive(true);
         dadoNovo.SetActive(true);
 
     }
@@ -138,57 +137,34 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator MensagemTurno(string mensagem){
-
-        mensagemTurno.text = mensagem;
-        mensagemTurno.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
-        mensagemTurno.gameObject.SetActive(false);
-
-    }
-
     public void ChangePlayer(){
 
-        /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-        player = canvas.GetComponent<Dado>().jogador;
-        theCM.SwitchCamera(player);
-
-        // Reabilitar botões
-        dice.interactable = true;
-        map.interactable = true;*/
-
         if(rank != thePD.players.Count){
-            
-            /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-            player = canvas.GetComponent<Dado>().jogador;*/
 
             dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
             player = dadoNovo.GetComponent<Dado>().jogador;
 
             if(jogadores[player].perdeTurno > 0){
-                /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = canvas.GetComponent<Dado>().jogador;*/
+                jogadores[player].perdeTurno = 0;
                 dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
                 player = dadoNovo.GetComponent<Dado>().jogador;
             }
 
             while(jogadores[player].terminou == true){
 
-                /*canvas.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = canvas.GetComponent<Dado>().jogador;*/
                 dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
                 player = dadoNovo.GetComponent<Dado>().jogador;
 
             }
-
-            StartCoroutine(MensagemTurno($"Sua vez, Jogador {(player+1).ToString()}!"));
-
+            
             theCM.SwitchCamera(player);
+
+            mensagemTurno.text = $"Sua vez, Jogador {(player+1).ToString()}!";
+            telaJogadorVez.SetActive(true);
 
             dadoNovo.SetActive(true);
 
             // Reabilitar botões
-            dice.interactable = true;
             map.interactable = true;
 
         }
@@ -232,7 +208,6 @@ public class GameManager : MonoBehaviour
     private void FimDeJogo(int[] ordemChegada){
 
         // Desativar botões de jogo
-        dice.interactable = false;
         map.interactable = false;
 
         // Atualizar informações do painel de resultado        
