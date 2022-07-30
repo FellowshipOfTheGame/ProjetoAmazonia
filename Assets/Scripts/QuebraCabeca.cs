@@ -104,7 +104,7 @@ public class QuebraCabeca : MonoBehaviour
             _resultados.SetImage(_quebraCabecaSorteadoScriptableObject.spriteFull);
             gameObject.SetActive(false);
             AudioManager.Instance.PlaySoundEffect(somQuebraCabecaErrado, volumeQuebraCabecaFinal);
-        }
+        } 
     }
 
     private void OnDisable()

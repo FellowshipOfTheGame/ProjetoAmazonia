@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595a4a3de6d6bb74381091a329d39905, type: 3}
-  m_Name: PerguntaVF 22
+  m_Script: {fileID: 11500000, guid: c5f3a7fc673678643915c3c191997173, type: 3}
+  m_Name: Curiosidade 1
   m_EditorClassIdentifier: 
-  pergunta: "A Floresta Amaz\xF4nica concentra o maior n\xFAmero de etnias ind\xEDgenas
-    no Brasil."
-  respostaCorreta: 1
+  curiosidade: "Chegando a pesar 26 quilos, as ariranhas s\xE3o consideradas as maiores
+    lontras do mundo!"
