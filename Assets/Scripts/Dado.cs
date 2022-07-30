@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Dado : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class Dado : MonoBehaviour
     private SpriteRenderer rend;
     public int jogador = 0;
     private bool coroutineAllowed = true;
-    [SerializeField]
-    private Button map;
+    [SerializeField] private Button map;
+    public GameObject telaJogadorVez;
+    public TMP_Text mensagemTurno;
 
     private void Start() {
         rend = GetComponent<SpriteRenderer>();
@@ -33,6 +35,7 @@ public class Dado : MonoBehaviour
 
         GameManager.dado = faceDado + 1;
         yield return new WaitForSeconds(2f);
+        telaJogadorVez.SetActive(false);
         gameObject.SetActive(false);
 
         // Desabilitar botões

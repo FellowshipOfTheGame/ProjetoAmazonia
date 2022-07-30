@@ -17,12 +17,14 @@ public class PerdaTurno : MonoBehaviour
     }
 
     private void OnEnable(){
-        player = dado ? dado.jogador : 0;
+        player = GameManager.player;
+        Debug.Log(player);
         AudioManager.Instance.PlaySoundEffect(somPerdaTurno, volumePerdaTurno);
     }
 
     public void FecharMensagem(){
 
+        Debug.Log(player);
         theGM.jogadores[player].perdeTurno = 1;
         theGM.ChangePlayer();
         gameObject.SetActive(false);
