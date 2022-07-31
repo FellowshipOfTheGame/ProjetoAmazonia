@@ -5768,6 +5768,8 @@ MonoBehaviour:
   map: {fileID: 1235375816}
   telaJogadorVez: {fileID: 132220302}
   mensagemTurno: {fileID: 0}
+  somDado: {fileID: 8300000, guid: 96f1f860c4e11da4885d78a674e46115, type: 3}
+  volumeDado: 1
 --- !u!61 &1551042550
 BoxCollider2D:
   m_ObjectHideFlags: 0
