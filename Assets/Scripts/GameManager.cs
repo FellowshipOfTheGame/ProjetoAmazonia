@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public static void MoverJogador(int jogador)
+    public static void MoverJogador(int jogador, Vector3 offset)
     {
 
         switch (jogador)
@@ -121,16 +121,19 @@ public class GameManager : MonoBehaviour
             case 1:
                 player1.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player1.GetComponent<Movimento>().andar = true;
+                player1.GetComponent<Movimento>().offset = offset;
                 break;
             
             case 2:
                 player2.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player2.GetComponent<Movimento>().andar = true;
+                player2.GetComponent<Movimento>().offset = offset;
                 break;
 
             case 3:
                 player3.GetComponent<Movimento>().qtdCasasAndar = dado;
                 player3.GetComponent<Movimento>().andar = true;
+                player3.GetComponent<Movimento>().offset = offset;
                 break;
 
         }

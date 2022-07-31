@@ -50,13 +50,13 @@ public class Dado : MonoBehaviour
         {
 
             case 0:
-                GameManager.MoverJogador(jogador + 1);
+                GameManager.MoverJogador(jogador + 1, new Vector3(0,0,0));
                 break;
             case 1:
-                GameManager.MoverJogador(jogador + 1);
+                GameManager.MoverJogador(jogador + 1, new Vector3(0.7f,0,0));
                 break;
             case 2:
-                GameManager.MoverJogador(jogador + 1);
+                GameManager.MoverJogador(jogador + 1, new Vector3(-0.7f,0,0));
                 break;
 
         }

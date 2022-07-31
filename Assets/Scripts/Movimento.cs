@@ -13,7 +13,6 @@ public class Movimento : MonoBehaviour
     public int remainingSteps = 0;
 
     public Casa casaAtual;
-    
     public int qtdCasasAndar;
     private GameObject canvas, theCM;
 
@@ -23,6 +22,7 @@ public class Movimento : MonoBehaviour
 
     private GameManager theGM;
     public bool useShortcut;
+    public Vector3 offset;
 
     private void Start()
     {
@@ -47,15 +47,23 @@ public class Movimento : MonoBehaviour
     private void Andar()
     {
 
+        Vector3 proximaCasa = new Vector3(0,0,0);
+
         animator.SetBool("Andar", andar);
 
         if(qtdCasasAndar >= 0){
             remainingSteps = qtdCasasAndar;
             print($"Remaining {remainingSteps}");
 
-            transform.position = Vector2.MoveTowards(transform.position, casaAtual.transform.position, speed * Time.deltaTime);
+            if(casaAtual.anterior != null){
+                proximaCasa = casaAtual.transform.position + offset;
+            }else{
+                proximaCasa = casaAtual.transform.position;
+            }
 
-            if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
+            transform.position = Vector2.MoveTowards(transform.position, proximaCasa, speed * Time.deltaTime);
+
+            if(Vector2.Distance(transform.position, proximaCasa) < 0.0001f){
 
                 AudioManager.Instance.PlaySoundEffect(somDeAndar, volumeSomDeAndar);
 
@@ -87,6 +95,7 @@ public class Movimento : MonoBehaviour
                         }
 
                         qtdCasasAndar -= 1;
+
                     }else{
                         qtdCasasAndar = -3;
                     }
@@ -168,13 +177,21 @@ public class Movimento : MonoBehaviour
 
     public void AndarMinigame(){
 
+        Vector3 proximaCasa = new Vector3(0,0,0);
+
         animator.SetBool("Andar", bonus);
 
         if(qtdCasasAndar >= 0){
 
-            transform.position = Vector2.MoveTowards(transform.position, casaAtual.transform.position, speed * Time.deltaTime);
+            if(casaAtual.anterior != null){
+                proximaCasa = casaAtual.transform.position + offset;
+            }else{
+                proximaCasa = casaAtual.transform.position;
+            }
 
-            if(Vector2.Distance(transform.position,casaAtual.transform.position) < 0.0001f){
+            transform.position = Vector2.MoveTowards(transform.position, proximaCasa, speed * Time.deltaTime);
+
+            if(Vector2.Distance(transform.position, proximaCasa) < 0.0001f){
 
                 AudioManager.Instance.PlaySoundEffect(somDeAndar, volumeSomDeAndar);
 
