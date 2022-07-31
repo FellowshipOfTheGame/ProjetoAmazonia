@@ -545,7 +545,7 @@ MonoBehaviour:
   proxima: {fileID: 125397003}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 7
+  tipoDaCasa: 0
 --- !u!1 &219945409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   proxima: {fileID: 205278765}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 6
+  tipoDaCasa: 0
 --- !u!1 &617437386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   proxima: {fileID: 546340521}
   bifurcacao: 0
   atalho: {fileID: 0}
-  tipoDaCasa: 9
+  tipoDaCasa: 0
 --- !u!1 &683373858
 GameObject:
   m_ObjectHideFlags: 0

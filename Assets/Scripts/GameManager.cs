@@ -146,14 +146,18 @@ public class GameManager : MonoBehaviour
 
             if(jogadores[player].perdeTurno > 0){
                 jogadores[player].perdeTurno = 0;
-                dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = dadoNovo.GetComponent<Dado>().jogador;
+                ChangePlayer();
+                return;
+                //dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                //player = dadoNovo.GetComponent<Dado>().jogador;
             }
 
-            while(jogadores[player].terminou == true){
+            if(jogadores[player].terminou == true){
 
-                dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
-                player = dadoNovo.GetComponent<Dado>().jogador;
+                ChangePlayer();
+                return;
+                //dadoNovo.GetComponent<Dado>().jogador = (player + 1) % thePD.players.Count;
+                //player = dadoNovo.GetComponent<Dado>().jogador;
 
             }
             
