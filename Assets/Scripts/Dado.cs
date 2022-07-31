@@ -14,6 +14,9 @@ public class Dado : MonoBehaviour
     public GameObject telaJogadorVez;
     public TMP_Text mensagemTurno;
 
+    [SerializeField] private AudioClip somDado;
+    [SerializeField] private float volumeDado = 1.0f;
+
     private void Start() {
         rend = GetComponent<SpriteRenderer>();
         rend.sprite = dado[0];
@@ -25,6 +28,8 @@ public class Dado : MonoBehaviour
 
     private IEnumerator JogarDado(){
         
+        AudioManager.Instance.PlaySoundEffect(somDado, volumeDado);
+
         coroutineAllowed = false;
         int faceDado = 0;
         for(int i = 0; i <= 20; i++){
