@@ -4,23 +4,29 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
-    private Slider _musicSlider;
-    private Slider _soundEffectsSlider;
+
+    [SerializeField] Slider _masterSlider;
+    [SerializeField] Slider _musicSlider;
+    [SerializeField] Slider _soundEffectsSlider;
     
-    private void Awake()
+    private void OnEnable()
     {
-        _musicSlider = GameObject.FindWithTag("MusicSlider").GetComponent<Slider>();
-        _soundEffectsSlider = GameObject.FindWithTag("SoundEffectsSlider").GetComponent<Slider>();
+        _masterSlider.value = AudioManager.Instance.GetMasterVolume();
         _musicSlider.value = AudioManager.Instance.GetMusicVolume();
         _soundEffectsSlider.value = AudioManager.Instance.GetSoundEffectsVolume();
     }
 
-    public void OnMusicSlideChange(float value)
+    public void OnMasterSliderChange(float value)
+    {
+        AudioManager.Instance.SetMasterVolume(value);
+    }
+
+    public void OnMusicSliderChange(float value)
     {
         AudioManager.Instance.SetMusicVolume(value);
     }
     
-    public void OnSoundEffectsChange(float value)
+    public void OnSoundEffectsSliderChange(float value)
     {
         AudioManager.Instance.SetSoundEffectsVolume(value);
     }

@@ -1013,7 +1013,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 664518859887206586}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
-        m_MethodName: OnMusicSlideChange
+        m_MethodName: OnMusicSliderChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1115,7 +1115,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 664518859887206586}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
-        m_MethodName: OnSoundEffectsChange
+        m_MethodName: OnSoundEffectsSliderChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1465,6 +1465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaf62265a298b841be9cd32d1a1092c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
+  _masterSlider: {fileID: 664518860314682477}
+  _musicSlider: {fileID: 664518859246931404}
+  _soundEffectsSlider: {fileID: 664518859299739062}
 --- !u!222 &9013033952746826434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1875,7 +1879,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664518859887206586}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: OnMasterSliderChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &664518860430801013
 GameObject:
   m_ObjectHideFlags: 0

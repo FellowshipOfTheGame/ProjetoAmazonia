@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource[] _soundEffectsSources;
     private int _currentSoundEffectSource;
 
+    private float _masterVolume = 1f;
     private float _backgroundMusicVolume = 1f;
     private float _soundEffectsVolume = 1f;
 
@@ -37,19 +38,37 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        _backgroundMusicVolume = PlayerPrefsController.GetMusicVolume();
-        _soundEffectsVolume = PlayerPrefsController.GetSoundEffectsVolume();
+        _masterVolume = GetMasterVolume();
+        _backgroundMusicVolume = GetMusicVolume();
+        _soundEffectsVolume = GetSoundEffectsVolume();
         
+        InitializeMasterVolume();
         InitializeMusicSource();
         InitializeSoundEffectSources();
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        _masterVolume = value;
+
+        AudioListener.volume = _masterVolume;
+        PlayerPrefsController.SetMasterVolume(_masterVolume);
+    }
+
+    public float GetMasterVolume()
+    {
+        return PlayerPrefsController.GetMasterVolume();
     }
 
     public void SetSoundEffectsVolume(float value)
     {
         _soundEffectsVolume = value;
         if(_soundEffectsSources != null) {
-            foreach(AudioSource source in _soundEffectsSources)
-                source.volume = value;
+            foreach(AudioSource source in _soundEffectsSources) {
+                if(!source.isPlaying) {
+                    source.volume = value;
+                }
+            }
         }
         PlayerPrefsController.SetSoundEffectsVolume(value);
     }
@@ -62,9 +81,10 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float value)
     {
         _backgroundMusicVolume = value;
+
         if(_backgroundMusicSource != null)
-            _backgroundMusicSource.volume = value;
-        PlayerPrefsController.SetMusicVolume(value);
+            _backgroundMusicSource.volume = _backgroundMusicVolume;
+        PlayerPrefsController.SetMusicVolume(_backgroundMusicVolume);
     }
     
     public float GetMusicVolume()
@@ -112,11 +132,16 @@ public class AudioManager : MonoBehaviour
         }
 
         _soundEffectsSources[_currentSoundEffectSource].clip = clip;
-        _soundEffectsSources[_currentSoundEffectSource].volume = volume;
+        _soundEffectsSources[_currentSoundEffectSource].volume = volume * _soundEffectsVolume;
         _soundEffectsSources[_currentSoundEffectSource].pitch = pitch;
         _soundEffectsSources[_currentSoundEffectSource].Play();
 
         _currentSoundEffectSource = (_currentSoundEffectSource + 1) % _soundEffectsSources.Length;
+    }
+
+    private void InitializeMasterVolume()
+    {
+        AudioListener.volume = _masterVolume;
     }
 
     private void InitializeMusicSource()
@@ -149,7 +174,7 @@ public class AudioManager : MonoBehaviour
         audioSource.spatialBlend = 0.0f;
 
         audioSource.loop = loop;
-        audioSource.volume = _soundEffectsVolume;
+        audioSource.volume = volume;
 
         return audioSource;
     }
